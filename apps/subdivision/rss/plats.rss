@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- generator="FeedCreator 1.7.2" -->
+<?xml-stylesheet href="http://feedster.com/rss20.xsl" type="text/xsl"?>
+<rss version="2.0">
+    <channel>
+        <title>City of Atlanta Subdivision Approvals</title>
+        <description>Land subdivision, consolidation and boundary corrections recently approved by the City of Atlanta Department of Planning and Community Development.  Included are subdivisions (SD), replats (REP), lots of record (LOR), and zero lot lines (ZLL).</description>
+        <link>http://www.atlantaga.gov/Government/Planning.aspx</link>
+        <lastBuildDate>Mon, 26 Sep 2011 17:25:09 TIME_ZONE</lastBuildDate>
+        <generator>FeedCreator 1.7.2</generator>
+        <image>
+            <url>http://gis.atlantaga.gov/apps/subdivision/rss/images/DPCD_logo.JPG</url>
+            <title>City of Atlanta Subdivision Approvals</title>
+            <link>http://www.atlantaga.gov/Government/Planning.aspx</link>
+            <description>Feed provided by the City of Atlanta Department of Planning and Community Development. Click to visit.</description>
+        </image>
+        <item>
+            <title>ACK-11-024</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=ACK-11-024</link>
+            <description>144 Huntington Rd recorded on September 22, 2011</description>
+            <pubDate>Fri, 23 Sep 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=ACK-11-024</guid>
+        </item>
+        <item>
+            <title>REP-11-061</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-061</link>
+            <description>3182  Roswell  Rd  Nw     recorded on September 20, 2011</description>
+            <pubDate>Wed, 21 Sep 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-061</guid>
+        </item>
+        <item>
+            <title>CON-11-039</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-039</link>
+            <description>2995    Metropolitan    Pkwy    Sw recorded on August    11, 2011</description>
+            <pubDate>Mon, 19 Sep 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-039</guid>
+        </item>
+        <item>
+            <title>REP-11-063</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-063</link>
+            <description>3420    Tuxedo    Rd    Nw recorded on September 15, 2011</description>
+            <pubDate>Mon, 19 Sep 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-063</guid>
+        </item>
+        <item>
+            <title>CON-11-044</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-044</link>
+            <description>1570    Northside    Dr    Nw  recorded on August    24, 2011</description>
+            <pubDate>Mon, 12 Sep 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-044</guid>
+        </item>
+        <item>
+            <title>REP-11-055</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-055</link>
+            <description>132    Martin L King Jr    Dr    Se   recorded on September 07, 2011</description>
+            <pubDate>Mon, 12 Sep 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-055</guid>
+        </item>
+        <item>
+            <title>CON-11-048</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-048</link>
+            <description>320    Mcdaniel    St    Sw  recorded on September 01, 2011</description>
+            <pubDate>Thu, 08 Sep 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-048</guid>
+        </item>
+        <item>
+            <title>REP-11-058</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-058</link>
+            <description>990    Peachtree    St    Ne recorded on August    25, 2011</description>
+            <pubDate>Thu, 08 Sep 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-058</guid>
+        </item>
+        <item>
+            <title>REP-11-048</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-048</link>
+            <description>668    Atlanta Student M...    Way    Sw   recorded on August    29, 2011</description>
+            <pubDate>Wed, 31 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-048</guid>
+        </item>
+        <item>
+            <title>REP-11-057</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-057</link>
+            <description>343    Moreland    Ave  recorded on August    23, 2011</description>
+            <pubDate>Tue, 30 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-057</guid>
+        </item>
+        <item>
+            <title>REP-11-060</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-060</link>
+            <description>4295    Lakehaven    Dr    Ne  recorded on August    30, 2011</description>
+            <pubDate>Tue, 30 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-060</guid>
+        </item>
+        <item>
+            <title>CON-11-037</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-037</link>
+            <description>2967    Metropolitan    Pkwy    Sw  recorded on August    11, 2011</description>
+            <pubDate>Mon, 29 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-037</guid>
+        </item>
+        <item>
+            <title>CON-11-040</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-040</link>
+            <description>2995    Metropolitan    Pkwy    Sw  recorded on August    11, 2011</description>
+            <pubDate>Mon, 29 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-040</guid>
+        </item>
+        <item>
+            <title>CON-11-046</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-046</link>
+            <description>298    Martin L King Jr    Dr    Se  recorded on August    22, 2011</description>
+            <pubDate>Tue, 23 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-046</guid>
+        </item>
+        <item>
+            <title>CON-11-047</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-047</link>
+            <description>58    Montclair    Dr    Ne  recorded on August    22, 2011</description>
+            <pubDate>Tue, 23 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-047</guid>
+        </item>
+        <item>
+            <title>CON-11-020</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-020</link>
+            <description>514    Stonewall    St    Sw  recorded on August    17, 2011</description>
+            <pubDate>Thu, 18 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-020</guid>
+        </item>
+        <item>
+            <title>REP-11-045</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-045</link>
+            <description>3110    Arden    Rd    Nw  recorded on August    10, 2011</description>
+            <pubDate>Thu, 18 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-045</guid>
+        </item>
+        <item>
+            <title>REP-11-054</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-054</link>
+            <description> 2405    Beecher    Rd    Sw     recorded on August    16, 2011</description>
+            <pubDate>Tue, 16 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-054</guid>
+        </item>
+        <item>
+            <title>REP-11-040</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-040</link>
+            <description>305    Arizona    Ave    Ne  recorded on August    10, 2011</description>
+            <pubDate>Fri, 12 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-040</guid>
+        </item>
+        <item>
+            <title>REP-11-041</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-041</link>
+            <description>765    St Charles    Ave    Ne  recorded on August    11, 2011</description>
+            <pubDate>Fri, 12 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-041</guid>
+        </item>
+        <item>
+            <title>REP-11-050</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-050</link>
+            <description>227    Degress    Ave    Ne  recorded on August    10, 2011</description>
+            <pubDate>Fri, 12 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-050</guid>
+        </item>
+        <item>
+            <title>REP-11-033</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-033</link>
+            <description>1884    Monroe    Dr    Ne  recorded on August    08, 2011</description>
+            <pubDate>Mon, 08 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-033</guid>
+        </item>
+        <item>
+            <title>CON-11-038</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-038</link>
+            <description> 2125    County Line    Rd    Sw   recorded on August    03, 2011</description>
+            <pubDate>Fri, 05 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-038</guid>
+        </item>
+        <item>
+            <title>SD-10-011</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=SD-10-011</link>
+            <description>1950    Perry    Blvd    Nw   recorded on August    03, 2011</description>
+            <pubDate>Thu, 04 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=SD-10-011</guid>
+        </item>
+        <item>
+            <title>REP-11-031</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-031</link>
+            <description>1169    Bouldercrest    Dr    Se recorded on July      28, 2011</description>
+            <pubDate>Wed, 03 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-031</guid>
+        </item>
+        <item>
+            <title>REP-11-051</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-051</link>
+            <description>4437    Club    Dr    Ne     recorded on August    12, 2011</description>
+            <pubDate>Tue, 02 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-051</guid>
+        </item>
+        <item>
+            <title>ZLL-11-005</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=ZLL-11-005</link>
+            <description>301    Ardmore    Cir    Nw     recorded on August    01, 2011</description>
+            <pubDate>Tue, 02 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=ZLL-11-005</guid>
+        </item>
+        <item>
+            <title>CON-11-031</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-031</link>
+            <description>3150    Piedmont    Rd    Ne     recorded on July      26, 2011</description>
+            <pubDate>Mon, 01 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-031</guid>
+        </item>
+        <item>
+            <title>CON-11-036</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-036</link>
+            <description> 18    Park    Ln    Ne   recorded on July      26, 2011</description>
+            <pubDate>Mon, 01 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-036</guid>
+        </item>
+        <item>
+            <title>REP-11-049</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-049</link>
+            <description> 4320    Lakehaven    Dr    Ne    recorded on August    01, 2011</description>
+            <pubDate>Mon, 01 Aug 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-049</guid>
+        </item>
+        <item>
+            <title>REP-11-047</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-047</link>
+            <description>2691    Howell Mill    Rd    Nw recorded on July      26, 2011</description>
+            <pubDate>Thu, 28 Jul 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-047</guid>
+        </item>
+        <item>
+            <title>CON-11-032</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-032</link>
+            <description> 344    Luckie    St    Nw     recorded on July      21, 2011</description>
+            <pubDate>Tue, 26 Jul 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-032</guid>
+        </item>
+        <item>
+            <title>CON-11-034</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-034</link>
+            <description>3220    Paces Ferry    Pl    Nw     recorded on July      21, 2011</description>
+            <pubDate>Mon, 25 Jul 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-034</guid>
+        </item>
+        <item>
+            <title>REP-11-034</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-034</link>
+            <description>172    Candler    Rd    Se     recorded on July      08, 2011</description>
+            <pubDate>Thu, 14 Jul 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-034</guid>
+        </item>
+        <item>
+            <title>REP-11-038</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-038</link>
+            <description>682    Home    Ave    Se     recorded on July      08, 2011</description>
+            <pubDate>Wed, 13 Jul 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-038</guid>
+        </item>
+        <item>
+            <title>SD-10-010</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=SD-10-010</link>
+            <description>1950    Perry    Blvd    Nw     recorded on July      11, 2011</description>
+            <pubDate>Wed, 13 Jul 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=SD-10-010</guid>
+        </item>
+        <item>
+            <title>CON-11-028</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-028</link>
+            <description> 875    Atlanta Student M...    Way    Sw     recorded on July      12, 2011</description>
+            <pubDate>Tue, 12 Jul 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=CON-11-028</guid>
+        </item>
+        <item>
+            <title>ZLL-11-003</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=ZLL-11-003</link>
+            <description>855    Briarcliff    Rd     recorded on June      29, 2011</description>
+            <pubDate>Fri, 08 Jul 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=ZLL-11-003</guid>
+        </item>
+        <item>
+            <title>REP-11-032</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-032</link>
+            <description> 1307    Marcy    St    Se   recorded on June      30, 2011</description>
+            <pubDate>Thu, 30 Jun 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-032</guid>
+        </item>
+        <item>
+            <title>REP-11-035</title>
+            <link>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-035</link>
+            <description>2986    Nancy Creek    Rd    Nw    recorded on June      30, 2011</description>
+            <pubDate>Thu, 30 Jun 2011 04:00:00 TIME_ZONE</pubDate>
+            <guid>http://gis.atlantaga.gov/apps/subdivision/rss/case_list.php?case_num=REP-11-035</guid>
+        </item>
+    </channel>
+</rss>

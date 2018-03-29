@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="iso-8859-1"?><html>
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>City of Atlanta GIS - City Council District Maps Now Available</title>
+<meta name="title" content="City Council District Maps Now Available" />
+<meta name="author" content="Administrator" />
+<meta name="description" content="City of Atlanta Geographic Information System (GIS) Home" />
+<meta name="keywords" content="Geographic, Information, Atlanta, Georgia, GIS" />
+<meta name="Generator" content="Joomla! - Copyright (C) 2005 - 2006 Open Source Matters. All rights reserved." />
+<meta name="robots" content="index, follow" />
+	<link rel="shortcut icon" href="http://gis.atlantaga.gov/gishome/images/favicon.ico" />
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<link href="http://gis.atlantaga.gov/gishome/templates/atlanta1/css/template_css.css" rel="stylesheet" type="text/css"/>
+<script language="Javascript" type="text/javascript" src="/apps/geocortex/launch.js"></script>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<!--<div style="position:absolute; top:5px; right:5px;">		<table cellpadding="0" cellspacing="0" class="moduletable-nav">
+				<tr>
+			<td>
+				<table width="100%" border="0" cellpadding="0" cellspacing="1"><tr><td nowrap="nowrap"><a href="http://gis.atlantaga.gov/gishome/index.php" class="mainlevel-nav" >Home</a><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_contact&amp;Itemid=3" class="mainlevel-nav" >Contact Us</a><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_search&amp;Itemid=5" class="mainlevel-nav" >Search</a></td></tr></table>			</td>
+		</tr>
+		</table>
+		</div>-->
+<center>
+<table id="Table_01" width="100%" height="670" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="2" class="banner">
+			<img style="float:right;" src="/gishome/images/gishome_right.png"><img src="/gishome/images/gishome.gif" border="0">
+					<!--<td style="padding:0px; margin:0px;">		<table cellpadding="0" cellspacing="0" class="moduletable_banner">
+				<tr>
+			<td>
+				&nbsp;			</td>
+		</tr>
+		</table>
+		--></td>
+		</td>
+	</tr>
+	<tr>
+		<td class="lower-band" colspan="2" height="18px">
+			<table width="100%" style="background:url(/gishome/images/topnav_bg.gif) repeat-x 0 0 #FFF;">
+				<tr>
+					<td style="align:left;">		<table cellpadding="0" cellspacing="0" class="moduletable">
+				<tr>
+			<td>
+				<span class="pathway"><a href="http://gis.atlantaga.gov/gishome/index.php" class="pathway">HOME</a> <img src="http://gis.atlantaga.gov/gishome/images/M_images/arrow.png" alt="arrow" /> <a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=category&amp;sectionid=4&amp;id=13&amp;Itemid=101" class="pathway">MAPS &amp; DATA</a> <img src="http://gis.atlantaga.gov/gishome/images/M_images/arrow.png" alt="arrow" />   GIS Data Catalog </span>			</td>
+		</tr>
+		</table>
+		</td>
+					<td align="right">		<table cellpadding="0" cellspacing="0" class="moduletable-nav">
+				<tr>
+			<td>
+				<table width="100%" border="0" cellpadding="0" cellspacing="1"><tr><td nowrap="nowrap"><a href="http://gis.atlantaga.gov/gishome/index.php" class="mainlevel-nav" >Home</a><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_contact&amp;Itemid=3" class="mainlevel-nav" >Contact Us</a><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_search&amp;Itemid=5" class="mainlevel-nav" >Search</a></td></tr></table>			</td>
+		</tr>
+		</table>
+		</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	 
+	<tr>
+		<!--<td style="margin:0px; padding:0px; background:url(/gishome/images/metapage_bg.gif) repeat-x 0 0 #FFF;">-->
+		<td style="margin:0px; padding:0px; background-color:#ffffff;">
+			<table id="Table_03" width="100%" height="512" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="200" height="495" valign="top" style="padding:5px; background:#f5f5f7;">
+					
+							<table cellpadding="0" cellspacing="0" class="moduletable_main">
+				<tr>
+			<td>
+				
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr align="left"><td><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_frontpage&amp;Itemid=1" class="mainlevel" >HOME</a></td></tr>
+<tr align="left"><td><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=category&amp;sectionid=4&amp;id=13&amp;Itemid=101" class="mainlevel" >MAPS &amp; DATA</a>
+
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=blogcategory&amp;id=47&amp;Itemid=114" class="sublevel" >Map Collection</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=15&amp;Itemid=50" class="sublevel" >Zoning Maps</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=10&amp;Itemid=52" class="sublevel" id="active_menu">GIS Data Catalog</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=12&amp;Itemid=48" class="sublevel" >Document Archive</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=14&amp;Itemid=49" class="sublevel" >Property Information</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=blogcategory&amp;id=28&amp;Itemid=77" class="sublevel" >Interactive Maps</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=50&amp;Itemid=104" class="sublevel" >Annexations</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=59&amp;Itemid=115" class="sublevel" >Lot Boundary Map</a></div>
+</td></tr>
+<tr align="left"><td><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=blogcategory&amp;id=18&amp;Itemid=60" class="mainlevel" >SUPPORT</a>
+
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=category&amp;sectionid=7&amp;id=18&amp;Itemid=61" class="sublevel" >GIS FAQ</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=category&amp;sectionid=7&amp;id=22&amp;Itemid=68" class="sublevel" >Training</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=60&amp;Itemid=116" class="sublevel" >Internal Tools</a></div>
+</td></tr>
+<tr align="left"><td><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=blogcategory&amp;id=43&amp;Itemid=102" class="mainlevel" >FEEDS</a>
+
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=49&amp;Itemid=103" class="sublevel" >Subdivision Approvals</a></div>
+</td></tr>
+<tr align="left"><td><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_weblinks&amp;Itemid=39" class="mainlevel" >LINKS</a>
+
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://www.atlantaga.gov/" target="_blank" class="sublevel" >City of Atlanta</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://wms.co.fulton.ga.us/" target="_blank" class="sublevel" >Fulton County GIS</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://web.co.dekalb.ga.us/PropertyAppraisal/realSearch.asp" target="_blank" class="sublevel" >Dekalb County Property Information</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://aps-schoolmap.apsk12.org/" target="_blank" class="sublevel" >Atlanta Public Schools GIS</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantawatershed.org" target="_blank" class="sublevel" >Department of Watershed Management GIS</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://www.atlantaregional.com/html" target="_blank" class="sublevel" >ARC Interactive Maps</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://www.itsmarta.com/schedules-maps.aspx" target="_blank" class="sublevel" >MARTA System Maps</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="https://gis1.state.ga.us/login.asp?CookieTest=2" target="_blank" class="sublevel" >Georgia GIS Data Clearinghouse</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gos2.geodata.gov/wps/portal/gos" target="_blank" class="sublevel" >One Stop Government GIS Data</a></div>
+</td></tr>
+</table>			</td>
+		</tr>
+		</table>
+							<div style="width: 100%;" align="center" border="0" cellpadding="0" cellspacing="0">
+<br>
+<table width="137" align="center">
+	<tr>
+		<td>
+		</td>
+	</tr>
+</table>
+<table width="137" height="16" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="2" height="16"></td>
+		<td width="107" height="16" align="center"></td>
+	</tr>
+</table>
+<table align="center">
+	<tr>
+		<td style="font-size: 9px; font-family: Verdana,Arial,Helvetica,sans-serif; color: #333333;text-decoration:none;">
+		</td>
+	</tr>
+</table>
+</div>
+					<td width="*" height="695" valign="top" style="padding:5px 5px 5px 15px; border-left-style:solid; border-left-color:#dddddd; border-left-width:1px;">
+									<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+					City Council District Maps Now Available 									</td>
+							<td align="right" width="100%" class="buttonheading">
+				<a href="http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;do_pdf=1&amp;id=61" target="_blank" onclick="window.open('http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;do_pdf=1&amp;id=61','win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" title="PDF">
+					<img src="http://gis.atlantaga.gov/gishome/images/M_images/pdf_button.png"  alt="PDF" name="PDF" align="middle" border="0" /></a>
+			</td>
+							<td align="right" width="100%" class="buttonheading">
+					<a href="http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;task=view&amp;id=61&amp;pop=1&amp;page=0&amp;Itemid=52" target="_blank" onclick="window.open('http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;task=view&amp;id=61&amp;pop=1&amp;page=0&amp;Itemid=52','win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" title="Print">
+						<img src="http://gis.atlantaga.gov/gishome/images/M_images/printButton.png"  alt="Print" name="Print" align="middle" border="0" /></a>
+				</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<strong>City council district maps and NPU maps are now available in the online Map Collection<br /></strong><p class="contentdescription">City council district maps have been updated to reflect the City&#39;s new mayor and city council members.&nbsp; A new set of Neighborhood Planning Unit (NPU) maps has also been produced.&nbsp; The new council district maps include a city-wide map and maps of each individual district.&nbsp; All of these and many more maps are available through our online <span class="contentintro"><a href="/gishome/index.php?option=com_content&amp;task=blogcategory&amp;id=47&amp;Itemid=114">Map Collection</a></span> .&nbsp; The maps are in PDF format and can be freely downloaded and printed.&nbsp; City of Atlanta employees can request printed copies from the Bureau of Planning at 404-330-6145.</p><p class="contentdescription">Direct links to the newly updated maps are provided below for your convenience. <br /></p><br /><ul><li><a href="/doc_archive/raw/d003500/p003923.pdf" target="_blank">City Council, NPU and Neighborhood Boundaries (city-wide)</a></li></ul><br /><p><strong>Council District Maps</strong></p>&nbsp;  &nbsp; <ul><table border="0"> <tbody><tr> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003925.pdf" target="_blank">Council District 1</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003926.pdf" target="_blank">Council District 2</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003927.pdf" target="_blank">Council District 3</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003928.pdf" target="_blank">Council District 4</a></span></li></td> </tr> <tr> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003929.pdf" target="_blank">Council District 5</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003930.pdf" target="_blank">Council District 6</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003931.pdf" target="_blank">Council District 7</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003932.pdf" target="_blank">Council District 8</a></span></li></td> </tr> <tr> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003933.pdf" target="_blank">Council District 9</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003934.pdf" target="_blank">Council District 10</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003935.pdf" target="_blank">Council District 11</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003936.pdf" target="_blank">Council District 12</a></span></li></td> </tr> </tbody></table></ul><p><br />   <strong>NPU Maps</strong> <br /></p><ul><table border="0"> <tbody><tr> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003937.pdf" target="_blank">NPU A</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003939.pdf" target="_blank">NPU B</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003940.pdf" target="_blank">NPU C</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003941.pdf" target="_blank">NPU D</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003942.pdf" target="_blank">NPU E</a></span></li></td> </tr> <tr> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003943.pdf" target="_blank">NPU F</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003944.pdf" target="_blank">NPU G</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003945.pdf" target="_blank">NPU H</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003946.pdf" target="_blank">NPU I</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003947.pdf" target="_blank">NPU J</a></span></li></td> </tr> <tr> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003948.pdf" target="_blank">NPU K</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003949.pdf" target="_blank">NPU L</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003950.pdf" target="_blank">NPU M</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003951.pdf" target="_blank">NPU N</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003952.pdf" target="_blank">NPU O</a></span></li></td> </tr> <tr> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003953.pdf" target="_blank">NPU P</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003954.pdf" target="_blank">NPU Q</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003955.pdf" target="_blank">NPU R</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003956.pdf" target="_blank">NPU S</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003957.pdf" target="_blank">NPU T</a></span></li></td> </tr> <tr> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003958.pdf" target="_blank">NPU V</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003959.pdf" target="_blank">NPU W</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003960.pdf" target="_blank">NPU X</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003961.pdf" target="_blank">NPU Y</a></span></li></td> <td><li><span class="contentdescription"><a href="/doc_archive/raw/d003500/p003962.pdf" target="_blank">NPU Z</a></span></li></td> </tr> </tbody></table></ul><p class="contentdescription">&nbsp;</p><p class="contentdescription">&nbsp;</p><p class="contentdescription">&nbsp;</p><p>&nbsp; <a href="/gishome/index.php?option=com_content&amp;task=view&amp;id=58&amp;Itemid=114"></a></p>			</td>
+		</tr>
+				</table>
+		
+		<span class="article_seperator">&nbsp;</span>
+		
+					<div class="back_button">
+				<a href='javascript:history.go(-1)'>
+					[ Back ]</a>
+			</div>
+			</td>
+					<td width="180" height="695" valign="top" style="padding:5px;">
+							<table cellpadding="0" cellspacing="0" class="moduletable">
+				<tr>
+			<td>
+							</td>
+		</tr>
+		</table>
+				<table cellpadding="0" cellspacing="0" class="moduletable_news">
+					<tr>
+				<th valign="top">
+					NEWS				</th>
+			</tr>
+					<tr>
+			<td>
+							<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+					City Council District Maps Now Available 									</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<strong>City council district maps and NPU maps are now available in the online Map Collection<br /></strong>			</td>
+		</tr>
+						<tr>
+					<td align="left" colspan="2">
+						<a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=61&amp;Itemid=52" class="readon">
+							Read more...</a>
+					</td>
+				</tr>
+						</table>
+		
+		<span class="article_seperator">&nbsp;</span>
+		
+					</td>
+		</tr>
+		</table>
+				<table cellpadding="0" cellspacing="0" class="moduletable_events">
+					<tr>
+				<th valign="top">
+					UPCOMING EVENTS				</th>
+			</tr>
+					<tr>
+			<td>
+				<link href="http://gis.atlantaga.gov/gishome/modules/mod_events_latest.css" rel="stylesheet" type="text/css" />
+<table class="mod_events_latest_table" width="100%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td class="mod_events_latest_noevents">No events</td></tr>
+</table>
+			</td>
+		</tr>
+		</table>
+								</td>
+				</tr>
+				<tr>
+					<td>
+						</td>
+					<td colspan="3">
+						</td>
+					<td>
+						</td>
+				</tr>
+			</table></td>
+	</tr>
+	<tr>
+		<td>
+			<table id="Table_02" width="100%" height="25" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td>
+					</td>
+					<td>
+					</td>
+					<td>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</center>
+</body>
+</html>
+<!-- 1424711368 -->

@@ -1,0 +1,338 @@
+
+
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+<title>Export Image (Imagery/SlopeServiceBicycle)</title>
+<link href="/dpcd/rest/static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="100%" class="userTable">
+ <tr>
+ <td class="titlecell">
+ ArcGIS REST Services Directory
+ </td>
+ <td align="right">
+   
+      
+        <a href="http://gis.atlantaga.gov/dpcd/rest/login">Login</a>
+       
+            | <a href="http://gis.atlantaga.gov/dpcd/tokens/">Get Token</a>
+                  
+      
+   
+ </td>
+ </tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="/dpcd/rest/services">Home</a>
+
+
+
+
+
+
+  &gt; <a href="/dpcd/rest/services">services</a>
+  
+  &gt; <a href="/dpcd/rest/services/Imagery">Imagery</a>
+  
+  &gt; <a href="/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer">SlopeServiceBicycle (ImageServer)</a>
+  
+  &gt; <a href="/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer/exportImage"><i>exportImage</i></a>
+  
+</td>
+<td align="right">
+<a href="http://gis.atlantaga.gov/dpcd/sdk/rest/02ss/02ss00000057000000.htm" target="_blank">Help</a> | <a href="http://gis.atlantaga.gov/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer/exportImage?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+
+
+
+<h2>Export Image (Imagery/SlopeServiceBicycle)</h2>
+
+<div class="rbody">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <table class="infoTable" cellspacing="5">
+    <tr valign="top">
+      <td>
+        
+          <img style="border:2px solid #000000;" src="http://gis.atlantaga.gov/dpcd/rest/directories/arcgisoutput/Imagery/SlopeServiceBicycle_ImageServer/_ags_e19f438c_9d28_4fb5_93e5_051762e53654.png" alt="Export Image" />
+          
+      </td>
+      <td>
+        Width: 400<br/>
+        Height: 400<br/>
+        Extent: <ul>
+
+
+
+
+
+
+
+XMin: -9413686.281171124<br/>
+YMin: 3981571.0277210604<br/>
+XMax: -9381615.770630103<br/>
+YMax: 4013641.5382620813<br/>
+
+	Spatial Reference: 
+
+
+
+
+
+102100
+
+&nbsp;(3857)
+
+<br/> <br/>
+	</ul><br/>
+        Scale: 0.0
+      </td>
+    </tr>
+  </table>
+  
+
+
+
+
+
+
+
+<div style="color:#ff6666"> 
+
+</div>
+
+<form name="sdform" action="/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer/exportImage">
+
+<table class="formTable">
+
+<tr valign="top">
+<td><label for="bbox">Bounding Box:</label></td>
+<td><input type="text" id="bbox" name="bbox" value="-9412239.697477957,3981571.0277210604,-9383062.354323272,4013641.5382620813" size="75"/></td>
+</tr>
+
+<tr valign="top">
+<td><label for="bboxSR">Bounding Box Spatial Reference:</label></td>
+<td><input type="text" id="bboxSR" name="bboxSR" value="" size="75" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="size">Image Size:</label></td>
+<td><input type="text" id="size" name="size" value="" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="imageSR">Image Spatial Reference:</label></td>
+<td><input type="text" id="imageSR" name="imageSR" value="" size="75" /></td>
+</tr>
+
+<tr>
+<td><label for="time">Time: </label></td>
+<td><input type="text" id="time" name="time" value="" size="50" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="format">Image Format:</label></td>
+<td>
+<select id="format" name="format">
+
+  <option value="jpgpng" >jpgpng</option>
+  
+  <option value="png" >png</option>
+  
+  <option value="png8" >png8</option>
+  
+  <option value="png24" >png24</option>
+  
+  <option value="png32" >png32</option>
+  
+  <option value="jpg" >jpg</option>
+  
+  <option value="bmp" >bmp</option>
+  
+  <option value="gif" >gif</option>
+  
+  <option value="tiff" >tiff</option>
+  
+</select>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="pixelType">Pixel Type:</label></td>
+<td>
+<select id="pixelType" name="pixelType">
+
+	<option value="C128" >C128</option>
+	
+	<option value="C64" >C64</option>
+	
+	<option value="F32" selected="true">F32</option>
+	
+	<option value="F64" >F64</option>
+	
+	<option value="S16" >S16</option>
+	
+	<option value="S32" >S32</option>
+	
+	<option value="S8" >S8</option>
+	
+	<option value="U1" >U1</option>
+	
+	<option value="U16" >U16</option>
+	
+	<option value="U2" >U2</option>
+	
+	<option value="U32" >U32</option>
+	
+	<option value="U4" >U4</option>
+	
+	<option value="U8" >U8</option>
+	
+	<option value="UNKNOWN" >UNKNOWN</option>
+	
+</select>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="noData">No Data:</label></td>
+<td><input type="text" id="noData" name="noData" value="" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="noDataInterpretation">NoDataInterpretation:</label></td>
+<td>
+<select id="noDataInterpretation" name="noDataInterpretation">
+  <option value="esriNoDataMatchAny" >NoData MatchAny</option>
+  <option value="esriNoDataMatchAll" >NoData MatchAll</option>
+</select>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="interpolation">Interpolation:</label></td>
+<td>
+<select id="interpolation" name="interpolation">
+
+  <option value=" RSP_BilinearInterpolation" > RSP_BilinearInterpolation</option>
+  
+  <option value="RSP_CubicConvolution" >RSP_CubicConvolution</option>
+  
+  <option value="RSP_Majority" >RSP_Majority</option>
+  
+  <option value="RSP_NearestNeighbor" >RSP_NearestNeighbor</option>
+  
+</select>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="compression">Compression:</label></td>
+<td><input type="text" id="compression" name="compression" value="" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="compressionQuality">Compression Quality:</label></td>
+<td><input type="text" id="compressionQuality" name="compressionQuality" value="" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="bandIds">Band IDs:</label></td>
+<td><input type="text" id="bandIds" name="bandIds" value="" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="mosaicRule">Mosaic Rule:</label></td>
+<td>
+<textarea id="mosaicRule" name="mosaicRule" rows="3" cols="55"></textarea>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="renderingRule">Rendering Rule:</label></td>
+<td>
+<textarea id="renderingRule" name="renderingRule" rows="3" cols="55"></textarea>
+</td>
+</tr>
+
+<tr>
+<td><label for="f">Format:</label></td>
+<td>
+<select id="f" name="f">
+<option value="html">HTML</option>
+<option value="pjson">JSON</option>
+<option value="image">Image</option>
+<option value="kmz">KMZ</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="left">
+<input type="submit" value="Export Image (GET)" />
+<input type="submit" onclick="this.form.method = 'post';" value="Export Image (POST)" />
+</td>
+</tr>
+
+</table>
+
+</form>
+
+<script type="text/javascript">
+document.forms.sdform.bbox.focus();
+</script>
+
+<br/><br/>
+
+</div>
+
+<br/><br/>
+
+</body>
+
+</html>

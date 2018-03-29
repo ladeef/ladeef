@@ -1,0 +1,130 @@
+
+
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+<title>ArcGIS Server REST API Login</title>
+<link href="/dpcd/rest/static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="100%" class="userTable">
+ <tr>
+ <td class="titlecell">
+ ArcGIS REST Services Directory
+ </td>
+ <td align="right">
+   
+      <a href="http://gis.atlantaga.gov/dpcd/rest/login">Login</a> 
+       
+            | <a href="http://gis.atlantaga.gov/dpcd/tokens/">Get Token</a>
+       
+   
+ </td>
+ </tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="/dpcd/rest/services">Home</a>
+
+
+
+
+
+
+</td>
+<td align="right">
+<a href="http://gis.atlantaga.gov/dpcd/sdk/rest/02ss/02ss00000057000000.htm" target="_blank">Help</a> | <a href="http://gis.atlantaga.gov/dpcd/rest/services?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+
+
+
+<h2>ArcGIS Server REST API Login</h2>
+
+<div class="rbody">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  function onLoad() {
+    if (top.location != self.location) {
+      top.location = self.location;
+    }
+  }
+</script>
+
+<script type="text/javascript" src="/dpcd/rest/static/js/BigInt.js"></script>
+<script type="text/javascript" src="/dpcd/rest/static/js/Barrett.js"></script>
+<script type="text/javascript" src="/dpcd/rest/static/js/RSA.js"></script>
+<script type="text/javascript" src="/dpcd/rest/static/js/admin.js"></script>
+
+<form action=http://gis.atlantaga.gov/dpcd/rest/login method="post" onsubmit="return encryptFormData('10001','','b7c6b1fb6ed1563fcc9f3a199ca6e3f7b6450d95a60f224651b1cc0e6a9888c6c6ac8731424d3d8b75200b8a874ed895bd992fcb1db7e9fdbd420dcc444d79a3');">
+
+<table class="formTable">
+
+<tr valign="top">
+    <td><label for="username">User Name:</label></td>
+    <td>
+        <input type="text" id="username" name="username" value="" />
+    </td>
+</tr>
+
+<tr valign="top">
+    <td><label for="password">Password:</label></td>
+    <td>
+        <input type="password" id="password" name="password" autocomplete="off" />
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2" align="left">
+        <input type="submit" value="Login" />
+    </td>
+</tr>
+
+</table>
+
+<input type="hidden" name="redirect" value=""/>
+
+</form>
+
+
+</div>
+
+<br/><br/>
+
+</body>
+
+</html>

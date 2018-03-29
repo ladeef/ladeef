@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<ServiceExceptionReport version="1.1.1">
+<ServiceException>
+Missing mandatory REQUEST parameter. Possibilities are {capabilities|GetCapabilities|map|GetMap|feature_info|GetFeatureInfo}
+</ServiceException>
+</ServiceExceptionReport>

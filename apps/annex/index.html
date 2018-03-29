@@ -1,0 +1,587 @@
+<html>
+<head>
+<title>City of Atlanta Annexations</title>
+<meta name="generator" content="Dev-PHP 2.2.2">
+<link href="/gishome/templates/atlanta1/css/template_css.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+  body {
+    background: #FFFFFF;
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  .bd {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  .tbl {
+    background-color: #DEE7DE;
+  }
+  a:link { 
+    color: #FF0000;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  a:active { 
+    color: #0000FF;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  a:visited { 
+    color: #800080;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  .hr {
+    background-color: #dddddd;
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+    
+  }
+  a.hr:link {
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  a.hr:active {
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  a.hr:visited {
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .dr {
+    background-color: #ebeef4;
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  .sr {
+    background-color: #FFFBF0;
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td colspan="2" class="banner">
+		<img style="float:right;" src="/gishome/images/gishome_right.png"><img src="/gishome/images/gishome.gif" border="0">
+	</td>
+	</td>
+</tr>
+<tr>
+	<td class="lower-band" colspan="2" height="18px">
+		<table width="100%" style="background:url(/gishome/images/topnav_bg.gif) repeat-x 0 0 #FFF;">
+			<tr>
+				
+				<td align="right">
+					<table cellpadding="0" cellspacing="0" class="moduletable-nav">
+						<tr>
+							<td>
+								<table width="100%" border="0" cellpadding="0" cellspacing="1">
+									<tr>
+										<td nowrap="nowrap">
+											<a href="/gishome/index.php" target="_top" class="mainlevel-nav" >Home</a>
+											<a href="/gishome/index.php?option=com_contact&amp;Itemid=3" target="_top"  class="mainlevel-nav" >Contact Us</a>
+											<a href="/gishome/index.php?option=com_search&amp;Itemid=5" target="_top"  class="mainlevel-nav" >Search</a>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<table class="bd" width="100%" height="20px"><tr><td styles="height: 20px;"><h2>City of Atlanta Annexations</h2></td></tr></table>
+
+
+<div style="position: absolute; top: 85px; right: 10px;">
+</div>
+<table class="bd" border="0" cellspacing="1" cellpadding="4">
+<tr><td>Records shown 1 - 15 of 133</td></tr>
+</table>
+<hr size="1" noshade>
+<form action="index.php" method="post">
+<table class="bd" border="0" cellspacing="1" cellpadding="4">
+<tr>
+<td><b>Custom Filter</b>&nbsp;</td>
+<td><input type="text" name="filter" value=""></td>
+<td><select name="filter_field">
+<option value="">All Fields</option>
+<option value="CASE_ID">Case ID</option>
+<option value="NAME">Name</option>
+<option value="ORD_NUM">Ordinance Number</option>
+<option value="ORD_DATE">Ordinance Date</option>
+<option value="STATUS">Status</option>
+<option value="COUNTY">County</option>
+<option value="EFF_DATE">Effective Date</option>
+</select></td>
+<td><input type="checkbox" name="wholeonly">Whole words only</td>
+</td>
+<td>&nbsp;</td>
+<td><input type="submit" name="action" value="Apply Filter"></td>
+<td><a href="index.php?a=reset">Reset Filter</a></td>
+</tr>
+</table>
+</form>
+<hr size="1" noshade>
+<table class="bd" border="0" cellspacing="1" cellpadding="4">
+<tr>
+<td>
+</td>
+<td><b>1</b></td>
+<td><a href="index.php?page=2">2</a></td>
+<td><a href="index.php?page=3">3</a></td>
+<td><a href="index.php?page=4">4</a></td>
+<td><a href="index.php?page=5">5</a></td>
+<td><a href="index.php?page=6">6</a></td>
+<td><a href="index.php?page=7">7</a></td>
+<td><a href="index.php?page=8">8</a></td>
+<td><a href="index.php?page=9">9</a></td>
+<td>&nbsp;<a href="index.php?page=2">Next&nbsp;&gt;&gt;</a>&nbsp;</td>
+</tr>
+</table>
+<br>
+<table class="tbl" border="0" cellspacing="1" cellpadding="0"width="100%">
+<tr>
+<td class="hr"><a class="hr" href="index.php?order=CASE_ID&type=asc">Case ID</a></td>
+<td class="hr"><a class="hr" href="index.php?order=NAME&type=asc">Name</a></td>
+<td class="hr"><a class="hr" href="index.php?order=ORD_NUM&type=asc">Ordinance Number</a></td>
+<td class="hr"><a class="hr" href="index.php?order=ORD_DATE&type=asc">Ordinance Date</a></td>
+<td class="hr"><a class="hr" href="index.php?order=STATUS&type=asc">Status</a></td>
+<td class="hr"><a class="hr" href="index.php?order=COUNTY&type=asc">County</a></td>
+<td class="hr"><a class="hr" href="index.php?order=EFF_DATE&type=asc">Effective Date</a></td>
+<td class="hr">&nbsp;</td>
+<td class="hr">&nbsp;</td>
+<td class="hr">&nbsp;</td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="dr"><a href="index.php?a=view&recid=0">ANX-2010-001</a></td>
+<td class="dr">418 Morgan Place</td>
+<!--<td class="dr"></td>-->
+<!--<td class="dr"></td>-->
+<!--<td class="dr"></td>-->
+<td class="dr">10-O-1169</td>
+<td class="dr"></td>
+<td class="dr">Annexed</td>
+<td class="dr">DeKalb</td>
+<td class="dr">12-OCT-10</td>
+<td class="dr"></td>
+
+
+<td class="dr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2010-001&return_type=list" target="doc_win">Docs</a></td>
+<td class="dr"><a href="index.php?a=view&recid=0">View</a></td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="sr"><a href="index.php?a=view&recid=1">ANX-2009-004</a></td>
+<td class="sr">1500 Kay Lane</td>
+<!--<td class="sr">Single parcel</td>-->
+<!--<td class="sr"></td>-->
+<!--<td class="sr"></td>-->
+<td class="sr">09-O-1864</td>
+<td class="sr">07-DEC-09</td>
+<td class="sr">Annexed</td>
+<td class="sr">DeKalb</td>
+<td class="sr">07-DEC-09</td>
+<td class="sr">22-MAR-09</td>
+
+
+<td class="sr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2009-004&return_type=list" target="doc_win">Docs</a></td>
+<td class="sr"><a href="index.php?a=view&recid=1">View</a></td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="dr"><a href="index.php?a=view&recid=2">ANX-2009-003</a></td>
+<td class="dr">4118 E. Brookhaven Dr</td>
+<!--<td class="dr">Single Parcel</td>-->
+<!--<td class="dr"></td>-->
+<!--<td class="dr"></td>-->
+<td class="dr">09-O-1072</td>
+<td class="dr">25-AUG-09</td>
+<td class="dr">Annexed</td>
+<td class="dr">DeKalb</td>
+<td class="dr">25-AUG-09</td>
+<td class="dr"></td>
+
+
+<td class="dr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2009-003&return_type=list" target="doc_win">Docs</a></td>
+<td class="dr"><a href="index.php?a=view&recid=2">View</a></td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="sr"><a href="index.php?a=view&recid=3">ANX-2009-002</a></td>
+<td class="sr">Campbellton Road and Kenny Rd (2)</td>
+<!--<td class="sr">Five (5) parcels off Campbellton Road and Alan Drive</td>-->
+<!--<td class="sr">Charlene Rosenberg/Frederick &amp; Cynthia Bowman</td>-->
+<!--<td class="sr">31-JUL-09</td>-->
+<td class="sr">09-O-1797</td>
+<td class="sr">07-DEC-09</td>
+<td class="sr">Annexed</td>
+<td class="sr">Fulton</td>
+<td class="sr">07-DEC-09</td>
+<td class="sr">22-MAR-10</td>
+
+
+<td class="sr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2009-002&return_type=list" target="doc_win">Docs</a></td>
+<td class="sr"><a href="index.php?a=view&recid=3">View</a></td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="dr"><a href="index.php?a=view&recid=4">ANX-2009-001</a></td>
+<td class="dr">1199 Roxboro Drive</td>
+<!--<td class="dr">This is a single residential property that already lies partially in the City.  The remainder--and larger part-- of the property lies in unincorporated DeKalb County.</td>-->
+<!--<td class="dr">Todd Moore Phelan and Alice T. Phelan</td>-->
+<!--<td class="dr"></td>-->
+<td class="dr">10-O-0393</td>
+<td class="dr"></td>
+<td class="dr">Annexed</td>
+<td class="dr">DeKalb</td>
+<td class="dr">11-MAY-10</td>
+<td class="dr"></td>
+
+
+<td class="dr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2009-001&return_type=list" target="doc_win">Docs</a></td>
+<td class="dr"><a href="index.php?a=view&recid=4">View</a></td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="sr"><a href="index.php?a=view&recid=5">ANX-2008-003</a></td>
+<td class="sr">1842 Homestead Ave</td>
+<!--<td class="sr"></td>-->
+<!--<td class="sr"></td>-->
+<!--<td class="sr">17-JUN-08</td>-->
+<td class="sr">08-O-1683</td>
+<td class="sr">01-AUG-08</td>
+<td class="sr">Annexed</td>
+<td class="sr">DeKalb</td>
+<td class="sr">01-DEC-08</td>
+<td class="sr"></td>
+
+
+<td class="sr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2008-003&return_type=list" target="doc_win">Docs</a></td>
+<td class="sr"><a href="index.php?a=view&recid=5">View</a></td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="dr"><a href="index.php?a=view&recid=6">ANX-2008-002</a></td>
+<td class="dr">Campbellton Rd and Kenny Road</td>
+<!--<td class="dr"></td>-->
+<!--<td class="dr"></td>-->
+<!--<td class="dr"></td>-->
+<td class="dr"></td>
+<td class="dr"></td>
+<td class="dr">Abandoned</td>
+<td class="dr">Fulton</td>
+<td class="dr"></td>
+<td class="dr"></td>
+
+
+<td class="dr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2008-002&return_type=list" target="doc_win">Docs</a></td>
+<td class="dr"><a href="index.php?a=view&recid=6">View</a></td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="sr"><a href="index.php?a=view&recid=7">ANX-2008-001</a></td>
+<td class="sr">Kimberly Road(Tennyson)</td>
+<!--<td class="sr">2 parcels</td>-->
+<!--<td class="sr">Derek and Angela Tennyson</td>-->
+<!--<td class="sr">29-MAY-08</td>-->
+<td class="sr">08-O-1777</td>
+<td class="sr">01-AUG-08</td>
+<td class="sr">Annexed</td>
+<td class="sr">Fulton</td>
+<td class="sr">01-DEC-08</td>
+<td class="sr"></td>
+
+
+<td class="sr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2008-001&return_type=list" target="doc_win">Docs</a></td>
+<td class="sr"><a href="index.php?a=view&recid=7">View</a></td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="dr"><a href="index.php?a=view&recid=8">ANX-2007-010</a></td>
+<td class="dr">Huntington Community</td>
+<!--<td class="dr"></td>-->
+<!--<td class="dr">John H. Carter</td>-->
+<!--<td class="dr">23-APR-07</td>-->
+<td class="dr">07-O-0969</td>
+<td class="dr">21-APR-08</td>
+<td class="dr">Held</td>
+<td class="dr">Fulton</td>
+<td class="dr"></td>
+<td class="dr"></td>
+
+
+<td class="dr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2007-010&return_type=list" target="doc_win">Docs</a></td>
+<td class="dr"><a href="index.php?a=view&recid=8">View</a></td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="sr"><a href="index.php?a=view&recid=9">ANX-2007-009</a></td>
+<td class="sr">Niskey Lake Trail</td>
+<!--<td class="sr"></td>-->
+<!--<td class="sr"></td>-->
+<!--<td class="sr"></td>-->
+<td class="sr">07-O-0504</td>
+<td class="sr">26-JUN-07</td>
+<td class="sr">Annexed</td>
+<td class="sr">Fulton</td>
+<td class="sr">26-JUN-07</td>
+<td class="sr"></td>
+
+
+<td class="sr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2007-009&return_type=list" target="doc_win">Docs</a></td>
+<td class="sr"><a href="index.php?a=view&recid=9">View</a></td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="dr"><a href="index.php?a=view&recid=10">ANX-2007-008</a></td>
+<td class="dr">4505 Birdie Lane</td>
+<!--<td class="dr"></td>-->
+<!--<td class="dr"></td>-->
+<!--<td class="dr"></td>-->
+<td class="dr">07-O-0623</td>
+<td class="dr">01-MAR-07</td>
+<td class="dr">Filed</td>
+<td class="dr">Fulton</td>
+<td class="dr"></td>
+<td class="dr"></td>
+
+
+<td class="dr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2007-008&return_type=list" target="doc_win">Docs</a></td>
+<td class="dr"><a href="index.php?a=view&recid=10">View</a></td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="sr"><a href="index.php?a=view&recid=11">ANX-2007-007</a></td>
+<td class="sr">Cascade Falls Subdivision</td>
+<!--<td class="sr"></td>-->
+<!--<td class="sr"></td>-->
+<!--<td class="sr"></td>-->
+<td class="sr">07-O-0624</td>
+<td class="sr">21-JUL-08</td>
+<td class="sr">Held</td>
+<td class="sr">Fulton</td>
+<td class="sr"></td>
+<td class="sr"></td>
+
+
+<td class="sr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2007-007&return_type=list" target="doc_win">Docs</a></td>
+<td class="sr"><a href="index.php?a=view&recid=11">View</a></td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="dr"><a href="index.php?a=view&recid=12">ANX-2007-006</a></td>
+<td class="dr">Orkney/Lanark</td>
+<!--<td class="dr"></td>-->
+<!--<td class="dr"></td>-->
+<!--<td class="dr"></td>-->
+<td class="dr">07-O-0968</td>
+<td class="dr">01-MAY-07</td>
+<td class="dr">Filed</td>
+<td class="dr">Fulton</td>
+<td class="dr"></td>
+<td class="dr"></td>
+
+
+<td class="dr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2007-006&return_type=list" target="doc_win">Docs</a></td>
+<td class="dr"><a href="index.php?a=view&recid=12">View</a></td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="sr"><a href="index.php?a=view&recid=13">ANX-2007-005</a></td>
+<td class="sr">Kimberly Road</td>
+<!--<td class="sr"></td>-->
+<!--<td class="sr"></td>-->
+<!--<td class="sr"></td>-->
+<td class="sr">07-O-0505</td>
+<td class="sr">26-JUN-07</td>
+<td class="sr">Annexed</td>
+<td class="sr">Fulton</td>
+<td class="sr">26-JUN-07</td>
+<td class="sr"></td>
+
+
+<td class="sr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2007-005&return_type=list" target="doc_win">Docs</a></td>
+<td class="sr"><a href="index.php?a=view&recid=13">View</a></td>
+</tr>
+<tr>
+
+
+
+
+
+
+
+
+<td class="dr"><a href="index.php?a=view&recid=14">ANX-2007-004</a></td>
+<td class="dr">Brookhaven</td>
+<!--<td class="dr"></td>-->
+<!--<td class="dr"></td>-->
+<!--<td class="dr"></td>-->
+<td class="dr">07-O-0492</td>
+<td class="dr">26-JUN-07</td>
+<td class="dr">Annexed</td>
+<td class="dr">Fulton</td>
+<td class="dr">01-JUL-07</td>
+<td class="dr"></td>
+
+
+<td class="dr"><a href="http://gis.atlantaga.gov/apps/doc_archive/get.php?type_id=5&field=casenum&value=ANX-2007-004&return_type=list" target="doc_win">Docs</a></td>
+<td class="dr"><a href="index.php?a=view&recid=14">View</a></td>
+</tr>
+</table>
+<br>
+<table class="bd" border="0" cellspacing="1" cellpadding="4">
+<tr>
+<td>
+</td>
+<td><b>1</b></td>
+<td><a href="index.php?page=2">2</a></td>
+<td><a href="index.php?page=3">3</a></td>
+<td><a href="index.php?page=4">4</a></td>
+<td><a href="index.php?page=5">5</a></td>
+<td><a href="index.php?page=6">6</a></td>
+<td><a href="index.php?page=7">7</a></td>
+<td><a href="index.php?page=8">8</a></td>
+<td><a href="index.php?page=9">9</a></td>
+<td>&nbsp;<a href="index.php?page=2">Next&nbsp;&gt;&gt;</a>&nbsp;</td>
+</tr>
+</table>
+<table class="bd" width="100%"><tr><td class="hr"><a href="notes.htm" target="_blank">
+DATA Format</a></td></tr></table>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

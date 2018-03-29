@@ -1,0 +1,708 @@
+<html lang="en" xml:lang="en"><head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Layer (Feature Service) http:// &amp;lt;featureservice-url&amp;gt;/&amp;lt;layerId&amp;gt;Add FeaturesApply EditsCalculateDelete FeaturesGenerate RendererQueryQuery Related RecordsUpdate FeaturesValidate SQL (Feature Service-Layer)FeatureImage10.0 Description The layer resource represents a single feature layer or a non-spatial table in a feature service. A feature layer is a table or view with at least one spatial column. For tables, it provides basic information about the table such as its ID, name, fields, types, and templates. For feature layers, in addition to the table information, it provides information"><meta name="content-language" content="en"><link href="rsrc/htmlhelp.css" rel="stylesheet" type="text/css"><title>ArcGIS REST API - ArcGIS Services - 
+   Layer (Feature Service)</title>
+                <script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("/");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash;
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script>
+                </head><!--Publication GUID: [GUID-289408B4-3EC8-4C16-9DB8-B1778E780E58]--><!--Topic GUID: [GUID-094570E1-2CE2-4A94-B4A4-C5D89D66B54F]--><body><div id="content"><div class="header"><h1>
+   Layer (Feature Service)</h1><div id="breadcrumb"></div></div>
+    <div class="restmd" purpose="restmd"><ul purpose="restmd" class="restmd"><li><span class="restkey">URL:</span><span class="restval">http://<a class="xref" rel="02ss/02ss0000007v000000.htm" href="02ss/02ss0000007v000000.htm">&lt;featureservice-url&gt;</a>/&lt;layerId&gt;<span class="restverb"></span><br></span></li><li><span class="restkey">Operations:</span><span class="restval"><a class="xref" rel="02ss/02ss0000009m000000.htm" href="02ss/02ss0000009m000000.htm">Add Features</a>,<a class="xref" rel="02ss/02ss00000031000000.htm" href="02ss/02ss00000031000000.htm">Apply Edits</a>,<a class="xref" rel="02ss/02ss000000pz000000.htm" href="02ss/02ss000000pz000000.htm">Calculate</a>,<a class="xref" rel="02ss/02ss0000006z000000.htm" href="02ss/02ss0000006z000000.htm">Delete Features</a>,<a class="xref" rel="02ss/02ss0000008w000000.htm" href="02ss/02ss0000008w000000.htm">Generate Renderer</a>,<a class="xref" rel="02ss/02ss0000002r000000.htm" href="02ss/02ss0000002r000000.htm">Query</a>,<a class="xref" rel="02ss/02ss00000088000000.htm" href="02ss/02ss00000088000000.htm">Query Related Records</a>,<a class="xref" rel="02ss/02ss00000096000000.htm" href="02ss/02ss00000096000000.htm">Update Features</a>,<a class="xref" rel="02ss/02ss000000q7000000.htm" href="02ss/02ss000000q7000000.htm">Validate SQL (Feature Service-Layer)</a></span></li><li><span class="restkey">Child Resources:</span><span class="restval"><a class="xref" rel="02ss/02ss00000019000000.htm" href="02ss/02ss00000019000000.htm">Feature</a>,<a class="xref" rel="02ss/02ss0000008v000000.htm" href="02ss/02ss0000008v000000.htm">Image</a></span></li><li><span class="restkey">Version Introduced:</span><span class="restval">10.0</span></li></ul></div>
+    <div class="section1" id="GUID-6BEB4C28-B6BD-4684-AF2F-9A2A2736AE41" purpose="section1"><h2>Description</h2><p id="GUID-2A623BB9-92AE-4B0F-8360-3924A7F939FA">The <span class="usertext">layer</span> resource represents a single feature layer or a non-spatial table in a feature service. A feature layer is a table or view with at least one spatial column.   </p><p id="GUID-DF487DB4-7DA3-4EFD-8888-750EB3CBF09A">For tables, it provides basic information about the table such as its ID, name, fields, types, and templates. For feature layers, in addition to the table information, it provides information such as its geometry type, min and max scales, and spatial reference. Each type includes information about the type, such as the type ID, name, and definition expression.  Subtypes also include a default symbol and a list of feature templates. Each feature template includes a template name, description, and prototypical feature.</p><p id="GUID-53BD4FBF-B21A-4CB3-8F7C-3D9C00EE7AF9">The property capabilities return Query, Create, Delete, Update, and Editing capabilities. The Editing capability will be included if Create, Delete, or Update is enabled for a feature service. </p><p id="GUID-AFF8A8C6-0AB4-4B60-A026-C092D2583E11">The <span class="usertext">maxRecordCount</span> property returns the maximum number of records that will be returned at once for a query. </p><p id="GUID-0CD3AC70-2679-4385-A1AE-8ACC0BB81E94">The Layer resource returns <span class="usertext">relatedTableId</span>, <span class="usertext">cardinality</span>, <span class="usertext">role</span>, <span class="usertext">keyField</span>, and <span class="usertext">composite</span> for all relationships. In addition, the <span class="usertext">relationshiptableId</span> and <span class="usertext">keyFieldInRelationshipTable</span> properties are returned for attributed relationships only. </p><p id="GUID-7FDC9710-6F78-4B72-9938-3C2FB3BE4627">The <span class="usertext">effectiveMinScale</span> and <span class="usertext">effectiveMaxScale</span> properties represent the effective minimum and maximum scales at which the layer is visible. Effective minimum and maximum scale are calculated based on the <span class="usertext">minScale</span> and <span class="usertext">maxScale</span> values of the current layer and its ancestors. </p><p id="GUID-36FED5D0-1EF7-4F35-BA94-49B7C0893FDE">The Layer resource supports an input parameter <span class="usertext">returnUpdates</span> that accepts a Boolean value. Pass this parameter to retrieve updated <span class="usertext">timeExtent</span> for the layer. </p><p id="GUID-F87AD08B-75D8-45A3-A24A-3E08858EE0B3">The field property <span class="usertext">nullable</span> indicates whether the field can accept null values. </p><p id="GUID-A1219E61-D13F-4C8C-861F-634E046ED574">If a layer has attachments, its <span class="usertext">hasAttachments</span> property will be <span class="usertext">true</span>.</p><p id="GUID-B553AD09-C5F2-4C9F-8FEA-8D7693A9CAC6"> If the layer objectIdField does not have a length property or the length property is set to 4, the objectIdField is 32-bit. If the objectIdField has a length of 8, the objectIdField is 64-bit.</p><p id="GUID-6045CCFD-637A-4CCC-9B3C-2D91BD61223C">The following properties describe features that have been added to the Feature Service through the various releases. If the property does not exist, it's equivalent to having a value of false or not set. </p><ul purpose="ul" id="UL_E2651DFCA5A54E99AFBA44B5070DBA6D"><li purpose="li" id="LI_0FCA465A2C424C0EBAFB8047AD2E6976"><span class="usertext">useStandardizedQueries</span> will be true to indicate that the layer requires the use of standardized queries. Learn more about <a class="xref" target="_blank" rel="http://server.arcgis.com/en/server/latest/administer/linux/about-standardized-queries.htm" href="http://server.arcgis.com/en/server/latest/administer/linux/about-standardized-queries.htm">standardized queries</a>.</li><li purpose="li" id="LI_C92A60BEEE494EE0A738245E6ADA4A20"><span class="usertext">supportsRollbackOnFailures</span> will be <span class="usertext">true</span> to indicate the support for transactional edits. If <span class="usertext">true</span>, the layer supports setting the <span class="usertext">rollbackOnFailure</span> parameter for edit operations (for example, apply edits, add features, update features, and delete features). The <span class="usertext">supportsRollbackOnFailure</span> parameter will be <span class="usertext">true</span> if the data is simple and non-versioned.</li><li purpose="li" id="LI_637329B6C33145028CF4B9F843AE06C7"><span class="usertext">syncCanReturnChanges</span> will be <span class="usertext">true</span> if the data is versioned and has global IDs; this indicates the server has the ability to return changes only. If <span class="usertext">syncCanReturnChanges</span> is <span class="usertext">false</span>, the server will include all data for each layer in the response. </li><li purpose="li" id="LI_326496A38C4B4927A267210461DE701E"><span class="usertext">isDataVersioned</span> will be <span class="usertext">true</span> if the layer is versioned. </li><li purpose="li" id="LI_0A56AF991B294873BBAED1D606AEE75B"><span class="usertext">editFieldsInfo</span> identifies the editor tracking fields and realm as follows:<ul purpose="ul" id="UL_3FC22E2759624DD3894B9F4767C57756"><li purpose="li" id="LI_DD37B95F40914DED91CB4A4293C336E9"><span class="usertext">creationDateField</span> indicates the field that stores the date and time the feature was created.</li><li purpose="li" id="LI_15364C67AA13453587112E8FFC6E50B7"><span class="usertext">creatorField</span> indicates the field that stores the user who created the feature.</li><li purpose="li" id="LI_0A59B5AE27964834B9879FDD582B3DA7"><span class="usertext">editDateField</span> indicates the field that stores the date and time the feature was last edited.</li><li purpose="li" id="LI_7078F2409B1743E29CC1DD40B2389904"><span class="usertext">editorField</span> indicates the field that stores the user who last edited the feature.</li><li purpose="li" id="LI_42950456FDFC4BA7AB5200D8E8813D66"><span class="usertext">realm</span> will be appended to the name of the user who makes the edit. For example, consider the case that logged-in user Sarah adds a new feature. The creator is set in the geodatabase as <span class="usertext">Sarah</span>. If you configure the feature service to use the realm <span class="usertext">@server</span>, subsequent edits appear in the database under the name <span class="usertext">Sarah@server</span>.</li></ul> </li><li purpose="li" id="LI_97FFE44CCED345E6B3386AE5198E0281"><span class="usertext">editingInfo</span> if present, specifies information about editing.<ul purpose="ul" id="UL_3D66B9D77A7E45A99DBD6ABE8E1F855B"><li purpose="li" id="LI_BD27FE84742C4B9A9DEBEE154DC20533"><span class="usertext">lastEditDate</span> indicates the last time a layer was edited. This value gets updated every time the layer data is edited or when any of the layer properties change. </li> </ul></li><li purpose="li" id="LI_7EDB56E2DC134C7988322D9A8EB4E86C"><span class="usertext">ownershipBasedAccessControlForFeatures</span> identifies the ownership-based access control settings of the feature service. The following properties indicate the operations allowed on features created by other users.  The <span class="usertext">creatorField</span> identifies the creator/owner of the feature.<ul purpose="ul" id="UL_B9214EB0E9C14055A0B4E51CB39F87B0"><li purpose="li" id="LI_162FC2C3474C494A913D6F9970C43710"><span class="usertext">allowOthersToUpdate</span> will be <span class="usertext">true</span> if users can update features created  by others.</li><li purpose="li" id="LI_E495A186E9524CAC80FD81E05AF94A8A"><span class="usertext">allowOthersToDelete</span> will be <span class="usertext">true</span> if users can delete features created by others.</li><li purpose="li" id="LI_07A0542C2BAC46AFA91F2365D078FF40"><span class="usertext">allowOthersToQuery</span> will be <span class="usertext">true</span> if users can query features created by others.</li></ul></li><li purpose="li" id="LI_710FFB19353144EE84C6E6B7882459F0"><span class="usertext">supportsStatistics</span> indicates whether the layer supports statistical functions in a query operation. This property is deprecated at 10.3. Starting at 10.3, refer to the new  <span class="usertext">supportsStatistics</span> property found within <span class="usertext">advancedQueryCapabilities</span>.</li><li purpose="li" id="LI_056EDAD623A4419A89DD6534ADA6D521"><span class="usertext">supportsAdvancedQueries</span> indicates whether the layer supports <span class="usertext">orderBy</span> and <span class="usertext">groupBy</span>  in a query operation. This property is deprecated at 10.3. Starting at 10.3, refer to the new  <span class="usertext">advancedQueryCapabilities</span> for this information.</li><li purpose="li" id="LI_5FE04AC702A04D938CFCBFA6BFE36AA1">Advanced query capabilities of a layer are listed in <span class="usertext">advancedQueryCapabilities</span> (new at 10.3), which contains the following properties:<ul purpose="ul" id="UL_AF0911C4799F4DADB23313F3BF4E56E6"><li purpose="li" id="LI_6F305C113F98425B9F6167925ACBDB31"><span class="usertext">supportsPagination</span> will be <span class="usertext">true</span> if the layer supports pagination in the query operation.</li><li purpose="li" id="LI_1CC8D092CDFE46519C736C00C947186E"><span class="usertext">supportsQueryWithDistance</span> will be  <span class="usertext">true</span> if the layer supports providing a <span class="usertext">distance</span> parameter in the query operation.</li> <li purpose="li" id="LI_037C05F769F2482CAAA96295437DC238"><span class="usertext">supportsReturningQueryExtent</span> will be <span class="usertext">true</span> if the layer supports <span class="usertext">returnExtentOnly</span> in the query operation.</li><li purpose="li" id="LI_35742A53BBDE43A99731CA8148185A1B"><span class="usertext">supportsStatistics</span> indicates whether the layer supports statistical functions in a query operation. </li><li purpose="li" id="LI_21B6F52C9C9D417BB3E2E220501D78E0"><span class="usertext">supportsOrderBy</span> will be <span class="usertext">true</span> if the layer supports the <span class="usertext">orderByFields</span> parameter in the query operation.</li><li purpose="li" id="LI_D16FA30FD5DB411EB5947DA49420DDF0"><span class="usertext">supportsDistinct</span> will be true if the layer supports the <span class="usertext">returnDistinctValues</span> parameter in the query operation.</li>  </ul></li><li purpose="li" id="LI_C5E5DDA986E74606BAC402A74CBB599D"><span class="usertext">supportedQueryFormats</span> returns the formats in which query results can be returned. </li><li purpose="li" id="LI_4CB984087060491595CDE5238045391E"><span class="usertext">hasZ</span> returns <span class="usertext">true</span> if the features in the layer have Z values.
+</li><li purpose="li" id="LI_D5ED1967558740C19045A51503BBAA12"><span class="usertext">hasM</span> returns <span class="usertext">true</span> if the features in the layer have M values.</li><li purpose="li" id="LI_A54FBE4FC9254C0DA2B7EBEC473E6F42"><span class="usertext">allowGeometryUpdates</span> returns <span class="usertext">true</span> if the geometry of the features in the layer can be edited. </li><li purpose="li" id="LI_C0E0A5128AA9487BB40639870355CD87"><span class="usertext">supportsCalculate</span> will be <span class="usertext">true</span> if the layers supports the calculate operation. </li><li purpose="li" id="LI_E1C7946FAAB7441EBA9FC859D56BFAB9"><span class="usertext">supportsAttachmentsByUploadId</span> will be <span class="usertext">true</span> if the layer supports uploading attachments by UploadId.</li> <li purpose="li" id="LI_DF3F950D981C48F0BF553B50388079A7"><span class="usertext">supportsApplyEditsWithGlobalIds</span> will be <span class="usertext">true</span> if the layer supports <a class="xref" rel="02ss/02ss00000031000000.htm" href="02ss/02ss00000031000000.htm">applying edits</a> where globalid values provided by the client are used. In order for <span class="usertext">supportsApplyEditsWithGlobalIds</span> to be <span class="usertext">true</span>, layers must have a globalid column and have <span class="usertext">isDataVersioned</span> as <span class="usertext">false</span>. Layers with <span class="usertext">hasAttachments</span> as <span class="usertext">true</span> additionally require attachments with globalids and attachments related to features via the features globalid. </li></ul><div class="notes" id="GUID-40A07127-1BF9-4487-8E0B-0B5769F4B86F"><div class="note"><img class="note_img" src="rsrc/note.png" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"> A unique index is also required on the globalid column in order for <span class="usertext">supportsApplyEditsWithGlobalIds</span> to be <span class="usertext">true</span>. Globalid columns may not already have a unique index. You can use the  add attribute index geoprocessing tool to create a new unique index on the globalid column in ArcGIS Pro and ArcGIS desktop. You can also remove the non-unique index using the  remove attribute index geoprocessing tool. For services that support it, the <a class="xref_bad" href="GUID-C47B7740-13EF-4319-9A7C-B5749DFF1F57" rel="GUID-C47B7740-13EF-4319-9A7C-B5749DFF1F57">AddtoDefinition</a> operation from the services admin API can also be used to add the index.</div></div><ul purpose="ul" id="UL_01B2204C60864812A6E013ACD589E881"><li purpose="li" id="LI_1047F22ECEDC46CF9786E993E56D8738"><span class="usertext">Fields</span> display SQL TYPE in addition to field types for ArcGIS Online hosted feature service layers. While developing application these SQL types should not be relied upon and field types should be used instead. The table below describes these SQL types.</li> </ul><div class="block_table" id="TABLE_621236F35EC249D0845E06315A1FE441" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="*"></colgroup><colgroup width="*"></colgroup><colgroup width="*"></colgroup><tr purpose="thead"><th class="th" purpose="th" rowspan="1" colspan="1"><p id="GUID-19A9DE02-4478-4EA2-80B8-826663B8F573"> SqlType</p></th><th class="th" purpose="th" rowspan="1" colspan="1"><p id="GUID-BBFA212E-15A4-4818-8E47-235FF6D7F49C"> FieldType</p></th><th class="th" purpose="th" rowspan="1" colspan="1"><p id="GUID-D4455893-62EA-44BE-98C1-BCF3C6312DC5"> Result database column type</p></th></tr><tbody><tr><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-157260FF-D8A2-42DC-A6DF-1B4B02B0AC08"> Not specified</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-33FCF220-6130-43F2-B08F-4DA28C32FB73"> esriFieldTypeOID</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-DD9D7DD3-4AFB-423C-A130-AB9DE730F935"> [int]</p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-A7F57A32-6581-4C81-8540-1996B0C800B8"> sqlTypeBigInt</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-D7DB8BE6-6A74-4C31-A334-AFFAFB20D861"> esriFieldTypeOID</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-5B83CDC9-D23D-4CD5-8B58-2AD6A35239CC"> [bigint] - not currently supported</p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-D088FE9E-F7D3-449F-B754-D476DF40AB87"> sqlTypeBigInt</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-D1D84583-0270-4A08-A29E-6CCF2E79B923"> esriFieldTypeInteger</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-A64D115C-54D2-4085-94D8-B4EB642DA7B8"> [bigint]</p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-9BA00EB5-81CD-4B79-A125-F5BBBE60CDFD"> sqlTypeInteger</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-08CDA4C1-8411-4D72-9241-1C3B95406CBF"> esriFieldTypeInteger</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-053B16F7-37B7-4D66-9136-AE8BCC364A7A"> [int]</p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-AEBA65E4-143B-4F5C-9B26-0F2078EBE4D4"> sqlTypeBit</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-63954A0E-13DB-4A54-BC9F-C34E70095EFC"> esriFieldTypeSmallInteger</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-C484E272-FFEC-4B88-9750-574B8885CAEC">[bit]</p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-F081DD3B-B63B-473F-8B43-A38E85A1300E"> sqlTypeTinyInt</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-38A38068-B740-4D98-9C4F-8AB09A9ACBB4"> esriFieldTypeSmallInteger</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-A55A40C0-45AA-4188-AA87-CA6E77F8C423"> [tinyint]</p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-91760ED9-6081-44FF-B09C-4513C1F4E99B"> sqlTypeInteger</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-8437B1AE-F1FB-4F2C-A7A4-6ACFDC32DC8C"> esriFieldTypeSmallInteger</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-25063FCE-0EAA-4B30-B90D-72159C504D46"> [smallint]</p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-63B7503C-A051-42B7-93C9-A37A20494FDB"> NA</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-D7C79163-EC54-4A2B-A0DD-F59CB5F6D5D5"> esriFieldTypeDate</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-E92B105A-38C3-4727-BD83-242606ACFCD3"> columnSize = 4  [smalldatatime]</p>
+
+</td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-138B5A74-189E-4A9C-85CA-4AA707ED4A54"> NA</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-A46B8B7E-6173-4690-9A37-9E00D30DE8BB"> esriFieldTypeDate</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-542C4863-6EDA-434C-9FB3-F4C04C0B55BA">columnSize = 10
+[datetimeoffset]
+</p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-2207ECFE-1248-4F94-A9AA-C5DB05E034ED"> NA</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-507F58E2-CAF2-4C56-B7E8-AB826503CE64"> esriFieldTypeDate</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-495DCD6A-C7B8-45A1-A916-71A529E3E110"> columnSize = 8 or none  [datetime2]</p>
+
+</td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-237A0133-A202-4A76-8322-31E40D67FC8C"> sqlTypeTime</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-65B0659B-EFDA-4F37-A400-920A3B0ED1BD"> esriFieldTypeString</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-51FA08F2-F67A-4BDD-8913-A9AD7B5DDED6"> [time]</p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-12FC62AC-0CE6-48DA-B0D2-4E5EF95E690F"> sqlTypeTimestamp</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-FB593527-7851-454F-9F8B-93FB532BC3A3"> esriFieldTypeString</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-CC500D22-9BC3-4918-A429-4AFAE9AD3A71"> [timestamp]</p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-51D48A03-8833-447E-BA0D-9FC7FEB6BEA5">none</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-0E25DF62-31E5-426B-B72C-6AA9BC0FC0F7"> esriFieldTypeString</p></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-E1001C6A-0D5F-4925-A74A-99941209C4C4"> nvarchar</p></td></tr></tbody></table><span class="table_desc"></span></div></div>
+    <div class="section1" id="ESRI_SECTION1_8D9F500F3BEC4EDB8774BAE07283F543" purpose="section1"><h2> SqlTypeResource hierarchy</h2><p id="GUID-901FEC48-61BC-45E7-8753-B1C0D58A44A1"><div class="image" purpose="image"><table><tr><td><img class="break" src="02ss/GUID-BCC40AF3-EB9E-494F-B57A-3D91C6F5F481-web.jpg" purpose="img" alt="fslayer" title="fslayer"></td></tr></table></div></p></div><div class="section1" id="GUID-C9CF4369-79BD-41E1-AD62-D1A0328F370E" purpose="section1"><h2>
+        Request parameters
+      </h2><p id="GUID-BD74998D-AB50-49A4-B214-CEF906AA0129">
+        <div class="block_table" id="GUID-774F0D02-B7D3-4734-9721-92C2041664DA" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="200pt"></colgroup><colgroup width="*"></colgroup><tr purpose="thead"><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-D74E0368-E89F-4666-9772-D22D80FEBC1F">Parameter</p>
+                </th><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-8276D04A-E126-487A-B638-C75627C17173">Details</p>
+                </th></tr><tbody>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">f</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-513EDCAA-59F7-4107-9964-B9E6D19FE4F0">Description: The response format. The default response format is html.</p><p id="GUID-8E784E32-8DA5-4320-BA20-E3056CA7E195">Values: <span class="usertext">html | json | pjson</span></p>
+                </td>
+              </tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">returnUpdates</span>
+                </td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-2CF4DE61-49C0-4F47-9C42-8CA88E9F0302">This option was added at 10.1.</p><p id="GUID-A90887DF-5C2A-40D3-82B6-BCD5307EFE93">Description: If value is <span class="usertext">true</span>, an  updated time extent is returned. If the layer is not time-aware, an empty response is returned. </p><p id="GUID-58F75521-1512-4AB1-98A9-477407A04D5F">Values: <span class="usertext">true | false</span></p>
+                </td></tr>
+            </tbody></table><span class="table_desc"></span></div>
+      </p></div>
+    
+    <div class="section1" id="GUID-C4CC604D-6168-4119-9358-D68951D5B2A3" purpose="section1"><h2>Example usage</h2><p id="GUID-B19360CA-DA51-4A2F-A874-179A5578419F">
+        Example: Get information about layer 0 in the "USA" Feature Service
+</p><p id="GUID-B0B531C3-89E6-4CE1-9E39-6901A4BE91EE">http://services.myserver.com/ERmEceOGq5cHrItq/ArcGIS/rest/services/USA/FeatureServer/0
+</p></div>
+    <div class="section1" id="GUID-75D69992-5D80-421A-B4AF-82AE5D1CEA04" purpose="section1"><h2>JSON response syntax</h2><p id="GUID-D11D46E8-953B-47B7-9315-7F9673957AB6">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          
+        <div class="highlight"><pre><code><span class="p">{</span>
+   <span class="s2">&quot;currentVersion&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">currentVersion</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//Added at 10.0 SP1</span>
+   <span class="c1">//properties applicable to both feature layers and tables</span>
+   <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">layerOrTableId</span><span class="o">&gt;</span><span class="p">,</span>
+   <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;layerOrTableName&gt;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;layerOrTableType&gt;&quot;</span><span class="p">,</span> <span class="c1">//&quot;Feature Layer&quot; or &quot;Table&quot;</span>
+   <span class="s2">&quot;displayField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;field name&gt;&quot;</span>
+   <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;description&gt;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;copyrightText&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;copyrightText&gt;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;defaultVisibility&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span><span class="c1">//Added at 10.1</span>
+   <span class="c1">//Added at 10.1</span>
+    <span class="s2">&quot;editFieldsInfo&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;creationDateField&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;creationDateField&gt;&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;creatorField&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;creatorField&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;editDateField&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;editDateField&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;editorField&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;editorField&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;realm&quot;</span><span class="o">:</span><span class="s2">&quot;&lt;realm&gt;&quot;</span>
+    <span class="p">},</span>
+    <span class="c1">//Added at 10.1</span>
+    <span class="s2">&quot;ownershipBasedAccessControlForFeatures&quot;</span><span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;allowOthersToUpdate&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+     <span class="s2">&quot;allowOthersToDelete&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+     <span class="s2">&quot;allowOthersToQuery&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span>
+    <span class="p">},</span>
+    <span class="c1">//Added at 10.1</span>
+    <span class="s2">&quot;syncCanReturnChanges&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;relationships&quot;</span> <span class="o">:</span> <span class="p">[</span>
+     <span class="p">{</span>
+       <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">relationshipId1</span><span class="o">&gt;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;relationshipName1&gt;&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;relatedTableId&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">relatedTableId1</span><span class="o">&gt;</span><span class="p">,</span>
+       <span class="s2">&quot;cardinality&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;esriRelCardinalityOneToOne&gt;|&lt;esriRelCardinalityOneToMany&gt;|&lt;esriRelCardinalityManyToMany&gt;&quot;</span><span class="p">;,</span><span class="c1">//Added at 10.1</span>
+       <span class="s2">&quot;role&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;esriRelRoleOrigin&gt;|&lt;esriRelRoleDestination&gt;&quot;</span><span class="p">;,</span><span class="c1">//Added at 10.1</span>
+       <span class="s2">&quot;keyField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;keyFieldName2&gt;&quot;</span><span class="p">,</span><span class="c1">//Added at 10.1</span>
+       <span class="s2">&quot;composite&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span><span class="o">&gt;|&lt;</span><span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span><span class="c1">//Added at 10.1</span>
+       <span class="s2">&quot;relationshipTableId&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">attributedRelationshipClassTableId</span><span class="o">&gt;</span><span class="p">,</span>  <span class="c1">//Added in 10.1. Returned only for attributed relationships</span>
+       <span class="s2">&quot;keyFieldInRelationshipTable&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;key field in AttributedRelationshipClass table that matches keyField&gt;&quot;</span> <span class="c1">//Added in 10.1. Returned only for attributed relationships</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">relationshipId2</span><span class="o">&gt;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;relationshipName2&gt;&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;relatedTableId&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">relatedTableId2</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;cardinality&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;esriRelCardinalityOneToOne&gt;|&lt;esriRelCardinalityOneToMany&gt;|&lt;esriRelCardinalityManyToMany&gt;&quot;</span><span class="p">;,</span><span class="c1">//Added at 10.1</span>
+       <span class="s2">&quot;role&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;esriRelRoleOrigin&gt;|&lt;esriRelRoleDestination&gt;&quot;</span><span class="p">;,</span><span class="c1">//Added at 10.1</span>
+       <span class="s2">&quot;keyField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;keyFieldName2&gt;&quot;</span><span class="p">,</span><span class="c1">//Added at 10.1</span>
+       <span class="s2">&quot;composite&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span><span class="o">&gt;|&lt;</span><span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span><span class="c1">//Added at 10.1</span>
+       <span class="s2">&quot;relationshipTableId&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">attributedRelationshipClassTableId</span><span class="o">&gt;</span><span class="p">,</span>  <span class="c1">//Added in 10.1. Returned only for attributed relationships</span>
+       <span class="s2">&quot;keyFieldInRelationshipTable&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;key field in AttributedRelationshipClass table that matches keyField&gt;&quot;</span> <span class="c1">//Added in 10.1. Returned only for attributed relationships</span>
+     <span class="p">}</span>
+   <span class="p">],</span>
+   <span class="s2">&quot;isDataVersioned&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//Added at 10.1</span>
+   <span class="s2">&quot;supportsRollbackOnFailureParameter&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//Added at 10.1</span>
+   <span class="s2">&quot;supportsStatistics&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//Added at 10.1</span>
+   <span class="s2">&quot;supportsAdvancedQueries&quot;</span><span class="o">:&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//Added at 10.1</span>
+   <span class="c1">//properties applicable to feature layers only</span>
+   <span class="s2">&quot;geometryType&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;geometryType&gt;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;minScale&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">minScale</span><span class="o">&gt;</span><span class="p">,</span>
+   <span class="s2">&quot;maxScale&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">maxScale</span><span class="o">&gt;</span><span class="p">,</span>
+   <span class="s2">&quot;effectiveMinScale&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">effectiveMinScale</span><span class="o">&gt;</span><span class="p">,</span>
+   <span class="s2">&quot;effectiveMaxScale&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">effectiveMaxScale</span><span class="o">&gt;</span><span class="p">,</span>
+   <span class="s2">&quot;extent&quot;</span> <span class="o">:</span>  <span class="o">&lt;</span><span class="nx">envelope</span><span class="o">&gt;</span><span class="p">,</span>
+
+   <span class="c1">//for feature layers only</span>
+   <span class="s2">&quot;drawingInfo&quot;</span> <span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;renderer&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">renderer</span><span class="o">&gt;</span><span class="p">,</span>
+     <span class="s2">&quot;transparency&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">transparency</span><span class="o">&gt;</span><span class="p">,</span>
+     <span class="s2">&quot;labelingInfo&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">labelingInfo</span><span class="o">&gt;</span>
+   <span class="p">},</span>
+    <span class="s2">&quot;hasM&quot;</span><span class="o">:</span>  <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//if the features in the layer have M values, the hasM property will be true</span>
+    <span class="s2">&quot;hasZ&quot;</span><span class="o">:</span>  <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//if the features in the layer have Z values, the hasZ property will be true</span>
+   <span class="c1">//if the layer / table supports querying based on time</span>
+    <span class="s2">&quot;enableZDefaults&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span><span class="c1">//Added at 10.1</span>
+    <span class="s2">&quot;zDefault&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">zDefaultValue</span><span class="o">&gt;</span><span class="p">,</span><span class="c1">//Added at 10.1</span>
+    <span class="s2">&quot;allowGeometryUpdates&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span><span class="c1">//Added at 10.1</span>
+   <span class="s2">&quot;timeInfo&quot;</span> <span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;startTimeField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;startTimeFieldName&gt;&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;endTimeField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;endTimeFieldName&gt;&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;trackIdField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;trackIdFieldName&gt;&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;timeExtent&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="nx">startTime</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">endTime</span><span class="o">&gt;</span><span class="p">],</span>
+     <span class="s2">&quot;timeReference&quot;</span> <span class="o">:</span> <span class="p">{</span>
+       <span class="s2">&quot;timeZone&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;timeZone&gt;&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;respectsDaylightSaving&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span>
+     <span class="p">},</span>
+     <span class="s2">&quot;timeInterval&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">timeInterval</span><span class="o">&gt;</span><span class="p">,</span>
+     <span class="s2">&quot;timeIntervalUnits&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;timeIntervalUnits&gt;&quot;</span>
+   <span class="p">},</span>
+
+   <span class="c1">//if the layer / table has attachments, the hasAttachments property will be true</span>
+   <span class="s2">&quot;hasAttachments&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span>
+
+   <span class="c1">//from 10 onward - indicates whether the layer / table has htmlPopups</span>
+   <span class="s2">&quot;htmlPopupType&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;esriServerHTMLPopupTypeNone | esriServerHTMLPopupTypeAsURL | esriServerHTMLPopupTypeAsHTMLText&gt;&quot;</span><span class="p">,</span>
+
+   <span class="c1">//layer / table fields</span>
+   <span class="s2">&quot;objectIdField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;objectIdFieldName&gt;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;globalIdField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;globalIdFieldName&gt;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;typeIdField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;typeIdFieldName&gt;&quot;</span><span class="p">,</span>
+   <span class="c1">//from 10.0 fields of type (String, Date, GlobalID, GUID and XML) have an additional length property, editable properties</span>
+   <span class="c1">//from 10.1 fields have an additional nullable property</span>
+   <span class="s2">&quot;fields&quot;</span> <span class="o">:</span> <span class="p">[</span>
+     <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldName1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldType1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldAlias1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;length1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;editable&quot;</span> <span class="o">:</span>    <span class="s2">&quot;&lt;true | false&gt;&quot;</span><span class="p">,</span><span class="s2">&quot;nullable&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;true | false&gt;&quot;</span><span class="p">,</span><span class="s2">&quot;domain&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">domain1</span><span class="o">&gt;</span><span class="p">},</span>
+     <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldName2&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldType2&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldAlias1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;length2&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;editable&quot;</span> <span class="o">:</span>    <span class="s2">&quot;&lt;true | false&gt;&quot;</span><span class="p">,</span><span class="s2">&quot;nullable&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;true | false&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;domain&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">domain2</span><span class="o">&gt;</span><span class="p">}</span>
+   <span class="p">],</span>
+   <span class="c1">//layer / table sub-types</span>
+   <span class="s2">&quot;types&quot;</span> <span class="o">:</span> <span class="p">[</span>
+     <span class="p">{</span>
+       <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">typeId1</span><span class="o">&gt;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;typeName1&gt;&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;domains&quot;</span> <span class="o">:</span> <span class="p">{</span>
+         <span class="s2">&quot;&lt;domainField11&gt;&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">domain11</span><span class="o">&gt;</span><span class="p">,</span>
+         <span class="s2">&quot;&lt;domainField12&gt;&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">domain12</span><span class="o">&gt;</span>
+      <span class="p">},</span>
+       <span class="s2">&quot;templates&quot;</span> <span class="o">:</span> <span class="p">[</span>
+         <span class="p">{</span>
+           <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;templateName11&gt;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;templateDescription11&gt;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;prototype&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">prototypicalFeature11</span><span class="o">&gt;</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+           <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;templateName12&gt;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;templateDescription12&gt;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;prototype&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">prototypicalFeature12</span><span class="o">&gt;</span>
+         <span class="p">}</span>
+       <span class="p">]</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">typeId2</span><span class="o">&gt;</span><span class="p">,</span>
+       <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;typeName2&gt;&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;domains&quot;</span> <span class="o">:</span> <span class="p">{</span>
+         <span class="s2">&quot;&lt;domainField11&gt;&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">domain21</span><span class="o">&gt;</span><span class="p">,</span>
+         <span class="s2">&quot;&lt;domainField12&gt;&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">domain22</span><span class="o">&gt;</span>
+       <span class="p">},</span>
+       <span class="s2">&quot;templates&quot;</span> <span class="o">:</span> <span class="p">[</span>
+         <span class="p">{</span>
+           <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;templateName21&gt;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;templateDescription21&gt;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;prototype&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">prototypicalFeature21</span><span class="o">&gt;</span><span class="p">,</span>
+           <span class="s2">&quot;drawingTool&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFeatureEditToolNone | esriFeatureEditToolPoint | esriFeatureEditToolLine | esriFeatureEditToolPolygon |</span>
+<span class="s2">                        esriFeatureEditToolAutoCompletePolygon | esriFeatureEditToolCircle | esriFeatureEditToolEllipse | esriFeatureEditToolRectangle |</span>
+<span class="s2">                        esriFeatureEditToolFreehand&quot;</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+           <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;templateName22&gt;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;templateDescription22&gt;&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;prototype&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">prototypicalFeature22</span><span class="o">&gt;</span><span class="p">,</span>
+           <span class="s2">&quot;drawingTool&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFeatureEditToolNone | esriFeatureEditToolPoint | esriFeatureEditToolLine | esriFeatureEditToolPolygon |</span>
+<span class="s2">                        esriFeatureEditToolAutoCompletePolygon | esriFeatureEditToolCircle | esriFeatureEditToolEllipse | esriFeatureEditToolRectangle |</span>
+<span class="s2">                        esriFeatureEditToolFreehand&quot;</span>
+         <span class="p">}</span>
+       <span class="p">]</span>
+     <span class="p">}</span>
+   <span class="p">],</span>
+
+   <span class="c1">//layer / table templates - usually present when the layer / table has no sub-types</span>
+<span class="s2">&quot;templates&quot;</span> <span class="o">:</span> <span class="p">[</span>
+     <span class="p">{</span>
+       <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;templateName1&gt;&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;templateDescription1&gt;&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;prototype&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">prototypicalFeature1</span><span class="o">&gt;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;templateName2&gt;&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;templateDescription2&gt;&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;prototype&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">prototypicalFeature2</span><span class="o">&gt;</span>
+     <span class="p">}</span>
+   <span class="p">],</span>
+   <span class="c1">//Maximum number of records returned in a query result</span>
+   <span class="s2">&quot;maxRecordCount&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">maxRecordCount</span><span class="o">&gt;</span> <span class="c1">//Added at 10.1</span>
+   <span class="s2">&quot;supportedQueryFormats&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;supportedQueryFormats&gt;&quot;</span><span class="p">,</span> <span class="c1">//Added at 10.1</span>
+   <span class="s2">&quot;hasStaticData&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span>
+   <span class="c1">//comma separated list of supported capabilities - e.g. &quot;Create,Delete,Query,Update,Editing&quot;</span>
+   <span class="s2">&quot;capabilities&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;capabilities&gt;&quot;</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</div>
+      </p></div>
+    <div class="section1" id="GUID-8127F311-C0C9-4937-8FA5-31317FAEA5AA" purpose="section1"><h2>JSON response example</h2><p id="GUID-FC38C6F5-5E0B-4667-B01F-D9EE9904C7B2">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Incidents&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Feature Layer&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;displayField&quot;</span><span class="o">:</span> <span class="s2">&quot;req_id&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;copyrightText&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+  <span class="s2">&quot;supportsRollbackOnFailures&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;geometryType&quot;</span><span class="o">:</span> <span class="s2">&quot;esriGeometryPoint&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;extent&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;xmin&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">122.514435102</span><span class="p">,</span>
+    <span class="s2">&quot;ymin&quot;</span><span class="o">:</span> <span class="mf">5.6843418860808</span><span class="nx">E</span><span class="o">-</span><span class="mi">14</span><span class="p">,</span>
+    <span class="s2">&quot;xmax&quot;</span><span class="o">:</span> <span class="mf">138.625776397</span><span class="p">,</span>
+    <span class="s2">&quot;ymax&quot;</span><span class="o">:</span> <span class="mf">67.1577965990001</span><span class="p">,</span>
+    <span class="s2">&quot;spatialReference&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;wkid&quot;</span><span class="o">:</span> <span class="mi">4326</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;drawingInfo&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;renderer&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;uniqueValue&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;field1&quot;</span><span class="o">:</span> <span class="s2">&quot;req_type&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;field2&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;field3&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;defaultSymbol&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">&quot;defaultLabel&quot;</span><span class="o">:</span> <span class="s2">&quot;\u003call other values\u003e&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;uniqueValueInfos&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;Blocked Street or Sidewalk&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Blocked Street or Sidewalk&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriPMS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;1DD4FC53&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAII=&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+            <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+            <span class="s2">&quot;angle&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;xoffset&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;yoffset&quot;</span><span class="o">:</span> <span class="mi">0</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;Damaged Property&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Damaged Property&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriPMS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;DF3100A6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAII=&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span>
+            <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">9</span><span class="p">,</span>
+            <span class="s2">&quot;angle&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;xoffset&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;yoffset&quot;</span><span class="o">:</span> <span class="mi">0</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;Graffiti Complaint - Public Property&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Graffiti Complaint&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriPMS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;B2E6E7A0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAg==&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+            <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+            <span class="s2">&quot;angle&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;xoffset&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;yoffset&quot;</span><span class="o">:</span> <span class="mi">0</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;Graffiti Complaint � Private Property&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Graffiti Complaint&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriPMS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;B2E6E7A0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAAg==&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+            <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+            <span class="s2">&quot;angle&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;xoffset&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;yoffset&quot;</span><span class="o">:</span> <span class="mi">0</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;Sewer Issues&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sewer Issues&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriPMS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;80DC11A7&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABYAAAAaCAYAAACzdqxAAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAAg==&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">16</span><span class="p">,</span>
+            <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+            <span class="s2">&quot;angle&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;xoffset&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;yoffset&quot;</span><span class="o">:</span> <span class="mi">0</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;Sidewalk and Curb Issues&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Sidewalk and Curb Issues&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriPMS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;19213DC2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAAII=&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+            <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+            <span class="s2">&quot;angle&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;xoffset&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;yoffset&quot;</span><span class="o">:</span> <span class="mi">0</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;Tree Maintenance or Damage&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Tree Maintenance or Damage&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriPMS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;37B62A6C&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABcAAAAaCAYAAABctMd+AAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAACC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">17</span><span class="p">,</span>
+            <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+            <span class="s2">&quot;angle&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;xoffset&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;yoffset&quot;</span><span class="o">:</span> <span class="mi">0</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;transparency&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;labelingInfo&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;hasAttachments&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">&quot;htmlPopupType&quot;</span><span class="o">:</span> <span class="s2">&quot;esriServerHTMLPopupTypeAsHTMLText&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;objectIdField&quot;</span><span class="o">:</span> <span class="s2">&quot;objectid&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;globalIdField&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;typeIdField&quot;</span><span class="o">:</span> <span class="s2">&quot;req_type&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fields&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;objectid&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeOID&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Object ID&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;editable&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;nullable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;req_id&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Request ID&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;editable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;length&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="s2">&quot;nullable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;req_type&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Request Type&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;editable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;length&quot;</span><span class="o">:</span> <span class="mi">40</span><span class="p">,</span>
+      <span class="s2">&quot;nullable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;req_date&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Request Date&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;editable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;length&quot;</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+      <span class="s2">&quot;nullable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;req_time&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Request Time&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;editable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;length&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="s2">&quot;nullable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;address&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Address&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;editable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;length&quot;</span><span class="o">:</span> <span class="mi">60</span><span class="p">,</span>
+      <span class="s2">&quot;nullable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;x_coord&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;X Coordinate&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;editable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;length&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="s2">&quot;nullable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;y_coord&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Y Coordinate&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;editable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;length&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="s2">&quot;nullable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;district&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;District&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;editable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;length&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="s2">&quot;nullable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeSmallInteger&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Status&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;editable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;nullable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;codedValue&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;StatusCodes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;codedValues&quot;</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;New&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;code&quot;</span><span class="o">:</span> <span class="mi">1</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Open&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;code&quot;</span><span class="o">:</span> <span class="mi">2</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Closed&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;code&quot;</span><span class="o">:</span> <span class="mi">3</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;types&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;Graffiti Complaint - Private Property&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Graffiti Complaint&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;domains&quot;</span><span class="o">:</span> <span class="p">{</span>
+        
+      <span class="p">},</span>
+      <span class="s2">&quot;templates&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Graffiti Complaint&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;drawingTool&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFeatureEditToolPoint&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;prototype&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s2">&quot;req_id&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;req_type&quot;</span><span class="o">:</span> <span class="s2">&quot;Graffiti Complaint - Private Property&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;req_date&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;req_time&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;address&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;x_coord&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;y_coord&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;district&quot;</span><span class="o">:</span> <span class="kc">null</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;Blocked Street or Sidewalk&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Blocked Street or Sidewalk&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;domains&quot;</span><span class="o">:</span> <span class="p">{</span>
+        
+      <span class="p">},</span>
+      <span class="s2">&quot;templates&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Blocked Street or Sidewalk&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;drawingTool&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFeatureEditToolPoint&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;prototype&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s2">&quot;req_id&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;req_type&quot;</span><span class="o">:</span> <span class="s2">&quot;Blocked Street or Sidewalk&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;req_date&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;req_time&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;address&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;x_coord&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;y_coord&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;district&quot;</span><span class="o">:</span> <span class="kc">null</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;Damaged Property&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Damaged Property&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;domains&quot;</span><span class="o">:</span> <span class="p">{</span>
+        
+      <span class="p">},</span>
+      <span class="s2">&quot;templates&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Damaged Property&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;drawingTool&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFeatureEditToolPoint&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;prototype&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s2">&quot;req_id&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;req_type&quot;</span><span class="o">:</span> <span class="s2">&quot;Damaged Property&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;req_date&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;req_time&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;address&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;x_coord&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;y_coord&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;district&quot;</span><span class="o">:</span> <span class="kc">null</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;Graffiti Complaint - Public Property&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Graffiti Complaint&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;domains&quot;</span><span class="o">:</span> <span class="p">{</span>
+        
+      <span class="p">},</span>
+      <span class="s2">&quot;templates&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Graffiti Complaint&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;drawingTool&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFeatureEditToolPoint&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;prototype&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s2">&quot;req_id&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;req_type&quot;</span><span class="o">:</span> <span class="s2">&quot;Graffiti Complaint - Public Property&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;req_date&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;req_time&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;address&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;x_coord&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;y_coord&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;district&quot;</span><span class="o">:</span> <span class="kc">null</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;Sewer Issues&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Sewer Issues&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;domains&quot;</span><span class="o">:</span> <span class="p">{</span>
+        
+      <span class="p">},</span>
+      <span class="s2">&quot;templates&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Sewer Issues&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;drawingTool&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFeatureEditToolPoint&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;prototype&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s2">&quot;req_id&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;req_type&quot;</span><span class="o">:</span> <span class="s2">&quot;Sewer Issues&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;req_date&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;req_time&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;address&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;x_coord&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;y_coord&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;district&quot;</span><span class="o">:</span> <span class="kc">null</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;Tree Maintenance or Damage&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Tree Maintenance or Damage&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;domains&quot;</span><span class="o">:</span> <span class="p">{</span>
+        
+      <span class="p">},</span>
+      <span class="s2">&quot;templates&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Tree Maintenance or Damage&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;drawingTool&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFeatureEditToolPoint&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;prototype&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s2">&quot;req_id&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;req_type&quot;</span><span class="o">:</span> <span class="s2">&quot;Tree Maintenance or Damage&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;req_date&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;req_time&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;address&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;x_coord&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;y_coord&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;district&quot;</span><span class="o">:</span> <span class="kc">null</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;Sidewalk and Curb Issues&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Sidewalk and Curb Issues&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;domains&quot;</span><span class="o">:</span> <span class="p">{</span>
+        
+      <span class="p">},</span>
+      <span class="s2">&quot;templates&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Sidewalk and Curb Issues&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;drawingTool&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFeatureEditToolPoint&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;prototype&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s2">&quot;req_id&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;req_type&quot;</span><span class="o">:</span> <span class="s2">&quot;Sidewalk and Curb Issues&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;req_date&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;req_time&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;address&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;x_coord&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;y_coord&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+              <span class="s2">&quot;district&quot;</span><span class="o">:</span> <span class="kc">null</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;templates&quot;</span><span class="o">:</span> <span class="p">[</span>
+    
+  <span class="p">],</span>
+  <span class="s2">&quot;capabilities&quot;</span><span class="o">:</span> <span class="s2">&quot;Create,Delete,Query,Update,Editing&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+  <div class="footer"> Copyright © 1995-2015 Esri. All rights reserved. </div></div></body></html>

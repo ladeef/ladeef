@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<title>City of Atlanta GIS - GIS Data Catalog</title>
+<meta name="title" content="GIS Data Catalog" />
+<meta name="author" content="Administrator" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+			<link rel="stylesheet" href="templates/atlanta1/css/template_css.css" type="text/css" />
+			<link rel="shortcut icon" href="http://gis.atlantaga.gov/gishome/images/favicon.ico" />
+			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+			<meta name="robots" content="noindex, nofollow" />
+					</head>
+		<body class="contentpane">
+						<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+					GIS Data Catalog									</td>
+								<script language="javascript" type="text/javascript">
+				<!--
+				document.write('<td align="right" width="100%" class="buttonheading">');
+				document.write('<a href="#" onclick="javascript:window.print(); return false;" title="Print">');
+				document.write('<img src="http://gis.atlantaga.gov/gishome/images/M_images/printButton.png"  alt="Print" name="Print" align="middle" border="0" />');
+				document.write('</a>');
+				document.write('</td>');
+				//-->
+				</script>				
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<p class="contentdescription">Atlanta GIS creates and maintains many GIS data sets (also known as&quot; layers&quot; because of the way they are layered one on top another to create a map) and collects others from external sources, mostly other government agencies.&nbsp; Each layer represents some class&nbsp; of geographic feature.&nbsp; The features represented can be physical, such as roads, buildings and streams, or they can be conceptual, such as neighbor boundaries, property lines and the locations of crimes. </p><p><span class="contentdescription">The GIS Data Catalog is an on-line compilation of information on GIS layers used by the CIty.&nbsp; The catalog allows you to quickly locate GIS data by searching by keyword.&nbsp; You can also view&nbsp; <a href="index.php?option=com_content&amp;task=view&amp;id=16&amp;Itemid=52">metadata</a>     for each data layer in the catalog.&nbsp; All data in the catalog represent the best and most current GIS data maintained or used by the city.&nbsp; The city&#39;s GIS metadata is maintained in conformance with a standard defined by the <a href="http://www.fgdc.gov/" target="_blank">Federal Geographic Data Committee (FGDC)</a>  .</span></p><p class="contentdescription">&nbsp;The data layers themselves are not available for download from the catalog. &nbsp; Data can be requested by contacting the originating&nbsp; department or agency.&nbsp; More specific contact information is available within the metadata for many data layers.</p><p>&nbsp;<a href="/apps/gislayers/"><strong>Continue to the GIS Data Catalog &gt;&gt;</strong></a> </p><p>&nbsp;<a href="/apps/gislayers/download/"><strong>Download GIS layers maintained by the Office of Planning</strong></a> </p>			</td>
+		</tr>
+				</table>
+		
+		<span class="article_seperator">&nbsp;</span>
+		
+					<script language="javascript" type="text/javascript">
+			<!--
+			document.write('<div align="center" style="margin-top: 30px; margin-bottom: 30px;">');
+			document.write('<a href="#" onclick="javascript:window.close();"><span class="small">Close Window</span></a>');
+			document.write('</div>');
+			//-->
+			</script>
+					</body>
+	</html>
+	

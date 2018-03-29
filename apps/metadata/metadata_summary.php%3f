@@ -1,0 +1,4 @@
+<br />
+<b>Warning</b>:  oci_parse() expects parameter 1 to be resource, null given in <b>C:\Inetpub\wwwroot\apps\metadata\metadata_summary.php</b> on line <b>20</b><br />
+<br />
+<b>Warning</b>:  oci_error() expects parameter 1 to be resource, null given in <b>C:\Inetpub\wwwroot\apps\metadata\metadata_summary.php</b> on line <b>22</b><br />

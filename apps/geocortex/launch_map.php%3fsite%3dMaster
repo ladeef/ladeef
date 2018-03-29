@@ -1,0 +1,10 @@
+<html>
+<head>
+</head>
+<body>
+<script language="javascript">
+document.location="http://gis.atlantaga.gov/imf/imf.jsp?site=Master";
+//document.location="http://dit-gis-09r/imf/imf.jsp?site=Master";
+</script>
+</body>
+</html>

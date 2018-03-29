@@ -1,0 +1,582 @@
+
+
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+<title>PIN_LOC_929 (GeocodeServer)</title>
+<link href="/dpcd/rest/static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="100%" class="userTable">
+ <tr>
+ <td class="titlecell">
+ ArcGIS REST Services Directory
+ </td>
+ <td align="right">
+   
+      
+        <a href="http://gis.atlantaga.gov/dpcd/rest/login">Login</a>
+       
+            | <a href="http://gis.atlantaga.gov/dpcd/tokens/">Get Token</a>
+                  
+      
+   
+ </td>
+ </tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="/dpcd/rest/services">Home</a>
+
+
+
+
+
+
+  &gt; <a href="/dpcd/rest/services">services</a>
+  
+  &gt; <a href="/dpcd/rest/services/PIN_LOC_929/GeocodeServer">PIN_LOC_929 (GeocodeServer)</a>
+  
+</td>
+<td align="right">
+<a href="http://gis.atlantaga.gov/dpcd/sdk/rest/02ss/02ss00000057000000.htm" target="_blank">Help</a> | <a href="http://gis.atlantaga.gov/dpcd/rest/services/PIN_LOC_929/GeocodeServer?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+
+
+  <table>
+  <tr>
+  <td class="apiref">
+  
+    
+    <a href="?f=pjson" target="_blank">JSON</a>
+    
+     | 
+    <a href="http://gis.atlantaga.gov/dpcd/services/PIN_LOC_929/GeocodeServer?wsdl" >SOAP</a>
+    
+  </td>
+  </tr>
+  </table>
+  
+
+<h2>PIN_LOC_929 (GeocodeServer)</h2>
+
+<div class="rbody">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<b>Service Description: </b>  <br/><br/>
+
+
+  <b>Address Fields:</b>
+  
+
+
+
+
+
+
+
+
+
+<ul>
+
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+City
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: City Names
+  , 
+  
+  required: false
+  , 
+  
+  length: 100
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+State
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: State
+  , 
+  
+  required: false
+  , 
+  
+  length: 40
+  
+  
+)
+</i>
+  </li>
+  
+</ul>
+
+
+  <b>Single Line Address Field:</b>
+  <ul>
+   <li>
+
+
+
+
+
+
+
+
+
+
+
+
+SingleLineCityName
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: City Names
+  , 
+  
+  required: false
+  , 
+  
+  length: 100
+  
+  
+)
+</i></li>
+  </ul>
+  
+
+
+  <b>Candidate Fields:</b>
+  
+
+
+
+
+
+
+
+
+
+<ul>
+
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+Shape
+<i>
+(
+
+  type: esriFieldTypeGeometry
+  , 
+  
+  alias: Shape
+  , 
+  
+  required: false
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+Score
+<i>
+(
+
+  type: esriFieldTypeDouble
+  , 
+  
+  alias: Score
+  , 
+  
+  required: false
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+Match_addr
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: Match_addr
+  , 
+  
+  required: false
+  , 
+  
+  length: 120
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+City
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: City
+  , 
+  
+  required: false
+  , 
+  
+  length: 20
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+State
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: State
+  , 
+  
+  required: false
+  , 
+  
+  length: 2
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+Ref_ID
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: Ref_ID
+  , 
+  
+  required: false
+  , 
+  
+  length: 40
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+User_fld
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: User_fld
+  , 
+  
+  required: false
+  , 
+  
+  length: 120
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+Addr_type
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: Addr_type
+  , 
+  
+  required: false
+  , 
+  
+  length: 20
+  
+  
+)
+</i>
+  </li>
+  
+</ul>
+
+
+
+<b>Spatial Reference:</b> 
+
+
+
+
+
+102100
+
+&nbsp;(3857)
+
+<br/>
+<br/><br/>
+
+
+  <b>Locator Properties: </b>
+  <ul>
+  
+    <li>MinimumCandidateScore: <b>80</b></li>
+    
+    <li>SideOffsetUnits: <b>ReferenceDataUnits</b></li>
+    
+    <li>UICLSID: <b>{AE5A3A0E-F756-11D2-9F4F-00C04F8ED1C4}</b></li>
+    
+    <li>SpellingSensitivity: <b>80</b></li>
+    
+    <li>MinimumMatchScore: <b>85</b></li>
+    
+    <li>EndOffset: <b>0</b></li>
+    
+    <li>MatchIfScoresTie: <b>true</b></li>
+    
+    <li>SideOffset: <b>0</b></li>
+    
+    <li>SuggestedBatchSize: <b>1000</b></li>
+    
+    <li>MaxBatchSize: <b>1000</b></li>
+    
+    <li>LoadBalancerTimeOut: <b>60</b></li>
+    
+    <li>WriteXYCoordFields: <b>false</b></li>
+    
+    <li>WriteStandardizedAddressField: <b>false</b></li>
+    
+    <li>WriteReferenceIDField: <b>true</b></li>
+    
+    <li>WritePercentAlongField: <b>false</b></li>
+    
+  </ul>
+  
+
+<b>Supported Operations</b>:
+
+&nbsp;&nbsp;<a href="/dpcd/rest/services/PIN_LOC_929/GeocodeServer/findAddressCandidates">Find Address Candidates</a>
+
+&nbsp;&nbsp;<a href="/dpcd/rest/services/PIN_LOC_929/GeocodeServer/reverseGeocode">Reverse Geocode</a>
+
+&nbsp;&nbsp;<a href="/dpcd/rest/services/PIN_LOC_929/GeocodeServer/geocodeAddresses">Geocode Addresses</a>
+
+&nbsp;&nbsp;<a href="/dpcd/rest/services/PIN_LOC_929/GeocodeServer/suggest">Suggest</a>
+
+
+<br/><br/>
+<b>Child Resources</b>:
+&nbsp;&nbsp;<a href="/dpcd/rest/services/PIN_LOC_929/GeocodeServer/info">Info</a>
+
+</div>
+
+<br/><br/>
+
+</body>
+
+</html>

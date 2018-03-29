@@ -1,0 +1,189 @@
+<!doctype html public "-//w3c//dtd html 3.2//en">
+<!-- Copyright 2002-2004 Latitude Geographics Group Ltd. www.geocortex.net/copyright -->
+<html><!-- InstanceBegin template="/Templates/tutorial.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>IMF Tutorial: GIS Concepts</title>
+<!-- InstanceEndEditable -->
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+<link rel="stylesheet" type="text/css" href="css/compassCSS.css">
+<script src="js/compassDescription.js" type="text/javascript"></script>
+<script type='text/javascript'>
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+chgHeight(); 
+var isToolsFunctionsPage = false;
+//-->
+</script>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --> 
+</head>
+
+	<body id="bodyCompass" onLoad="loadPage(); toggleDesc(); MM_preloadImages('img/nav/taskBasedHelp_over.jpg','img/nav/tutorial_over.jpg','img/nav/toolsFunctions_over.jpg');">	
+			<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" id="tableHeader">
+				<tr id="top">		
+					<td height="46" align="left" valign="top"><A NAME="topmenu"></A><img src="img/headerLeft.jpg" style="float:left;"></td>
+					<td style="background-image: url(img/headerMiddle.jpg); background-repeat: repeat-x; width: 100%;"></td>
+					<td><img src="img/headerRight.jpg" style="float:right;"></td>
+				</tr>
+				<tr>
+				  <td height="16" align="left" valign="top" colspan="3">
+				  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+					  <td align="left" valign="top"><a href="gcx_tut0.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('tutorial','','img/nav/tutorial_over.jpg',1)"><img src="img/nav/tutorial.jpg" alt="Tutorial" name="tutorial" border="0"></a></td>
+					  <td align="left" valign="top"><a href="taskBasedHelp.jsp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('stepByStep','','img/nav/taskBasedHelp_over.jpg',1)"><img src="img/nav/taskBasedHelp.jpg" alt="Step By Step" name="stepByStep" border="0"></a></td>
+					  <td align="left" valign="top"><div id="divToolsAndFunctionsTab" class="divHidden"><a href="gcxCompass.jsp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('toolsFunctions','','img/nav/toolsFunctions_over.jpg',1)"><img src="img/nav/toolsFunctions.jpg" alt="Tools and Functions" name="toolsFunctions" border="0"></a></div></td>					  
+					  <td align="left" valign="top"><img src="img/nav/spacer_right.jpg"></td>
+					  <td width="100%">
+						  <div id="navBack" class="divHidden"><a href="javascript:goBack()"><img src="img/nav/back.jpg" id="backImg"></a></div>					  </td>
+					</tr>
+				  </table> 
+				</td>
+				</tr>
+    		</table>
+			<div id="content">
+			<a name="top" id="top"></a>					
+				<div class="divTutorialContent">				
+			<!-- InstanceBeginEditable name="main" -->
+			
+		<h1>Exploring the Information</h1>
+		<p>In this, the final section of the tutorial, you will learn how to explore the map 
+		information by working with layers and examining the attributes of various map features.		
+		</p>
+
+	<div class="txtTitle">Turning Layers On and Off and Making a Layer Active<a href="#top">Top</a></div>
+		<p>
+			Hopefully you've had a chance to take a look at the introduction to
+			<A HREF="gcx_tut1.html#concept1">GIS Concepts</a> section where we
+	        discussed <span class="textItalic">layers</span>.
+		</p>
+		<p>
+			Because there are often many layers available for a map, map layers are organized into related 
+			folders on the Layers Tab (if you don't see the Layer list, you can click on the Layers tab at any time). 
+			When you initially open the map, some folders may be open and some may be closed. Likewise, some layers 
+			may be turned on while others may be turned off by default.         
+		</p>
+		<p><img src="img/tutorial/jumpTo.jpg" style="float: left;">
+		    There may be a number of Jump to configurations available at the top of the layers list that 
+			will allow you to jump to a particular Theme. The Jump to feature opens and closes various folders and/or 
+			layers to produce a map comprised of a predefined combination of layers. Since it can also jump to a different 
+			location on the map, this feature is often used to recreate an existing paper map series or provide quick, 
+			efficient access to popular configurations of map information (e.g. a utilities map, a community recreation 
+			map, or a street map for navigation). 		
+		</p>
+		<p>
+	       
+			To manually set the display of layers, you can open a closed folder by clicking on it. A list of all layers 
+			contained within the folder will be shown. Similarly, you can click on an open folder to close it. Notice that
+			opening and closing folders doesn't turn layers on or off; it simply helps you stay organized. Next to the 
+			folder icon you will see a small colored rectangle and a small grey and white rectangle. To display all available 
+			<img style="float: left;" src="img/tutorial/active_layers.jpg" >		
+			layers in a folder, click the small colored rectangle. Clicking on the grey and white rectangle turns off all 
+			layers in the folder. It doesn't matter if a folder is open or closed when you do this. 
+			
+		</p>
+		
+		<p>
+			You can toggle an individual layer on or off by clicking on the adjacent checkbox. A layer is 'on' (displayed on the map)
+			when there is a check in its checkbox. Some layers are only available at certain scales. Layers that are <span class="textItalic">available</span>
+			at the current scale will be shown with a <span class="textItalic">light blue</span> identify icon(<img class="imgNoPadMiddle" src="img/tutorial/lightBlueIdentify.jpg">) next to the layer name, while layers that are
+			<span class="textItalic">unavailable </span> at a given scale are shown with a <span class="textItalic">grey</span> identify icon 
+			(<img class="imgNoPadMiddle" src="img/tutorial/greyIdentify.jpg">) next to the layer name. Clicking the red asterisk (<img class="imgNoPad" src="img/tutorial/redAsterisk.jpg">) 
+			next to the name of an unavailable layer zooms you to the closest scale at which the layer is available. 
+		</p>
+		<p>
+		
+		A layer is made 'Active' by clicking on the icon adjacent to a layer name. A <span class="textItalic">black identify</span> icon (<img class="imgNoPadMiddle" src="img/tutorial/blackIdentify.jpg">) denotes the active
+		 layer, and its name is displayed in the area below the map window. You can only have one active layer selected at a time.</p>
+		<p>
+		
+		What the heck does this mean? It means that the spotlight is on this layer. In other words, this is our way of
+		 telling the computer that this is the layer in which we are interested. How is this relevant, you ask?</p>
+		<p>
+		
+		Wow, you ask a lot of questions. Read on.</p>
+		<p>
+		<a name="identify" id="identify"></a>
+	<div class="txtTitle">Identifying Features' Attributes for an Active Layer <a href="#top">Top</a></div>
+
+		<p>
+        The introduction to <A HREF="gcx_tut1.html#concept1">GIS Concepts</a>
+        section discussed <span class="textItalic">layers</span> and how <span class="textItalic">features have attributes</span>
+        in a GIS.</p>
+		<p>
+
+       <img style="float: left;" src="img/tutorial/parcelsActive.jpg" >Suppose
+        you are interested in the attributes associated with a property at a particular location into which
+        you have zoomed. First, you ensure that the layer with property attributes is the active layer (see the above lesson to do this). In this case, the
+        'Parcels' layer is made active.</p>
+		<p>        <img style="float: right" src="img/tutorial/identifyParcel.jpg" >
+          The <span class="textItalic">Identify</span> tool allows you to get attribute information about
+          a feature by clicking on it. You select the <span class="textItalic">Identify</span> tool to
+          click on the feature whose attributes you want to examine.
+        </p>
+		<p> The attributes for that feature are displayed in a new window. If
+          the window does not appear, make sure that the feature you are clicking
+          on is part of the layer that is active.
+        </p>
+		<p style="text-align:center">For more information on this topic, go to the <a href="tools/identify.html">Identify tool help page.</a></p>
+		<hr>
+		<p>
+			If you have been following the tutorial, congratulations. You've finished the basic tutorial. 
+			Pretty painless, wasn't it? 
+		</p>
+		<p>
+			GIS technology helps people and organizations around the world use geographic information to make 
+			better decisions about how to manage the world around us. While we've only scratched the surface of 
+			what can be done during the basic tutorial, it is our hope that we've perhaps opened your eyes to 
+			the power of this technology. 
+		</p>	
+		<p>
+			We encourage you to start working with a Geocortex-based web map to put to use the information we've shared. 
+			While we've shown you the very basics, we encourage you to spend some more time (now or later) to learn some 
+			of the amazing things you can do with a Geocortex-based web map. We haven't shown you how you can draw on and
+			add your own things to the map, create your own custom maps as PDF documents (which you can save and/or print), 
+			change the color of layers and set colors based on attribute values, save your Geocortex sessions to share
+			with other people, measure distances, select features based on various criteria, search for things, and a
+			whole lot more. We don't claim all these tasks are dead simple, but we work hard to make everything as
+			simple as possible. 
+		</p>
+		<ul id="taskBased">
+			<li><a href="javascript:top.close();">Close this window so I can start working with a Geocortex-based web map</a></li>
+			<li><a href="taskBasedHelp.jsp">I want to learn about more advanced Geocortex-based web maps capabilities</a></li>
+			<!--<li><a href="Javascript: alert('help us make this better....');">Make suggestions to improve this tutorial</a></li>-->
+		</ul>
+		
+			<!-- InstanceEndEditable -->
+			  </div>
+			</div>			
+			<div class="divHidden" id="divAdvancedTaskFunctions"></div>
+			<table width="100%" cellspacing="0" cellpadding="2" id="tableFooter">
+			  <tr>
+				<td id="tdFooterObject" class="footer">
+				</td>
+			  </tr>
+			</table>	
+	</body>
+<!-- InstanceEnd --></html>

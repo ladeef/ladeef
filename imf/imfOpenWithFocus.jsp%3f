@@ -1,0 +1,24 @@
+
+<!--
+     Copyright (c) 2001 - 2015 Province of British Columbia, Canada
+     All Rights Reserved
+
+     This material is owned by the Government of British Columbia and protected
+     by copyright law. It may not be reproduced or redistributed in whole or in
+     part without the prior written permission of the Province of British Columbia.
+-->
+
+
+<html>
+<head>
+<title></title>
+<script language="JavaScript" type="text/javascript">
+function startup() {
+  self.focus();
+  self.location.href = "null";
+}
+</script>
+</head>
+<body onload="startup()">
+</body>
+</html>

@@ -1,0 +1,267 @@
+
+
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+<title>Export Map (ZoningLayers/ZoningMapSearch)</title>
+<link href="/dpcd/rest/static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="100%" class="userTable">
+ <tr>
+ <td class="titlecell">
+ ArcGIS REST Services Directory
+ </td>
+ <td align="right">
+   
+      
+        <a href="http://gis.atlantaga.gov/dpcd/rest/login">Login</a>
+       
+            | <a href="http://gis.atlantaga.gov/dpcd/tokens/">Get Token</a>
+                  
+      
+   
+ </td>
+ </tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="/dpcd/rest/services">Home</a>
+
+
+
+
+
+
+  &gt; <a href="/dpcd/rest/services">services</a>
+  
+  &gt; <a href="/dpcd/rest/services/ZoningLayers">ZoningLayers</a>
+  
+  &gt; <a href="/dpcd/rest/services/ZoningLayers/ZoningMapSearch/MapServer">ZoningMapSearch (MapServer)</a>
+  
+  &gt; <a href="/dpcd/rest/services/ZoningLayers/ZoningMapSearch/MapServer/export"><i>export</i></a>
+  
+</td>
+<td align="right">
+<a href="http://gis.atlantaga.gov/dpcd/sdk/rest/02ss/02ss00000057000000.htm" target="_blank">Help</a> | <a href="http://gis.atlantaga.gov/dpcd/rest/services/ZoningLayers/ZoningMapSearch/MapServer/export?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+
+
+
+<h2>Export Map (ZoningLayers/ZoningMapSearch)</h2>
+
+<div class="rbody">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <table class="infoTable" cellspacing="5">
+    <tr valign="top">
+      <td>
+        
+          <img style="border:2px solid #000000;" src="http://gis.atlantaga.gov/dpcd/rest/directories/arcgisoutput/ZoningLayers/ZoningMapSearch_MapServer/_ags_map84d6126e369b4d9ea8f1335a1fff3f60.png" alt="Export Image"/>
+          
+      </td>
+      <td>
+        Width: 400<br/>
+        Height: 400<br/>
+        Extent: <ul>
+
+
+
+
+
+
+
+XMin: -9421882.028220132<br/>
+YMin: 3980888.8978410494<br/>
+XMax: -9373905.165879868<br/>
+YMax: 4028865.7601813134<br/>
+
+	Spatial Reference: 
+
+
+
+
+
+102100
+
+&nbsp;(3857)
+
+<br/> <br/>
+	</ul><br/>
+        Scale: 453323.77688068664
+      </td>
+    </tr>
+  </table>
+  
+
+
+
+
+
+
+
+<div style="color:#ff6666"> 
+
+</div>
+
+<form action="/dpcd/rest/services/ZoningLayers/ZoningMapSearch/MapServer/export">
+
+<table class="formTable">
+<tr valign="top">
+<td><label for="bbox">Bounding Box:</label></td>
+<td><input type="text" id="bbox" name="bbox" value="-9421882.028220132,3993436.352152364,-9373905.165879868,4016318.305869998" size="75"/></td>
+</tr>
+<tr valign="top">
+<td><label for="bboxSR">Bounding Box Spatial Reference:</label></td>
+<td><input type="text" id="bboxSR" name="bboxSR" value="" size="75" /></td>
+</tr>
+<tr valign="top">
+<td><label for="layers">Layers:</label></td>
+<td><input type="text" id="layers" name="layers" value="" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="layerDefs">Layer Definitions:</label></td>
+<td><input type="text" id="layerDefs" name="layerDefs" value="" size="75" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="size">Image Size:</label></td>
+<td><input type="text" id="size" name="size" value="" /></td>
+</tr>
+<tr valign="top">
+<td><label for="imageSR">Image Spatial Reference:</label></td>
+<td><input type="text" id="imageSR" name="imageSR" value="" size="75" /></td>
+</tr>
+<tr valign="top">
+<td><label for="format">Image Format:</label></td>
+<td>
+<select id="format" name="format">
+<option value="png" >PNG</option>
+<option value="png8" >PNG8</option>
+<option value="png24" >PNG24</option>
+<option value="png32" >PNG32</option>
+<option value="jpg" >JPG</option>
+<option value="pdf" >PDF</option>
+<option value="bmp" >BMP</option>
+<option value="gif" >GIF</option>
+<option value="svg" >SVG</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Background Transparent:</td>
+<td>
+<label><input type="radio" name="transparent" value="true"  /> True &nbsp;</label>
+<label><input type="radio" name="transparent" value="false" checked="true"  /> False</label>
+</td>
+</tr>
+<tr valign="top">
+<td><label for="dpi">DPI:</label></td>
+<td><input type="text" id="dpi" name="dpi" value="" /></td>
+</tr>
+
+<tr>
+<td><label for="time">Time: </label></td>
+<td><input type="text" id="time" name="time" value="" size="50" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="layerTimeOptions">Layer Time Options:</label></td>
+<td>
+<textarea id="layerTimeOptions" name="layerTimeOptions" rows="3" cols="55"></textarea>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="dynamicLayers">Dynamic Layers:</label></td>
+<td>
+<textarea id="dynamicLayers" name="dynamicLayers" rows="3" cols="55"></textarea>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="gdbVersion">Geodatabase Version Name:</label></td>
+<td><input type="text" id="gdbVersion" name="gdbVersion" value="" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="mapScale">Map Scale:</label></td>
+<td><input type="text" id="mapScale" name="mapScale" value="" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="rotation">Rotation:</label></td>
+<td><input type="text" id="rotation" name="rotation" value="" /></td>
+</tr>
+
+<tr>
+<td><label for="f">Format:</label></td>
+<td>
+<select id="f" name="f">
+<option value="html">HTML</option>
+<option value="pjson">JSON</option>
+<option value="image">Image</option>
+<option value="kmz">KMZ</option>
+</select>
+</td>
+</tr>
+<tr><td colspan="2" align="left">
+<input type="submit" value="Export Map Image (GET)" />
+<input type="submit" onclick="this.form.method = 'post';" value="Export Map Image (POST)" />
+</td></tr>
+</table>
+
+</form>
+
+<script type="text/javascript">
+document.body.onload = document.all.bbox.focus();
+</script>
+
+<br/><br/>
+
+</div>
+
+<br/><br/>
+
+</body>
+
+</html>

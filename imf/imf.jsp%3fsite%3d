@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Error Report</title>
+<style>
+<!--
+body {background-color: #ffffff; font-family: Verdana,Tahoma,Arial,sans-serif; font-size: 13px; color: #009900;}
+td {background-color: #ffffff; font-family: Verdana,Tahoma,Arial,sans-serif; font-size: 13px; color: #009900; padding-left: 3px; padding-right: 10px;}
+-->
+</style>
+</head>
+<body>
+<center>
+<table border="0" cellpadding="5" align="center">
+<tr><td colspan="2" height="150">&nbsp;</td></tr>
+<tr>
+<td width="80" align="left" valign="top"><img src="images/error_error1.gif" width="62" height="62" align="middle" alt=""></td>
+<td align="left" valign="middle">
+<p>An application error has occurred:</p><p>Site  is not defined in site.properties file.</p></td>
+</tr>
+</table>
+</center>
+</body>
+</html>

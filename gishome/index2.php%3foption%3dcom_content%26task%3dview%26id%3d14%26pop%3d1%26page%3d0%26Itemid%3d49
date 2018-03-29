@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<title>City of Atlanta GIS - Property Information Search</title>
+<meta name="title" content="Property Information Search" />
+<meta name="author" content="Administrator" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+			<link rel="stylesheet" href="templates/atlanta1/css/template_css.css" type="text/css" />
+			<link rel="shortcut icon" href="http://gis.atlantaga.gov/gishome/images/favicon.ico" />
+			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+			<meta name="robots" content="noindex, nofollow" />
+					</head>
+		<body class="contentpane">
+						<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+					Property Information Search									</td>
+								<script language="javascript" type="text/javascript">
+				<!--
+				document.write('<td align="right" width="100%" class="buttonheading">');
+				document.write('<a href="#" onclick="javascript:window.print(); return false;" title="Print">');
+				document.write('<img src="http://gis.atlantaga.gov/gishome/images/M_images/printButton.png"  alt="Print" name="Print" align="middle" border="0" />');
+				document.write('</a>');
+				document.write('</td>');
+				//-->
+				</script>				
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<p style="margin: 0in 0in 0pt" class="contentdescription contentdescription"><span class="contentdescription"><a href="/apps/parcel_search/"><strong>Continue to Property Information Search &gt;&gt;</strong></a>&nbsp; </span><br /></p><p style="margin: 0in 0in 0pt" class="contentdescription contentdescription">&nbsp;</p><p style="margin: 0in 0in 0pt" class="contentdescription contentdescription">The Property Information Search page provides a tool for searching for individual properties in the city and viewing assorted information about those properties.&nbsp; &#39;Property&#39; is defined here as a single parcel of land as recorded by the Fulton County Superior Court.&nbsp; Property can be searched in three ways: 1) by address, 2) by owner&#39;s name, and 3) by parcel ID.&nbsp; Detailed information can be viewed for each property record returned by a search. Information is categorized as follows:</p><p style="margin: 0in 0in 0pt" class="MsoNormal contentdescription contentdescription">&nbsp;</p><ul><li class="contentdescription contentdescription">Planning Designations</li><li class="contentdescription contentdescription">Tax Records</li><li class="contentdescription contentdescription">Permit Information</li></ul><p class="contentdescription contentdescription">&nbsp;Each returned property record can also be viewed as an interactive map and as a bird&#39;s eye view photo.</p><p class="contentdescription contentdescription">&nbsp;<img src="/gishome/images/property_search.png" alt="Property Information Search" title="Property Information Search" vspace="12" width="300" height="217" align="bottom" /> <br /></p><p><span class="contentdescription"><a href="/apps/parcel_search/"><strong>Continue to Property Information Search &gt;&gt;</strong></a> </span><br /></p><p><font face="Times New Roman" size="3" color="#000000"><br /></font></p>			</td>
+		</tr>
+				</table>
+		
+		<span class="article_seperator">&nbsp;</span>
+		
+					<script language="javascript" type="text/javascript">
+			<!--
+			document.write('<div align="center" style="margin-top: 30px; margin-bottom: 30px;">');
+			document.write('<a href="#" onclick="javascript:window.close();"><span class="small">Close Window</span></a>');
+			document.write('</div>');
+			//-->
+			</script>
+					</body>
+	</html>
+	

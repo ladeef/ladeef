@@ -1,0 +1,846 @@
+<?
+	session_start();
+	include ("includes/header.php");
+	include "includes/user.php";
+	
+	$user = new user();
+	if($user->logincheck())
+		header("Location:index.php");
+	$test = $_SESSION['username'];
+	$cdpid = $_REQUEST['id'];
+	$userid = $_SESSION['user_id'];
+	
+	//ini_set ('magic_quotes_sybase','1');
+	//echo "as".ini_get('magic_quotes_sybase');
+	//echo "df".ini_get('magic_quotes_gpc');
+?>
+
+<script language="javascript" type="text/javascript" src="javascripts/date-functions.js"></script>
+<script language="javascript" type="text/javascript" src="javascripts/datechooser.js"></script>
+<script type="text/javascript">
+
+function valid()
+{	
+	
+	hide();
+	var i;
+	var j;
+	document.getElementById("msgshow").style.display="none";
+	
+	if(document.newproject3.proj_name.value=="")
+	{		
+			document.getElementById("nameerr").style.display="block";
+			document.newproject3.proj_name.focus();
+			return false;
+		
+	}
+	if(!IsNumeric(document.newproject3.cost_estimate.value))
+	{		
+			document.getElementById("valid_costerr").style.display="block";
+			document.newproject3.cost_estimate.focus();
+			return false;
+		
+	}
+	
+		
+	return true;
+
+}
+
+function set()
+{
+	
+	document.newproject3.proj_name.value="";	
+	document.newproject3.res_party.value="";
+	document.newproject3.cdp_source.value="";
+	document.newproject3.coun_district.value="";	
+	document.newproject3.cost_estimate.value="";
+	document.newproject3.npu.value="";
+	document.newproject3.fun_source.value="";
+	document.newproject3.fun_area.value="";
+	document.newproject3.prj_description.value="";
+	document.newproject3.ordinance.value="";
+}
+function hide()
+{
+
+	document.getElementById("nameerr").style.display="none";	
+	document.getElementById("fanaerr").style.display="none";
+	document.getElementById("resperr").style.display="none";
+	document.getElementById("costerr").style.display="none";
+	document.getElementById("valid_costerr").style.display="none";
+	document.getElementById("funderr").style.display="none";
+	document.getElementById("sourceerr").style.display="none";
+	document.getElementById("npuerr").style.display="none";
+	document.getElementById("disterr").style.display="none";	
+	document.getElementById("ordinanceerr").style.display="none";
+	document.getElementById("projerr").style.display="none";
+	document.getElementById("starterr").style.display="none";
+	document.getElementById("enderr").style.display="none";
+}
+function IsNumeric(sText)
+{
+	var ValidChars = "0123456789.";
+	var IsNumber=true;
+	var Char;
+	
+	
+	for (i = 0; i < sText.length && IsNumber == true; i++)
+	{
+		Char = sText.charAt(i);
+		if (ValidChars.indexOf(Char) == -1)
+		{
+			IsNumber = false;
+		}
+	}
+	return IsNumber;
+}
+function setFarea()
+{
+	var fareaSel = document.getElementById ? document.getElementById("fareaSelect") : document.all["fareaSelect"];
+	var fareaSelVal = fareaSel.value;
+	document.newproject3.fun_area.value = fareaSelVal;
+	fareaSel.value = '';
+}
+function openHelp(div)
+{
+
+
+	var helpText = new Array();
+	var helpStyles = "<div class=\"help_header\"><a href=\"javascript:closeHelp('"+div+"')\" border=\"0\"><img src=\"images/close.png\" border=\"0\" class=\"help_close\"></a></div><div class=\"help_body\">";
+	helpText['proj_name'] = helpStyles+"Enter a descriptive name for the CDP project.  The name should be as short as possible while uniquely identifying the project.</div>"
+	helpText['prj_description'] = helpStyles+"Enter a full description of the project, including its scope, purpose, and location (if applicable).</div>"
+	helpText['prj_justification'] = helpStyles+"Explain why this project is important and of what benefit it will be to the citizens of Atlanta.</div>"
+	helpText['prj_type'] = helpStyles+"Select the category into which the project best fits.</div>"
+	helpText['fun_source'] = helpStyles+"Enter the type funding or specific funding source expected to be used to complete the project.</div>"
+	helpText['fun_area'] = helpStyles+"Enter or select from the list the functional area which best describes the project.</div>"
+	helpText['cdp_capitalprogram'] = helpStyles+"Indicate whether this is a capital or non-capital project.  Capital projects result in physical assets.  Only capital projects can be moved into the Capital Improvements Program (CIP).</div>"
+	helpText['prj_priority'] = helpStyles+"Indicate whether this is a capital or non-capital project.  Capital projects result in physical assets.  Only capital projects can be moved into the Capital Improvements Program (CIP).</div>"
+	helpText['cdp_state'] = helpStyles+"Select the current state of the project--active, completed, or removed.  Only active projects will be included in the current Short-Term Work Program.</div>"
+	helpText['cdp_study'] = helpStyles+"Select the plans and/or studies from which the project originated. (Use the Ctrl key to make multiple selections.)</div>"
+	helpText['cost_estimate'] = helpStyles+"Enter the estimated cost of the project.</div>"
+	helpText['start_date'] = helpStyles+"Select the date on which the project is expected to begin.</div>"
+	helpText['end_date'] = helpStyles+"Select the date on which the project is expected to be completed.</div>"
+	helpText['ordinance'] = helpStyles+"Enter the ordinance number(s) for the legislation approving the project.</div>"
+	helpText['ordinance_date'] = helpStyles+"Enter the data of the legislation approving the project.</div>"
+	helpText['coun_district'] = helpStyles+"Select the council district(s) in which the project lies.  (Use the Ctrl key to make multiple selections.)</div>"
+	helpText['department'] = helpStyles+"Select the department from which the project originated.</div>"
+	helpText['res_party'] = helpStyles+"Select the department for responsible party.</div>"
+	helpText['npu'] = helpStyles+"Select the NPU(s) in which the project lies.  (Use the Ctrl key to make multiple selections.)</div>"
+	 
+	var obj = document.getElementById ? document.getElementById(div) : document.all[div];
+
+	if (eval("helpText['"+div+"']") == undefined)
+		obj.innerHTML = helpStyles+"no help for this item</div>";
+	else
+		obj.innerHTML = eval("helpText['"+div+"']");	
+
+   	if (obj.style.visibility == "hidden")
+		obj.style.visibility = "visible";
+	else
+		obj.style.visibility = "hidden";
+
+	
+}
+function closeHelp(div)
+{
+	var obj = document.getElementById ? document.getElementById(div) : document.all[div];
+	obj.style.visibility = "hidden";
+}
+function data_change(field)
+     {
+          var check = true;
+          var value = field.value; //get characters
+          //check that all characters are digits, ., -, or ""
+          for(var i=0;i < field.value.length; ++i)
+          {
+               var new_key = value.charAt(i); //cycle through characters
+               if(((new_key < "0") || (new_key > "9")) && 
+                    !(new_key == ""))
+               {
+                    check = false;
+                    break;
+               }
+          }
+          //apply appropriate colour based on value
+          if(!check)
+          {
+               field.style.backgroundColor = "red";
+          }
+          else
+          {
+               field.style.backgroundColor = "white";
+          }
+     }
+</script>
+<? 
+$message='';
+$cdp_study[]="";
+//initiating project types array
+$sql_prjtyp = $conn->execute($dbconn,"select * from COA_PROJECT_TYPES where CDP_TYPE = 'y' order by PRJ_TYPE");
+$ci=0;
+while($sql_prjtyp1 = $conn->fetch_array($sql_prjtyp))
+{
+	$cdp_project_type1[$ci]=$sql_prjtyp1['prj_type'];
+	$cdp_project_type_id1[$ci]=$sql_prjtyp1['prj_type_id'];
+	$ci=$ci+1;
+} 
+
+if ($_REQUEST['id']!="") // project update/view mode
+{
+	$user = new user();
+	if(!$user->usercheck($cdpid,$_SESSION['user_id'])) 
+		header("location:cdpdetails.php?id=".$cdpid);
+
+	if(isset($_REQUEST['save_x'])) // update mode
+	{		
+		$userid=$_SESSION['user_id'];
+		$cdpname=add_quotes($_REQUEST['proj_name']);
+		$dpprjmanager=add_quotes($_REQUEST['prj_manager']);
+		$cdpdescription=add_quotes(trim($_REQUEST['prj_description']));		
+		$depid=$_REQUEST['department'];
+		$cdp_prj_type=add_quotes($_REQUEST['prj_type']);
+		$cdpprjsponsor=add_quotes($_REQUEST['res_party']);
+		
+		
+		$cdpbureau=add_quotes($_REQUEST['bureau']);
+		$cdpfunarea=add_quotes($_REQUEST['fun_area']);
+		if($_POST['coun_district']!=NULL)
+			$cdpcouncildistrict=add_quotes(implode(",",$_POST['coun_district']));
+		if($_POST['npu']!=NULL)
+			$cdpnpu=add_quotes(implode(",",$_POST['npu']));
+		$cdplegislation=add_quotes($_REQUEST['legislation']);
+		$cdpinitiationyear=$_REQUEST['initial_year'];
+		$cdpcompletionyear=$_REQUEST['completion_year'];
+		$cdpfundingsource=add_quotes($_REQUEST['fun_source']);
+		$cdpcostofestimate=$_REQUEST['cost_estimate'];
+		$cdpordinancenumber=add_quotes($_REQUEST['ordinance']);
+		$cdpordinancedate=$_REQUEST['ordinance_date'];
+		$cdpordinancedate=chg_dateformat ($cdpordinancedate);
+		$cdp_capitalprogram=$_REQUEST['cdp_capitalprogram'];
+		$cdp_start_date=$_REQUEST['start_date'];
+		$cdp_end_date=$_REQUEST['end_date'];
+		$cdp_state=add_quotes($_REQUEST['cdp_state']);
+		$prj_priority=add_quotes($_REQUEST['prj_priority']);
+		$cdp_justification=add_quotes($_REQUEST['prj_justification']);
+		
+		//echo $cdp_state;
+		
+		$sql_update = "UPDATE coa_cdp SET cdp_name='$cdpname',
+		cdp_prj_manager = '$dpprjmanager' ,cdp_description = '$cdpdescription' ,cdp_prj_type_id ='$cdp_prj_type',
+		dep_id = '$depid', cdp_prj_sponsor = '$cdpprjsponsor' ,cdp_bureau='$cdpbureau',
+		cdp_councildistrict = '$cdpcouncildistrict',cdp_npu='$cdpnpu',cdp_legislation = '$cdplegislation',
+		cdp_initiationyear='$cdpinitiationyear',cdp_completionyear='$cdpcompletionyear' ,
+		cdp_fundingsource='$cdpfundingsource',cdp_costofestimate='$cdpcostofestimate',cdp_area='$cdpfunarea',
+		cdp_ordinancenumber='$cdpordinancenumber',cdp_ordinance_date='$cdpordinancedate', 							 	
+		cdp_capital_program='$cdp_capitalprogram',cdp_state='$cdp_state',cdp_priority='$prj_priority',cdp_source='$cdp_source',
+		cdp_justification='$cdp_justification',cdp_update=to_date(sysdate,'YYYY-MM-DD')";
+      //echo $sql_update;
+		if ( $cdp_start_date != '' ) $sql_update .= ",cdp_start_date=to_date('$cdp_start_date','YYYY-MM-DD')";
+		if ( $cdp_end_date != '' ) $sql_update .= ",cdp_end_date=to_date('$cdp_end_date','YYYY-MM-DD')";
+
+		$sql_update .= "WHERE cdp_id='$cdpid'";
+		//echo "ghgffhdgfhsgfhdsg:".get_magic_quotes_gpc();
+		
+		$sql_id = $conn->execute($dbconn,$sql_update);
+		//updating studies and plans related to cdp
+		$conn->execute($dbconn,"delete from  coa_cdp_studies where cdp_id='$cdpid'");	     
+		$num=$_REQUEST['cdp_study'];
+		for($i=0;$i<count($num);$i++)
+		{
+			{		
+				$nextid=$conn->get_insertid('cdp_study_id','coa_cdp_studies',$dbconn);
+				$result=$conn->execute($dbconn,"insert into coa_cdp_studies values('$nextid','$num[$i]','$cdpid')");	
+			}						
+		}
+		$conn->execute($dbconn,"alter index coa_cdp_idx_name rebuild");
+		
+		$message = "CDP details are successfully updated ";
+	}
+	
+	$sql_id = $conn->execute($dbconn,"select * from coa_cdp where cdp_id='$cdpid'");
+	$sql_id1 = $conn->fetch_array($sql_id);
+	
+	$cdp_name=$sql_id1[cdp_name];
+	$dp_prj_manager=$sql_id1[cdp_prj_manager];
+	$cdp_description=$sql_id1[cdp_description];
+	$cdp_programname=$sql_id1[cdp_programname];
+	$dep_id=$sql_id1[dep_id];	
+	$cdp_prj_type=$sql_id1[cdp_prj_type_id];//cdp_prj_type_id					
+	$cdp_prj_sponsor=$sql_id1[cdp_prj_sponsor];
+	$cdp_bureau=$sql_id1[cdp_bureau];	
+	$cdp_area=$sql_id1[cdp_area];
+	$cdp_councildistrict=$sql_id1[cdp_councildistrict];
+	$cdp_npu=$sql_id1[cdp_npu];
+	$cdp_legislation=$sql_id1[cdp_legislation];
+	$cdp_initiationyear=$sql_id1[cdp_initiationyear];
+	$cdp_completionyear=$sql_id1[cdp_completionyear];
+	$cdp_fundingsource=$sql_id1[cdp_fundingsource];
+	$cdp_costofestimate=$sql_id1[cdp_costofestimate];
+	$cdp_ordinancenumber=$sql_id1[cdp_ordinancenumber];
+	$cdp_update=$sql_id1[cdp_update];
+	$cdp_ordinance_date=$sql_id1[cdp_ordinance_date];
+	$cdp_capital_program=$sql_id1[cdp_capital_program];
+	$cdp_status=$sql_id1[cdp_status];
+	if($cdp_ordinance_date!=0)
+		$ordinance_date = formatdate($cdp_ordinance_date);
+	if($cdp_update!=0)
+		$update_date = formatdate($cdp_update);
+	$cdp_start_date=$sql_id1[cdp_start_date];
+	$cdp_end_date=$sql_id1[cdp_end_date];
+	$cdp_source=$sql_id1[cdp_source];
+	$prj_priority=$sql_id1[cdp_priority];
+	$cdp_state=$sql_id1[cdp_state];
+	$cdp_justification=$sql_id1[cdp_justification];
+	
+	//initiating studies array related to cdp
+	$squery="select plan_id from coa_cdp_studies ccs JOIN coa_studies cs on ccs.study_id=cs.plan_id and ccs.cdp_id='$cdpid'";
+	$cdp_study1=$conn->execute($dbconn,$squery);	
+	$count_s=$conn->get_count($cdp_study1);
+	
+	if($count_s>0)
+	{
+		$cdp_study1=$conn->execute($dbconn,$squery);
+		while($temp=$conn->fetch_array($cdp_study1))
+		{
+			$cdp_study[$i++]=$temp[plan_id];
+		}
+	}
+	else
+	{
+		$cdp_study[]="";
+	}
+	
+			
+} 
+
+if(isset($_POST['submit_x'])) //cdp add mode
+{	
+		
+	$prj_type = add_quotes($_POST['prj_type']);
+	$prj_name = add_quotes($_POST['proj_name']);
+	$prj_descr = add_quotes($_POST['prj_description']);
+	$ini_year = $_POST['initial_year'];
+	$comp_year=$_POST['completion_year'];
+	$respo_party=add_quotes($_POST['res_party']);
+	$dep_id=$_POST['department'];
+	$prj_manager=add_quotes($_POST['prj_manager']);
+	$programname=$_POST['cdp_capitalprogram'];
+	$bureau=add_quotes($_POST['bureau']);
+	$legislation=add_quotes($_POST['legislation']);
+	$cost_estimate=$_POST['cost_estimate'];
+	$fund_sourse=add_quotes($_POST['fun_source']);
+	$area=add_quotes($_POST['fun_area']);
+	$npu=add_quotes(implode(",",$_POST['npu']));
+	$counsil_dist=implode(",",$_POST['coun_district']);
+	$cdpnumber=$_POST['ordinance'];
+	$cdpord_date=$_POST['ordinance_date'];
+	
+	$cdp_start_date=($_REQUEST['start_date']);
+	$cdp_end_date=$_REQUEST['end_date'];
+	$cdp_state=add_quotes($_REQUEST['cdp_state']);
+	$prj_priority=add_quotes($_REQUEST['prj_priority']);
+	$cdp_justification=add_quotes($_REQUEST['prj_justification']);
+	
+	
+	
+	$id_insert=$conn->get_insertid('cdp_id','coa_cdp',$dbconn);
+	$query1 = "INSERT INTO coa_cdp (cdp_id,cdp_name,cdp_prj_type_id , cdp_prj_manager , cdp_capital_program, dep_id,
+	 cdp_bureau , cdp_legislation , cdp_description ,cdp_initiationyear , cdp_completionyear , 
+	 cdp_prj_sponsor , cdp_costofestimate ,cdp_fundingsource ,cdp_area, cdp_npu , cdp_councildistrict,
+	 cdp_status,user_id ,cdp_ordinancenumber,cdp_ordinance_date,cdp_start_date,cdp_end_date,cdp_state,cdp_priority,cdp_source,cdp_justification,cdp_update)
+	VALUES ($id_insert,'$prj_name','$prj_type' , '$prj_manager' , '$programname' , '$dep_id' , '$bureau' , '$legislation' ,
+	  '$prj_descr' , '$ini_year' , '$comp_year' , '$respo_party' ,'$cost_estimate' , '$fund_sourse','$area', '$npu' , 
+	  '$counsil_dist' , 'Plan' , '$userid', '$cdpnumber','$cdpord_date',to_date('$cdp_start_date','YYYY-MM-DD'),to_date('$cdp_end_date','YYYY-MM-DD'),'$cdp_state','$prj_priority','$cdp_source','$cdp_justification',to_date(sysdate,'YYYY-MM-DD'))";
+	
+	
+	$conn->execute($dbconn,$query1);
+	
+	
+	$conn->execute($dbconn,"delete from  coa_cdp_studies where cdp_id='$cdpid'");	     
+	$num=$_REQUEST['cdp_study'];
+	for($i=0;$i<count($num);$i++)
+	{
+		{		
+			$nextid=$conn->get_insertid('cdp_study_id','coa_cdp_studies',$dbconn);
+			$result=$conn->execute($dbconn,"insert into coa_cdp_studies values('$nextid','$num[$i]','$id_insert')");	
+		}						
+	}
+		
+	
+	header("location:cdpdetails.php?add=suc&id=$id_insert");
+	$msg = "Added new project successfully";
+}
+?>
+
+
+<td width="785" valign="top" class="text" style="padding-left:10px; padding-right:10px;" > 
+	<form name="newproject3" action="<? echo $_SERVER['PHP_SELF']?>" method="post">
+		<table cellpadding="0" cellspacing="0"  width="100%" class="border1">
+			<tr>
+				<td  align="center"  >
+					<table cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr> 
+							<td height="20"  align="left" style="padding-left:5px;" class="hedding1"><?
+								if ($_REQUEST['id']!="") 
+								{ 
+									?>
+									CDP # - <? echo $cdp_name?>
+									<? 
+								} 
+								else
+									echo "Add New Project";?>
+							</td>
+							<td valign="middle" align="right">
+								<span class="text"><? 
+								if ($_REQUEST['id']!="") 
+								{ 
+									?> Updated: <? echo $update_date ?> | Status: <? echo $cdp_status?><? 
+								}?>
+								</span>
+							</td>
+						</tr>
+						<? if(isset($_POST['id'])) { $cdid=$_POST['id'];} elseif(isset($_GET['id'])) { $cdid=$_GET['id'];} ?>
+						<? 
+						if ($cdid!="") 
+						{
+							?>
+							<tr>
+								<td colspan="2" align="right"><a href="cdpdetails.php?id=" class="prj_link">Back to Details</a></td>
+							</tr><? 
+						}?>
+					</table>		
+				</td>
+			</tr>
+		
+			<tr> 
+				<td height="5" align="center"></td>
+			</tr>
+		
+			<tr align="left" valign="middle" >
+				<td height="20"  bgcolor="#618ab6"><span class="text_larege">&nbsp;&nbsp;Project Definition</span></td>
+			</tr>
+		
+			<tr>
+				<td height="5" ></td>
+			</tr>
+		
+			<tr>
+			<td ><input type="hidden" value="<? echo $cdpid ?>" class="textField1" name="id" /></td>
+			</tr>
+		
+			<tr>
+				<td class="errtext" align="center" >
+					<div id="msgshow" style="display:block" class="errtext"><? 
+					if($message!='') 
+					{	?>
+						<? 
+					}	?><? 
+					if($msg!='') 
+						echo "$msg"; ?>
+					</div>
+				</td>
+			</tr>
+		
+			<tr>
+				<td  >
+					<table width="100%" align="left" cellpadding="3">
+						<tr>
+							<td width="19%" height="24" align="left" valign="top" class="text_bold"><b>Project Name</b>&nbsp;<a href="javascript:openHelp('proj_name')"><img src="images/help.png" border="0"></a><div id="proj_name" class="help" style="visibility:hidden;"></div>
+							</td>
+							<td width="81%" height="24" align="left" valign="top"class="text" colspan="2">
+								<span class="text">
+									<input type="text" name="proj_name" value="" class="textField_extralarge" />
+									<div id="nameerr" style="display:none" class="errtext">Please Enter Project Name
+									</div>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td width="19%" height="24" align="left" valign="top" class="text_bold"><b>Description</b>&nbsp;<a href="javascript:openHelp('prj_description')"><img src="images/help.png" border="0"></a><div id="prj_description" class="help" style="visibility:hidden;"></div></td>
+							<td width="81%" height="24" align="left" valign="top"class="text" colspan="2"><textarea class="textArea" name="prj_description" style="width:400px;"><? echo $cdp_description?></textarea></td>
+						</tr>
+						<tr>
+							<td width="19%" height="24" align="left" valign="top" class="text_bold"><b>Justification</b>&nbsp;<a href="javascript:openHelp('prj_justification')"><img src="images/help.png" border="0"></a><div id="prj_justification" class="help" style="visibility:hidden;"></div></td>
+							<td width="81%" height="24" align="left" valign="top"class="text" colspan="2"><textarea class="textArea" name="prj_justification" style="width:400px;"><? echo $cdp_justification?></textarea></td>
+						</tr>
+						<tr>
+										<td width="19%" height="24" align="left" valign="top" class="text_bold"><b>Category</b>&nbsp;<a href="javascript:openHelp('prj_type')"><img src="images/help.png" border="0"></a><div id="prj_type" class="help" style="visibility:hidden;"></div>
+										</td>
+										<td width="61%" height="24" align="left" valign="top"class="text">
+											<select name="prj_type" class="textField_large">
+											<option></option><? 
+											for($i=0;$i<count($cdp_project_type1);$i++) 
+											{
+												?>
+												<option value ="" 
+													<? 
+													if($cdp_project_type_id1[$i]==$cdp_prj_type) 
+														echo "selected"; ?>>
+																									</option>
+												<? 
+											} ?>
+											</select>
+										</td>
+									</tr>
+
+									<!-- <tr>
+										<td width="19%" height="24" align="left" valign="top" class="text_bold"><strong>Funding Source</strong>&nbsp;<a href="javascript:openHelp('fun_source')"><img src="images/help.png" border="0"></a><div id="fun_source" class="help" style="visibility:hidden;"></div>
+										</td>
+										<td width="61%" height="24" align="left" valign="top"class="text">
+											<input type="text" name="fun_source" value="" class="textField_large"  />
+											<div id="funderr" style="display:none" class="errtext">Please Enter Funding Source</div>
+										</td>
+									</tr> -->
+
+									<tr>
+										<td width="19%" height="24" align="left" valign="top" class="text_bold"><strong>Funding Source</strong>&nbsp;<a href="javascript:openHelp('fun_source')"><img src="images/help.png" border="0"></a><div id="fun_source" class="help" style="visibility:hidden;"></div>
+										</td>
+										<td width="61%" height="24" align="left" valign="top"class="text">
+											<!-- <input type="text" name="fun_source" value="" class="textField_large"><br> -->
+											<select name="fun_source" class="textField">
+											<option value ="Impact Fee" <? if($cdp_fundingsource=='Impact Fee') echo "selected"; ?>>Impact Fee</option>
+											<option value ="Potential Private Foundation" <? if($cdp_fundingsource=='Potential Private Foundation') echo "selected"; ?>>Potential Private Foundation</option>
+											<option value ="Local" <? if($cdp_fundingsource=='Local') echo "selected"; ?>>Local</option>
+											<option value ="Regional" <? if($cdp_fundingsource=='Regional') echo "selected"; ?>>Regional</option>
+											<option value ="Federal" <? if($cdp_fundingsource=='Federal') echo "selected"; ?>>Federal</option>
+											<option value ="TBA" <? if($cdp_fundingsource=='TBA') echo "selected"; ?>>TBA</option>
+											</select>
+											<div id="funderr" style="display:none" class="errtext">Please Enter Funding Source</div>
+										</td>
+									</tr>
+
+
+
+									<tr>
+										<td width="19%" height="24" align="left" valign="top" class="text_bold"><strong>Functional Area</strong>&nbsp;<a href="javascript:openHelp('fun_area')"><img src="images/help.png" border="0"></a><div id="fun_area" class="help" style="visibility:hidden;"></div>
+										</td>
+										<td width="61%" height="24" align="left" valign="top"class="text">
+											<input type="text"  name="fun_area" value="" class="textField_large"><br>
+											<select name="cdp_farea[]" id="fareaSelect" class="textField_large" onChange="setFarea();">
+											<option value=""></option>
+											<? 
+											$farea=$conn->execute($dbconn,"select distinct cdp_area from coa_cdp order by cdp_area");
+											while($temp=$conn->fetch_array($farea))
+											{
+												?>
+												<option value="">												</option>
+												<?  
+											} 
+											?>
+											</select>
+											<div id="fanaerr" style="display:none" class="errtext">Please Enter Functional Area</div>
+										</td>
+									</tr>
+
+
+									<tr>
+										<td width="19%" height="24" align="left" valign="top" class="text_bold"><b>Type </b>&nbsp;<a href="javascript:openHelp('cdp_capitalprogram')"><img src="images/help.png" border="0"></a><div id="cdp_capitalprogram" class="help" style="visibility:hidden;"></div>
+										</td>
+										<td width="61%" height="24" align="left" valign="top"class="text">&nbsp;Capital&nbsp;
+											<input type="radio" name="cdp_capitalprogram" value="1" <? if($cdp_capital_program==1) echo checked?> />Non-Capital&nbsp; 
+											<input type="radio" name="cdp_capitalprogram" value="2" <? if($cdp_capital_program==2) echo checked?> />
+											<div id="projerr" style="display:none" class="errtext">Specify Whether Capital or Non Capital Project</div>
+										</td>
+									</tr>
+
+
+											<tr>
+												<td width="39%" height="24" align="left" valign="top" class="text_bold"><b>Responsible Party</b>&nbsp;<a href="javascript:openHelp('res_party')"><img src="images/help.png" border="0"></a><div id="res_party" class="help" style="visibility:hidden;"></div></td>
+												<td width="61%" height="24" align="left" valign="top" class="text"><select class="textField_large" name="res_party" />				
+												<?
+												$dep = "select * from coa_departments order by dep_name asc" ;
+												$result = $conn->execute($dbconn,$dep); 
+												while( $subcat = $conn->fetch_array($result) )
+												   { 
+														?>
+														<option value="" <? if ($subcat['dep_id']==$dep_id){?> selected="selected" <? }?>>
+														<? echo $subcat['dep_name']; ?>						</option> 
+														<? 
+													} 
+													?>
+														</select>
+												</td>
+											</tr>
+
+
+
+			<!--						<tr>
+										<td width="19%" height="24" align="left" valign="top" class="text_bold">
+											<b>Responsible Party</b>
+										</td>
+										<td width="61%" height="24" align="left" valign="top"class="text">
+										<span class="text">
+											<input type="text" name="res_party" value="" class="textField_large" />
+											<div id="resperr" style="display:none" class="errtext">Please Enter Responsible party</div>
+										</span>
+										</td>
+									</tr>
+-->
+
+
+
+									<? 
+									if ($prj_priority=="")  // setting default  priority 5 normal
+									$prj_priority=5;
+									?>
+									<tr>
+										<td width="19%" height="44" align="left" valign="top" class="text_bold"><b>Project Priority</b>&nbsp;<a href="javascript:openHelp('prj_priority')"><img src="images/help.png" border="0"></a><div id="prj_priority" class="help" style="visibility:hidden;"></div></td>
+										<td width="61%" height="44" align="left" valign="top"class="cdptext3">
+											<select name="prj_priority" class="textField"><?
+											for($i=1;$i<=count($cdp_project_priority);$i++) 
+											{
+												?>
+												<option value ="" 
+													<? if($i==$prj_priority) echo "selected"; ?>>
+																									</option>
+												<? 
+											} ?>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td width="19%" height="44" align="left" valign="top" class="text_bold"><b>Project State</b>&nbsp;<a href="javascript:openHelp('cdp_state')"><img src="images/help.png" border="0"></a><div id="cdp_state" class="help" style="visibility:hidden;"></div></td>
+										<td width="61%" height="44" align="left" valign="top"class="cdptext3">
+											<select name="cdp_state" class="textField">
+											<option value ="Active" <? if($cdp_state=='Active') echo "selected"; ?>>Active</option>
+											<option value ="Completed" <? if($cdp_state=='Completed') echo "selected"; ?>>Completed</option>
+											<option value ="Cancelled" <? if($cdp_state=='Cancelled') echo "selected"; ?>>Cancelled</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td width="19%" height="24" align="left" valign="top" class="text_bold">
+											<b>Source Plan/Study</b>&nbsp;<a href="javascript:openHelp('cdp_study')"><img src="images/help.png" border="0"></a><div id="cdp_study" class="help" style="visibility:hidden;"></div>
+										</td>
+										<td width="61%" height="24" align="left" valign="top"class="text">
+											<select name="cdp_study[]" id="cdp_study" multiple="multiple">
+											<option value=""></option>
+											<? 
+											//$study=$conn->execute($dbconn,"select * from coa_studies");
+											$study=$conn->execute($dbconn,"select * from coa_studies order by name asc");
+											while($temp=$conn->fetch_array($study))
+											{
+												?>
+												<option value="" <? 
+													if(in_array($temp[plan_id],$cdp_study)) 
+														echo "selected";?>><? echo$temp[name]?> 
+												</option>
+												<?  
+											} 
+											?>
+											</select>
+											<div id="sourceerr" style="display:none" class="errtext">Please Source Plan/Study</div>
+										</td>
+									</tr>
+									<tr>
+										<td width="19%" height="24" align="left" valign="top" class="text_bold">
+											<b>Estimated Cost</b>&nbsp;<a href="javascript:openHelp('cost_estimate')"><img src="images/help.png" border="0"></a><div id="cost_estimate" class="help" style="visibility:hidden;"></div>
+										</td>
+										<td width="61%" height="24" align="left" valign="top"class="text">
+											$<input type="text" name="cost_estimate" value="" class="textField">
+											<div id="costerr" style="display:none" class="errtext">Please Enter Cost estimate</div>
+											<div id="valid_costerr" style="display:none" class="errtext">Cost estimate should be numeric</div>
+										</td>
+									</tr>
+								
+						<tr align="left" valign="middle">
+							<td height="20" colspan="2" bgcolor="#618ab6">
+								<span class="text_larege">&nbsp;Project Duration </span>
+							</td>
+						</tr>
+						<tr>
+							<td height="10" >
+							</td>
+						</tr>
+						<tr>
+							<td width="19%" height="24" align="left" valign="top" class="text_bold">
+								<b>Start Date</b>&nbsp;<a href="javascript:openHelp('start_date')"><img src="images/help.png" border="0"></a><div id="start_date" class="help" style="visibility:hidden;"></div>
+							</td>
+							<td width="61%" height="24" align="left" valign="top"class="text">
+								<input type="text" name="start_date" readonly="readonly" id="start_date" onClick="scwShow(this,event);"	value="" class="textField">
+								<div id="starterr" style="display:none" class="errtext">Please Enter Start Date
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td width="19%" height="24" align="left" valign="top" class="text_bold">
+								<b>End Date</b>&nbsp;<a href="javascript:openHelp('end_date')"><img src="images/help.png" border="0"></a><div id="end_date" class="help" style="visibility:hidden;"></div>
+							</td>
+							<td width="61%" height="24" align="left" valign="top"class="text">
+								<input type="text" name="end_date" readonly="readonly" id="end_date" onClick="scwShow(this,event);" value="" class="textField">
+								<div id="enderr" style="display:none" class="errtext">Please Enter End Date</div>
+							</td>
+						</tr>
+						<tr>
+							<td height="10" ></td>
+						</tr>
+						<tr align="left" valign="middle">
+							<td height="20" colspan="2" bgcolor="#618ab6">
+								<span class="text_larege">&nbsp;Ordinance Details </span>
+							</td>
+						</tr>
+						<tr>
+							<td height="10" ></td>
+						</tr>
+						<tr>
+							<td width="19%" height="24" align="left" valign="top" class="text_bold">
+								<b>Ordinance # (Format: 08-R-0627,09-O-0125)</b>&nbsp;<a href="javascript:openHelp('ordinance')"><img src="images/help.png" border="0"></a><div id="ordinance" class="help" style="visibility:hidden;"></div>
+							</td>
+								<td width="61%" height="24" align="left" valign="top"class="text"><input type="text" name="ordinance" value="" class="textField">
+								<div id="ordinanceerr" style="display:none" class="errtext">Please Enter Ordinance Number</div>
+<!--							</td>
+							<td width="19%" height="24" align="left" valign="top" class="text_bold">-->
+							<b>Check Ordinance# and Orinance Date are correct:</b>
+							</td>
+						</tr>
+						<tr>
+							<td width="19%" height="24" align="left" valign="top" class="text_bold">
+								<b>Ordinance Date (Format: 2008-01-05,2009-02-15)</b>&nbsp;<a href="javascript:openHelp('ordinance_date')"><img src="images/help.png" border="0"></a><div id="ordinance_date" class="help" style="visibility:hidden;"></div>
+							</td>
+							<td width="61%" height="24" align="left" valign="top"class="text">
+								<input type="text" name="ordinance_date" readonly="readonly" id="startdate2" onClick="scwShow(this,event);"	value="" class="textField">
+								<a href="http://citycouncil.atlantaga.gov/Captions/default.asp" target="blank">Make sure they match</a>
+							</td>
+						</tr>
+						<tr>
+							<td height="10" colspan="2"></td>
+						</tr>
+					
+						<tr>
+							<td height="20"  colspan="2" bgcolor="#618ab6">
+								<span class="text_larege">&nbsp;Project Location</span>
+							</td>
+						</tr>
+						<tr>
+							<td width="19%" height="24" align="left" valign="top" class="text_bold">
+								<b>Council Districts(s)</b>&nbsp;<a href="javascript:openHelp('coun_district')"><img src="images/help.png" border="0"></a><div id="coun_district" class="help" style="visibility:hidden;"></div>
+							</td>
+							<td width="81%" height="24" align="left" valign="top"class="text">
+								<select name="coun_district[]" id="coun_district" style="width:100px"  multiple="multiple" size="5" class="textFieldmulti">
+									<? 
+									$cdp_councildistrict=explode(",",$cdp_councildistrict);
+									for($i=0;$i<count($cdp_projects_council_districts);$i++) 
+									{
+										?>
+										<option value ="" <? 
+											if (in_array($cdp_projects_council_districts[$i], $cdp_councildistrict))  
+												echo "selected"; ?>>
+																					</option>
+										<? 
+									} ?>
+								</select>					 
+								<div id="disterr" style="display:none" class="errtext">Please Enter Council District</div>
+							</td>
+						</tr>
+						<? //if ($_REQUEST['id']!="") { ?>
+						<!--<tr>
+						<td  align="left" valign="top" class="text_bold"></td>
+						<td align="left" valign="top"class="text"><input type="hidden" name="department" value="<? //echo $subcat['dep_id']; ?>"/></td>
+						</tr>-->
+						<? //} else {
+						if ($dep_id=="")  // users department default department 
+						{
+							$msql="select dep_id from coa_user where user_id='$userid'";
+							$mydep = $conn->execute($dbconn,$msql); 
+							$dep_arr = $conn->fetch_array($mydep);
+							$dep_id=$dep_arr[dep_id];		
+						}
+						?>
+						<tr>
+							<td height="24" align="left" valign="top" class="text_bold">
+								<b>Department</b>&nbsp;<a href="javascript:openHelp('department')"><img src="images/help.png" border="0"></a><div id="department" class="help" style="visibility:hidden;"></div>
+							</td>
+							<td height="24" align="left" valign="top"class="text">
+								<select class="textField_large" name="department" />
+									<?
+									$dep = "select * from coa_departments" ;
+									$result = $conn->execute($dbconn,$dep); 
+									while( $subcat = $conn->fetch_array($result) )
+									{ 
+										?>
+										<option value="<? echo $subcat['dep_id']; ?>" <? 
+											if ($dep_id==$subcat['dep_id']) 
+												echo "selected"; ?>> <? echo $subcat['dep_name']; ?> 
+										</option>
+										<? 
+									} 
+									?>
+								</select>
+							</td>
+						</tr>
+						<? //} ?>
+						<tr>
+							<td width="19%" height="24" align="left" valign="top" class="text_bold">
+								<b>NPU(s)</b>&nbsp;<a href="javascript:openHelp('npu')"><img src="images/help.png" border="0"></a><div id="npu" class="help" style="visibility:hidden;"></div>
+							</td>
+							<td width="81%" height="24" align="left" valign="top"class="text"><select name="npu[]" id="npu" style="width:100px"  multiple="multiple" size="5" class="textFieldmulti">
+								<? 
+								$prj_npu=explode(",",$cdp_npu);
+								for($i=0;$i<count($cdp_project_npu);$i++) 
+								{
+									?>
+									<option value ="" 
+										<? 
+										if (in_array($cdp_project_npu[$i], $prj_npu))  
+											echo "selected"; ?>>
+																			</option>
+									<? 
+								} ?>
+								</select>
+								<div id="npuerr" style="display:none" class="errtext">Please Enter NPU</div>
+							</td>
+						</tr>
+						<tr>
+							<td height="10" ></td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<table cellpadding="0" cellspacing="0" border="0" align="center">
+								<?
+								if ($_REQUEST['id']!="") 
+								{
+									?>
+									<tr>                    
+										<td align="center" >
+											<input type="image" src="images/save.gif" border="0" name="save" onclick="return valid();" />
+										</td>	
+										<td width="12">
+										</td>
+										<td align="center" >
+											<img src="images/cancel.gif" border="0" name="cancel" onclick="document.location='cdpdetails.php?id=<? echo $cdpid?>'" />
+										</td>				
+									</tr>
+									<? 
+								} 
+								else 
+								{ 
+									?> 
+									<tr> 
+										<td align="right" width="200">
+											<input type="image" src="images/reset.gif" border="0" name="reset" onclick="set();" />
+										</td>
+										<td width="12">
+										</td>
+										<td align="left" width="200">
+											<input type="image" src="images/submit.gif" border="0" name="submit" onclick="return valid();" />
+										</td>
+									</tr>
+									<? 
+								} ?>
+								</table>   
+							</td>
+						</tr>
+						<tr>
+							<td height="10" colspan="3"></td>
+						</tr>	  
+					</table>
+				</td>
+			</tr>
+		</table>	
+	</form>						
+</td>
+
+<!--middle content ends-->
+
+<? include ("includes/footer.php");?>

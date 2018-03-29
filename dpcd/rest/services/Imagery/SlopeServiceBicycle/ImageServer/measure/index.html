@@ -1,0 +1,303 @@
+
+
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+<title>Measure: (Imagery/SlopeServiceBicycle)</title>
+<link href="/dpcd/rest/static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="100%" class="userTable">
+ <tr>
+ <td class="titlecell">
+ ArcGIS REST Services Directory
+ </td>
+ <td align="right">
+   
+      
+        <a href="http://gis.atlantaga.gov/dpcd/rest/login">Login</a>
+       
+            | <a href="http://gis.atlantaga.gov/dpcd/tokens/">Get Token</a>
+                  
+      
+   
+ </td>
+ </tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="/dpcd/rest/services">Home</a>
+
+
+
+
+
+
+  &gt; <a href="/dpcd/rest/services">services</a>
+  
+  &gt; <a href="/dpcd/rest/services/Imagery">Imagery</a>
+  
+  &gt; <a href="/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer">SlopeServiceBicycle (ImageServer)</a>
+  
+  &gt; <a href="/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer/measure"><i>measure</i></a>
+  
+</td>
+<td align="right">
+<a href="http://gis.atlantaga.gov/dpcd/sdk/rest/02ss/02ss00000057000000.htm" target="_blank">Help</a> | <a href="http://gis.atlantaga.gov/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer/measure?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+
+
+
+<h2>Measure: (Imagery/SlopeServiceBicycle)</h2>
+
+<div class="rbody">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="color:#ff6666"> 
+
+</div>
+
+<form name="sdform" action="/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer/measure">
+
+<table class="formTable">
+
+<tr>
+<td><label for="fromGeometry">From Geometry:</label></td>
+<td>
+<textarea id="fromGeometry" name="fromGeometry" rows="5" cols="55"></textarea>
+</td>
+</tr>
+
+<tr>
+<td><label for="toGeometry">To Geometry:</label></td>
+<td>
+<textarea id="toGeometry" name="toGeometry" rows="5" cols="55"></textarea>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="geometryType">Geometry Type:</label></td>
+<td>
+<select id="geometryType" name="geometryType">
+
+  <option value="esriGeometryPoint" >Point</option>
+  
+  <option value="esriGeometryPolyline" >Polyline</option>
+  
+  <option value="esriGeometryPolygon" >Polygon</option>
+  
+  <option value="esriGeometryEnvelope" >Envelope</option>
+  
+</select>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="measureOperation">Measure Operation:</label></td>
+<td>
+<select id="measureOperation" name="measureOperation">
+
+  <option value="esriMensurationDistanceAndAngle" >esriMensurationDistanceAndAngle</option>
+  
+  <option value="esriMensurationAreaAndPerimeter" >esriMensurationAreaAndPerimeter</option>
+  
+  <option value="esriMensurationHeightFromBaseAndTop" >esriMensurationHeightFromBaseAndTop</option>
+  
+  <option value="esriMensurationHeightFromBaseAndTopShadow" >esriMensurationHeightFromBaseAndTopShadow</option>
+  
+  <option value="esriMensurationHeightFromTopAndTopShadow" >esriMensurationHeightFromTopAndTopShadow</option>
+  
+  <option value="esriMensurationPoint" >esriMensurationPoint</option>
+  
+  <option value="esriMensurationCentroid" >esriMensurationCentroid</option>
+  
+  <option value="esriMensurationPoint3D" >esriMensurationPoint3D</option>
+  
+  <option value="esriMensurationDistanceAndAngle3D" >esriMensurationDistanceAndAngle3D</option>
+  
+  <option value="esriMensurationAreaAndPerimeter3D" >esriMensurationAreaAndPerimeter3D</option>
+  
+  <option value="esriMensurationCentroid3D" >esriMensurationCentroid3D</option>
+  
+</select>
+</td>
+</tr>
+
+<tr>
+<td><label for="mosaicRule">Mosaic Rule:</label></td>
+<td>
+<textarea id="mosaicRule" name="mosaicRule" rows="5" cols="55"></textarea>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="pixelSize">Pixel Size:</label></td>
+<td><input type="text" id="pixelSize" name="pixelSize" value="" size="75"/></td>
+</tr>
+
+<tr valign="top">
+<td><label for="linearUnit">Linear Unit:</label></td>
+<td>
+<select id="linearUnit" name="linearUnit">
+
+  <option value="esriUnknownUnits" >Unknown Units</option>
+  
+  <option value="esriInches" >Inches</option>
+  
+  <option value="esriPoints" >Points</option>
+  
+  <option value="esriFeet" >Feet</option>
+  
+  <option value="esriYards" >Yards</option>
+  
+  <option value="esriMiles" >Miles</option>
+  
+  <option value="esriNauticalMiles" >Nautical Miles</option>
+  
+  <option value="esriMillimeters" >Millimeters</option>
+  
+  <option value="esriCentimeters" >Centimeters</option>
+  
+  <option value="esriMeters" >Meters</option>
+  
+  <option value="esriKilometers" >Kilometers</option>
+  
+  <option value="esriDecimalDegrees" >Decimal Degrees</option>
+  
+  <option value="esriDecimeters" >Decimeters</option>
+  
+  <option value="esriUnitsLast" >Last Units</option>
+  
+</select>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="angularUnit">Angular Unit:</label></td>
+<td>
+<select id="angularUnit" name="angularUnit">
+
+  <option value="esriDURadians" >Radians</option>
+  
+  <option value="esriDUDecimalDegrees" >Decimal Degrees</option>
+  
+  <option value="esriDUDegreesMinutesSeconds" >Degrees, Minutes and Seconds</option>
+  
+</select>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="areaUnit">Area Unit:</label></td>
+<td>
+<select id="areaUnit" name="areaUnit">
+a
+  <option value="esriSquareInches" >Square Inches</option>
+  a
+  <option value="esriSquareFeet" >Square Feet</option>
+  a
+  <option value="esriSquareYards" >Square Yards</option>
+  a
+  <option value="esriAcres" >Acres</option>
+  a
+  <option value="esriSquareMiles" >Square Miles</option>
+  a
+  <option value="esriSquareMillimeters" >Square Millimeters</option>
+  a
+  <option value="esriSquareCentimeters" >Square Centimeters</option>
+  a
+  <option value="esriSquareDecimeters" >Square Decimeters</option>
+  a
+  <option value="esriSquareMeters" >Square Meters</option>
+  a
+  <option value="esriAres" >Ares</option>
+  a
+  <option value="esriHectares" >Hectares</option>
+  a
+  <option value="esriSquareKilometers" >Square Kilometers</option>
+  
+</select>
+</td>
+</tr>
+
+<tr>
+<td><label for="f">Format:</label></td>
+<td>
+<select id="f" name="f">
+<option value="html">HTML</option>
+<option value="pjson">JSON</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="left">
+<input type="submit" value="Measure (GET)" />
+<input type="submit" onclick="this.form.method = 'post';" value="Measure (POST)" />
+</td>
+</tr>
+
+</table>
+
+</form>
+
+<script type="text/javascript">
+document.forms.sdform.geometry.focus();
+</script>
+
+
+
+
+</div>
+
+<br/><br/>
+
+</body>
+
+</html>

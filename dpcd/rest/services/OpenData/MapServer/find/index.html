@@ -1,0 +1,218 @@
+
+
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+<title>Find (OpenData)</title>
+<link href="/dpcd/rest/static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="100%" class="userTable">
+ <tr>
+ <td class="titlecell">
+ ArcGIS REST Services Directory
+ </td>
+ <td align="right">
+   
+      
+        <a href="http://gis.atlantaga.gov/dpcd/rest/login">Login</a>
+       
+            | <a href="http://gis.atlantaga.gov/dpcd/tokens/">Get Token</a>
+                  
+      
+   
+ </td>
+ </tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="/dpcd/rest/services">Home</a>
+
+
+
+
+
+
+  &gt; <a href="/dpcd/rest/services">services</a>
+  
+  &gt; <a href="/dpcd/rest/services/OpenData/MapServer">OpenData (MapServer)</a>
+  
+  &gt; <a href="/dpcd/rest/services/OpenData/MapServer/find"><i>find</i></a>
+  
+</td>
+<td align="right">
+<a href="http://gis.atlantaga.gov/dpcd/sdk/rest/02ss/02ss00000057000000.htm" target="_blank">Help</a> | <a href="http://gis.atlantaga.gov/dpcd/rest/services/OpenData/MapServer/find?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+
+
+
+<h2>Find (OpenData)</h2>
+
+<div class="rbody">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="color:#ff6666"> 
+
+</div>
+
+<form name="sdform" action="/dpcd/rest/services/OpenData/MapServer/find">
+
+<table class="formTable">
+
+<tr valign="top">
+<td><label for="searchText">Search Text:</label></td>
+<td><input type="text" id="searchText" name="searchText" value="" size="75" /></td>
+</tr>
+
+<tr>
+<td>Contains:</td>
+<td>
+<label><input type="radio" name="contains" value="true" checked="true" /> True &nbsp;</label>
+<label><input type="radio" name="contains" value="false"   /> False</label>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="searchFields">Search Fields:</label></td>
+<td><input type="text" id="searchFields" name="searchFields" value="" size="75" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="sr">Spatial Reference:</label></td>
+<td><input type="text" id="sr" name="sr" value="" size="75" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="layers">Layers:</label></td>
+<td><input type="text" id="layers" name="layers" value="" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="layerDefs">Layer Definitions:</label></td>
+<td><input type="text" id="layerDefs" name="layerDefs" value="" size="75" /></td>
+</tr>
+
+<tr>
+<td>Return Geometry:</td>
+<td>
+<label><input type="radio" name="returnGeometry" value="true" checked="true" /> True &nbsp;</label>
+<label><input type="radio" name="returnGeometry" value="false"   /> False</label>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="maxAllowableOffset">Max Allowable Offset:</label></td>
+<td><input type="text" id="maxAllowableOffset" name="maxAllowableOffset" value=""/></td>
+</tr>
+
+<tr valign="top">
+<td><label for="geometryPrecision">Geometry Precision:</label></td>
+<td><input type="text" id="geometryPrecision" name="geometryPrecision" value="" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="dynamicLayers">Dynamic Layers:</label></td>
+<td>
+<textarea id="dynamicLayers" name="dynamicLayers" rows="3" cols="55"></textarea>
+</td>
+</tr>
+
+<tr>
+<td>ReturnZ:</td>
+<td>
+<label><input type="radio" name="returnZ" value="true"  /> True &nbsp;</label>
+<label><input type="radio" name="returnZ" value="false" checked="true"  /> False</label>
+</td>
+</tr>
+
+<tr>
+<td>ReturnM:</td>
+<td>
+<label><input type="radio" name="returnM" value="true"  /> True &nbsp;</label>
+<label><input type="radio" name="returnM" value="false" checked="true"  /> False</label>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="gdbVersion">Geodatabase Version Name:</label></td>
+<td><input type="text" id="gdbVersion" name="gdbVersion" value="" /></td>
+</tr>
+
+<tr>
+<td><label for="f">Format:</label></td>
+<td>
+<select id="f" name="f">
+<option value="html">HTML</option>
+<option value="pjson">JSON</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="left">
+<input type="submit" value="Find (GET)" />
+<input type="submit" onclick="this.form.method = 'post';" value="Find (POST)" />
+</td>
+</tr>
+
+</table>
+
+</form>
+
+<script type="text/javascript">
+document.forms.sdform.searchText.focus();
+</script>
+
+
+
+
+</div>
+
+<br/><br/>
+
+</body>
+
+</html>

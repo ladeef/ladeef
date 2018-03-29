@@ -1,0 +1,190 @@
+<? 	
+	@session_start();
+	include "includes/header.php";
+	include "includes/user.php";
+	$user = new user();
+	//if($user->logincheck())
+		//header("Location:index.php");
+	$cdpid=$_REQUEST['id'];
+	$uid = $_SESSION['user_id'];
+
+	$sql_id = $conn->execute($dbconn,"select * from coa_studies where plan_id = $plan_id");
+	$sql_id1 = $conn->fetch_array($sql_id);
+	
+	$study_name = $sql_id1[name];
+	$study_sponsor = $sql_id1[sponsor];
+	$study_status = $sql_id1[status];
+	$study_plan_year = $sql_id1[plan_year];
+	$study_update_year = $sql_id1[update_year];
+	$study_consultant = $sql_id1[consultant];
+	$study_adoption_year = $sql_id1[adoption_year];
+	$study_land_use_adopted = $sql_id1[land_use_adopted];
+	$study_zoning_adopted = $sql_id1[zoning_adopted];
+	$study_in_cdp = $sql_id1[in_cdp];
+	$study_priority = $sql_id1[priority];
+	$study_corridor = $sql_id1[corridor];
+	$study_redevelopment = $sql_id1[redevelopment];
+	$study_tad = $sql_id1[tad];
+	$study_emp_zone = $sql_id1[emp_zone]; 			
+	$study_trans_only = $sql_id1[trans_only];
+	$study_lci_year = $sql_id1[lci_year];
+	$study_notes = $sql_id1[notes];
+	$study_identifier = $sql_id1[identifier];
+	$study_paper = $sql_id1[paper];
+
+	$sql_next = $conn->execute($dbconn,"select * from coa_studies where plan_id > $plan_id and rownum = 1");
+	$sql_next1 = $conn->fetch_row($sql_next);
+	$next_plan_id = $sql_next1[0];
+	if ($next_plan_id) $next_link = 'Next&gt;&gt;';
+
+	$sql_prev = $conn->execute($dbconn,"select * from coa_studies where plan_id < $plan_id and rownum = 1");
+	$sql_prev1 = $conn->fetch_row($sql_prev);
+	$prev_plan_id = $sql_prev1[0];
+	if ($prev_plan_id) $prev_link = '&lt;&lt;Prev';
+		$sql_cdp = $conn->execute($dbconn,"select b.cdp_id, b.cdp_name from coa_cdp_studies a, coa_cdp b where a.cdp_id = b.cdp_id and study_id = $plan_id order by b.cdp_name");
+					
+					
+	// error mesage handling
+	$request=$_REQUEST['msg'];
+	if($request=='suc')  // requst for approval by user
+		$msg="Your request is successfully posted";
+	else if($request=='snd') // sending reminder - user
+		$msg="Your Reminder has been sent successfully";
+	else if ($request=='rej') // reject project - admin
+		$msg="Selected project is successfully rejected";
+	
+	$request=$_REQUEST['add']; // project added from user side
+	if($request=='suc')
+		$msg="New project is successfully added";
+?>
+
+<form name="request" action="request.php?plan_id=" method="post">
+	<td width="785" valign="top" class="text" style="padding-left:10px; padding-right:10px;">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" class="border1">
+		<tr>
+			<td colspan="3" align="center">
+				<table cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr> 
+						<td height="20"  align="left" style="padding-left:5px;" class="hedding1" ></td>
+						<td valign="middle" align="right"><a href="studies.php"><span class="text">Full Listing</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=study_details.php?plan_id=<? echo $prev_plan_id ?>><span class="text"></span></a>&nbsp;|&nbsp;<a href=study_details.php?plan_id=<? echo $next_plan_id ?>><span class="text"></span></a></td>
+					</tr>
+				</table>		
+			</td>
+		</tr>    
+		<tr>
+			<td height="5" align="center"></td>
+		</tr>
+		<tr align="left" valign="middle" >
+			<td height="4" colspan="3"  bgcolor="#618ab6"></td>
+		</tr>
+		<tr>
+			<td height="5" colspan="3"></td>
+		</tr>
+		<tr>
+			<td colspan="3"><input type="hidden" value="<? echo $cdpid ?>" class="textField1" name="id" />          </td>
+		</tr>
+		<tr>
+			<td class="errtext" align="center" colspan="3">
+			<div id="msgshow" style="display:block" class="errtext">
+			<? if($message!='') { ?>
+						<? } ?>
+			<? if($msg!='') echo "$msg"; ?>
+			</div></td>
+		</tr>
+		<tr>
+			<td width="19%" height="34" align="left" valign="top" class="text" colspan="3" style="font-weight:600; font-size:14pt">&nbsp;()</td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text"><b>Sponsor</b></td>
+			<td width="81%" height="20" align="left" valign="top" class="text" colspan="2"></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text"><b>Consultant</b></td>
+			<td width="81%" height="20" align="left" valign="top" class="text" colspan="2"></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Plan/Study Year</b></td>
+			<td width="81%" height="20" align="left" valign="top"><span class="text"><? echo $study_plan_year?></span></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Update Year</b></td>
+			<td width="61%" height="20" align="left" valign="top" class="text"><? echo $study_update_year?></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><strong>Adoption Year</strong></td>
+			<td width="61%" height="20" align="left" valign="top" class="text"><? echo $study_adoption_year?></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><strong>Land Use Adopted</strong></td>
+			<td width="61%" height="20" align="left" valign="top" class="text"><? echo $study_land_use_adopted?></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><strong>Zoning Adopted</strong></td>
+			<td width="61%" height="20" align="left" valign="top" class="text"><? echo $study_zoning_adopted?></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Adopted into CDP</b></td>
+			<td width="61%" height="20" align="left" valign="top" class="text"><? echo $study_in_cdp?></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Priority</b></td>
+			<td width="61%" height="20" align="left" valign="top" class="text"><? echo $study_priority?></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Corridor</b></td>
+			<td width="61%" height="20" align="left" valign="top" class="text"><? echo $study_corridor?></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Redevelopment</b></td>
+			<td width="61%" height="20" align="left" valign="top" class="text"><? echo $study_redevelopment?></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>TAD</b></td>
+			<td width="61%" height="20" align="left" valign="top" class="text"><? echo $study_tad?></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Empowerment Zone</b></td>
+			<td width="81%" height="20" align="left" valign="top"><span class="text"><? echo $study_emp_zone?></span></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Transportation Only</b></td>
+			<td width="81%" height="20" align="left" valign="top"><span class="text"><? echo $study_trans_only?></span></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>LCI Year</b></td>
+			<td width="64%" height="20" align="left" valign="top" class="text"><? echo $study_lci_year?></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Notes</b></td>
+			<td width="64%" height="20" align="left" valign="top" class="text"><? echo "$study_notes  $next_plan_id"?></td>
+		</tr>
+		<tr>
+			<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Projects</b></td>
+			<td width="64%" height="20" align="left" valign="top" class="text">
+			<?
+			while( $cdp = $conn->fetch_array($sql_cdp) ) 
+			{
+				?>
+				<a href='cdpdetails.php?id=<? echo $cdp['cdp_id']; ?>'><? echo $cdp['cdp_name']; ?></a><br>
+				<?
+			}
+			?>
+			</td>
+		</tr>
+		<tr>
+			<td height="10" colspan="3"></td>
+		</tr>
+		<tr>
+			<td height="10" colspan="3"></td>
+		</tr>
+		<tr>
+			<td height="10" colspan="3"></td>
+		</tr>
+		<tr>
+			<td height="10" colspan="3"></td>
+		</tr>	  
+	</table>
+</form>
+<!--middle content ends-->
+
+<? include ("includes/footer.php");?>

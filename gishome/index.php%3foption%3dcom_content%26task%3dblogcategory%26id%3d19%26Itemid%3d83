@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="iso-8859-1"?><html>
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>City of Atlanta GIS - Enterprise GIS</title>
+<meta name="description" content="City of Atlanta Geographic Information System (GIS) Home" />
+<meta name="keywords" content="Geographic, Information, Atlanta, Georgia, GIS" />
+<meta name="Generator" content="Joomla! - Copyright (C) 2005 - 2006 Open Source Matters. All rights reserved." />
+<meta name="robots" content="index, follow" />
+	<link rel="shortcut icon" href="http://gis.atlantaga.gov/gishome/images/favicon.ico" />
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<link href="http://gis.atlantaga.gov/gishome/templates/atlanta1/css/template_css.css" rel="stylesheet" type="text/css"/>
+<script language="Javascript" type="text/javascript" src="/apps/geocortex/launch.js"></script>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<!--<div style="position:absolute; top:5px; right:5px;">		<table cellpadding="0" cellspacing="0" class="moduletable-nav">
+				<tr>
+			<td>
+				<table width="100%" border="0" cellpadding="0" cellspacing="1"><tr><td nowrap="nowrap"><a href="http://gis.atlantaga.gov/gishome/index.php" class="mainlevel-nav" >Home</a><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_contact&amp;Itemid=3" class="mainlevel-nav" >Contact Us</a><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_search&amp;Itemid=5" class="mainlevel-nav" >Search</a></td></tr></table>			</td>
+		</tr>
+		</table>
+		</div>-->
+<center>
+<table id="Table_01" width="100%" height="670" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="2" class="banner">
+			<img style="float:right;" src="/gishome/images/gishome_right.png"><img src="/gishome/images/gishome.gif" border="0">
+					<!--<td style="padding:0px; margin:0px;">		<table cellpadding="0" cellspacing="0" class="moduletable_banner">
+				<tr>
+			<td>
+				&nbsp;			</td>
+		</tr>
+		</table>
+		--></td>
+		</td>
+	</tr>
+	<tr>
+		<td class="lower-band" colspan="2" height="18px">
+			<table width="100%" style="background:url(/gishome/images/topnav_bg.gif) repeat-x 0 0 #FFF;">
+				<tr>
+					<td style="align:left;">		<table cellpadding="0" cellspacing="0" class="moduletable">
+				<tr>
+			<td>
+				<span class="pathway"><a href="http://gis.atlantaga.gov/gishome/index.php" class="pathway">HOME</a> <img src="http://gis.atlantaga.gov/gishome/images/M_images/arrow.png" alt="arrow" />   Enterprise GIS </span>			</td>
+		</tr>
+		</table>
+		</td>
+					<td align="right">		<table cellpadding="0" cellspacing="0" class="moduletable-nav">
+				<tr>
+			<td>
+				<table width="100%" border="0" cellpadding="0" cellspacing="1"><tr><td nowrap="nowrap"><a href="http://gis.atlantaga.gov/gishome/index.php" class="mainlevel-nav" >Home</a><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_contact&amp;Itemid=3" class="mainlevel-nav" >Contact Us</a><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_search&amp;Itemid=5" class="mainlevel-nav" >Search</a></td></tr></table>			</td>
+		</tr>
+		</table>
+		</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	 
+	<tr>
+		<!--<td style="margin:0px; padding:0px; background:url(/gishome/images/metapage_bg.gif) repeat-x 0 0 #FFF;">-->
+		<td style="margin:0px; padding:0px; background-color:#ffffff;">
+			<table id="Table_03" width="100%" height="512" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="200" height="495" valign="top" style="padding:5px; background:#f5f5f7;">
+					
+							<table cellpadding="0" cellspacing="0" class="moduletable_main">
+				<tr>
+			<td>
+				
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr align="left"><td><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_frontpage&amp;Itemid=1" class="mainlevel" >HOME</a></td></tr>
+<tr align="left"><td><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=category&amp;sectionid=4&amp;id=13&amp;Itemid=101" class="mainlevel" >MAPS &amp; DATA</a>
+
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=blogcategory&amp;id=47&amp;Itemid=114" class="sublevel" >Map Collection</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=15&amp;Itemid=50" class="sublevel" >Zoning Maps</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=10&amp;Itemid=52" class="sublevel" >GIS Data Catalog</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=12&amp;Itemid=48" class="sublevel" >Document Archive</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=14&amp;Itemid=49" class="sublevel" >Property Information</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=blogcategory&amp;id=28&amp;Itemid=77" class="sublevel" >Interactive Maps</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=50&amp;Itemid=104" class="sublevel" >Annexations</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=59&amp;Itemid=115" class="sublevel" >Lot Boundary Map</a></div>
+</td></tr>
+<tr align="left"><td><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=blogcategory&amp;id=18&amp;Itemid=60" class="mainlevel" >SUPPORT</a>
+
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=category&amp;sectionid=7&amp;id=18&amp;Itemid=61" class="sublevel" >GIS FAQ</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=category&amp;sectionid=7&amp;id=22&amp;Itemid=68" class="sublevel" >Training</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=60&amp;Itemid=116" class="sublevel" >Internal Tools</a></div>
+</td></tr>
+<tr align="left"><td><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=blogcategory&amp;id=43&amp;Itemid=102" class="mainlevel" >FEEDS</a>
+
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=49&amp;Itemid=103" class="sublevel" >Subdivision Approvals</a></div>
+</td></tr>
+<tr align="left"><td><a href="http://gis.atlantaga.gov/gishome/index.php?option=com_weblinks&amp;Itemid=39" class="mainlevel" >LINKS</a>
+
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://www.atlantaga.gov/" target="_blank" class="sublevel" >City of Atlanta</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://wms.co.fulton.ga.us/" target="_blank" class="sublevel" >Fulton County GIS</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://web.co.dekalb.ga.us/PropertyAppraisal/realSearch.asp" target="_blank" class="sublevel" >Dekalb County Property Information</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://aps-schoolmap.apsk12.org/" target="_blank" class="sublevel" >Atlanta Public Schools GIS</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gis.atlantawatershed.org" target="_blank" class="sublevel" >Department of Watershed Management GIS</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://www.atlantaregional.com/html" target="_blank" class="sublevel" >ARC Interactive Maps</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://www.itsmarta.com/schedules-maps.aspx" target="_blank" class="sublevel" >MARTA System Maps</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="https://gis1.state.ga.us/login.asp?CookieTest=2" target="_blank" class="sublevel" >Georgia GIS Data Clearinghouse</a></div>
+<div style="padding-left: 4px; padding-bottom:4px; padding-top:4px;"><a href="http://gos2.geodata.gov/wps/portal/gos" target="_blank" class="sublevel" >One Stop Government GIS Data</a></div>
+</td></tr>
+</table>			</td>
+		</tr>
+		</table>
+							<div style="width: 100%;" align="center" border="0" cellpadding="0" cellspacing="0">
+<br>
+<table width="137" align="center">
+	<tr>
+		<td>
+		</td>
+	</tr>
+</table>
+<table width="137" height="16" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="2" height="16"></td>
+		<td width="107" height="16" align="center"></td>
+	</tr>
+</table>
+<table align="center">
+	<tr>
+		<td style="font-size: 9px; font-family: Verdana,Arial,Helvetica,sans-serif; color: #333333;text-decoration:none;">
+		</td>
+	</tr>
+</table>
+</div>
+					<td width="*" height="695" valign="top" style="padding:5px 5px 5px 15px; border-left-style:solid; border-left-color:#dddddd; border-left-width:1px;">
+						<div class="componentheading">Enterprise GIS Projects</div><table class="blog" cellpadding="0" cellspacing="0"><tr><td valign="top"><p class="contentdescription">Enterprise GIS projects are those that address the needs of City departments collectively rather than independently.  The term &quot;Enterprise GIS&quot; itself is intended to describe current efforts in the City to move away from independent, &quot;stovepipe&quot; GIS systems that serve only the needs of a single department to a more integrated approach in which resources are shared and a common set of GIS standards and procedures are adopted and used by all departments.</p><p><span class="contentdescription"> Because data form the foundation of any GIS and so much effort goes into the acquisition and maintenance of data, many enterprise GIS programs put the creation of a centralized data warehouse or repository as the top priority.  A well-managed centralized store of GIS data can ensure that users of GIS across the enterprise have access to the the best and most up-to-date GIS data and also helps eliminate the possibility that departments are duplicating each other&#39;s efforts by maintaining different versions of the same data.  The creation of a GIS Data Repository is in fact one of the major projects currently underway in the City of Atlanta.  The Data Repository project is described in detail below.</span> </p><p>&nbsp;</p><br/><br/></td></tr><tr><td valign="top"><div>			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+					Master Address Repository									</td>
+							<td align="right" width="100%" class="buttonheading">
+				<a href="http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;do_pdf=1&amp;id=36" target="_blank" onclick="window.open('http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;do_pdf=1&amp;id=36','win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" title="PDF">
+					<img src="http://gis.atlantaga.gov/gishome/images/M_images/pdf_button.png"  alt="PDF" name="PDF" align="middle" border="0" /></a>
+			</td>
+							<td align="right" width="100%" class="buttonheading">
+					<a href="http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;task=view&amp;id=36&amp;pop=1&amp;page=0&amp;Itemid=83" target="_blank" onclick="window.open('http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;task=view&amp;id=36&amp;pop=1&amp;page=0&amp;Itemid=83','win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" title="Print">
+						<img src="http://gis.atlantaga.gov/gishome/images/M_images/printButton.png"  alt="Print" name="Print" align="middle" border="0" /></a>
+				</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<span class="contentdescription">The Master Address Repository is envisioned to be a database of all valid addresses within the City of Atlanta and addresses of actual or potential customers of City services. &nbsp;</span>			</td>
+		</tr>
+				</table>
+		
+		<span class="article_seperator">&nbsp;</span>
+		
+		</div><div>			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+					Interactive Web Mapping									</td>
+							<td align="right" width="100%" class="buttonheading">
+				<a href="http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;do_pdf=1&amp;id=24" target="_blank" onclick="window.open('http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;do_pdf=1&amp;id=24','win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" title="PDF">
+					<img src="http://gis.atlantaga.gov/gishome/images/M_images/pdf_button.png"  alt="PDF" name="PDF" align="middle" border="0" /></a>
+			</td>
+							<td align="right" width="100%" class="buttonheading">
+					<a href="http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;task=view&amp;id=24&amp;pop=1&amp;page=0&amp;Itemid=83" target="_blank" onclick="window.open('http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;task=view&amp;id=24&amp;pop=1&amp;page=0&amp;Itemid=83','win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" title="Print">
+						<img src="http://gis.atlantaga.gov/gishome/images/M_images/printButton.png"  alt="Print" name="Print" align="middle" border="0" /></a>
+				</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<p class="contentdescription">A set of web-based interactive maps is currently under development to help city staff in retrieving geographic information and generating custom maps in support of daily operations and policy decisions, and to help citizens of Atlanta to more easily gather information about there own communities and neighborhoods.&nbsp; These are lightweight web-based map viewers providing access to powerful tools and extensive geographic information, designed with an audience of non-expert users in mind. Each interactive mapping application will focus on a particular business activity central to city government such as planning and development, public safety, transportation, and parks and recreation. At present, two mapping applications are available--<strong>Planning and Economic Development</strong>  and <strong>Transportation</strong>.&nbsp; Applications focusing on other activities will appear in coming months.</p><p class="contentdescription"> As development continues and more applications are made available, new features will also be introduced. We will also be working to eliminate technical glitches and and flaws which inevitably surface with any new computer application. To help track these problems, we will be maintaining a database of known issues which users can reference before reporting them to us.</p> 			</td>
+		</tr>
+				</table>
+		
+		<span class="article_seperator">&nbsp;</span>
+		
+		</div><div>			<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+					GIS Data Repository									</td>
+							<td align="right" width="100%" class="buttonheading">
+				<a href="http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;do_pdf=1&amp;id=22" target="_blank" onclick="window.open('http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;do_pdf=1&amp;id=22','win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" title="PDF">
+					<img src="http://gis.atlantaga.gov/gishome/images/M_images/pdf_button.png"  alt="PDF" name="PDF" align="middle" border="0" /></a>
+			</td>
+							<td align="right" width="100%" class="buttonheading">
+					<a href="http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;task=view&amp;id=22&amp;pop=1&amp;page=0&amp;Itemid=83" target="_blank" onclick="window.open('http://gis.atlantaga.gov/gishome/index2.php?option=com_content&amp;task=view&amp;id=22&amp;pop=1&amp;page=0&amp;Itemid=83','win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" title="Print">
+						<img src="http://gis.atlantaga.gov/gishome/images/M_images/printButton.png"  alt="Print" name="Print" align="middle" border="0" /></a>
+				</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<p><span class="contentdescription"><strong>Description</strong></span></p><p class="contentdescription">The GIS Data Repository is a centralized store of GIS data that can be accessed throughout the city network.&nbsp; The purpose of the Repository is to ensure that the best and most up-to-date GIS data is available to all users of GIS.&nbsp; The Repository is composed of three components: 1) the data themselves stored as files in a logical directory structure and as tables and related elements in a database management system (DBMS); 2) a searchable catalog containing detailed descriptions (metadata) of each dataset in the Repository; and 3) data access tools giving GIS users easy access to the data within mapping applications.</p><p class="contentdescription"><strong>The Data</strong> <br /></p><p class="contentdescription">&nbsp;The data store component of the Repository is being completed in two phases. Phase I consists of assembling data from various sources into a logical file system structure on a dedicated GIS server and cataloging each dataset as it is placed in the file system.&nbsp; Most datasets in Phase I are stored as shapefiles, a common GIS file format introduced by the Environmental Systems Research Institute (ESRI).&nbsp; Phase II of the Repository consists of migrating the data into a database management system (DBMS).&nbsp; Oracle has been selected as the DBMS to hold the Repository data based on its status as the City&#39;s standard, its maturity and rich feature set, and its support for spatial data.</p><p class="contentdescription">Moving the City&#39;s GIS data from a file system to the Oracle database has several benefits:</p><p class="contentdescription">1)&nbsp; it allows us to better integrate spatial data with the City&#39;s business data;</p><p class="contentdescription">2) it provides a common environment for spatial and tabular data;</p><p class="contentdescription">3) it makes available all the standard features of a DBMS such as security, scalability, and indexing;</p><p class="contentdescription">4) it provides standards-based access to GIS data through SQL, ODBC, and JDBC;</p><p class="contentdescription">5) it allows access to the GIS data through the products of key GIS software vendors including ESRI, Autodesk, Intergraph, and MapInfo.&nbsp;</p><p class="contentdescription">&nbsp;</p><span class="contentdescription"><strong>The Catalog</strong></span><p><span class="contentdescription">The Data Catalog is a critical component o</span>f the GIS Data Repository. &nbsp;&nbsp;</p>			</td>
+		</tr>
+				</table>
+		
+		<span class="article_seperator">&nbsp;</span>
+		
+		</div></td></tr></table>			<div class="back_button">
+				<a href='javascript:history.go(-1)'>
+					[ Back ]</a>
+			</div>
+			</td>
+					<td width="180" height="695" valign="top" style="padding:5px;">
+							<table cellpadding="0" cellspacing="0" class="moduletable">
+				<tr>
+			<td>
+							</td>
+		</tr>
+		</table>
+				<table cellpadding="0" cellspacing="0" class="moduletable_news">
+					<tr>
+				<th valign="top">
+					NEWS				</th>
+			</tr>
+					<tr>
+			<td>
+							<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+					City Council District Maps Now Available 									</td>
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<strong>City council district maps and NPU maps are now available in the online Map Collection<br /></strong>			</td>
+		</tr>
+						<tr>
+					<td align="left" colspan="2">
+						<a href="http://gis.atlantaga.gov/gishome/index.php?option=com_content&amp;task=view&amp;id=61&amp;Itemid=106" class="readon">
+							Read more...</a>
+					</td>
+				</tr>
+						</table>
+		
+		<span class="article_seperator">&nbsp;</span>
+		
+					</td>
+		</tr>
+		</table>
+				<table cellpadding="0" cellspacing="0" class="moduletable_events">
+					<tr>
+				<th valign="top">
+					UPCOMING EVENTS				</th>
+			</tr>
+					<tr>
+			<td>
+				<link href="http://gis.atlantaga.gov/gishome/modules/mod_events_latest.css" rel="stylesheet" type="text/css" />
+<table class="mod_events_latest_table" width="100%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td class="mod_events_latest_noevents">No events</td></tr>
+</table>
+			</td>
+		</tr>
+		</table>
+								</td>
+				</tr>
+				<tr>
+					<td>
+						</td>
+					<td colspan="3">
+						</td>
+					<td>
+						</td>
+				</tr>
+			</table></td>
+	</tr>
+	<tr>
+		<td>
+			<table id="Table_02" width="100%" height="25" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td>
+					</td>
+					<td>
+					</td>
+					<td>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</center>
+</body>
+</html>
+<!-- 1435907959 -->

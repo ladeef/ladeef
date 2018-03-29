@@ -1,0 +1,181 @@
+<!doctype html public "-//w3c//dtd html 3.2//en">
+<!-- Copyright 2002-2004 Latitude Geographics Group Ltd. www.geocortex.net/copyright -->
+<html><!-- InstanceBegin template="Templates/tutorial.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>IMF Tutorial: GIS Concepts</title>
+<!-- InstanceEndEditable -->
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+<link rel="stylesheet" type="text/css" href="css/compassCSS.css">
+<script src="js/compassDescription.js" type="text/javascript"></script>
+<script type='text/javascript'>
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+chgHeight(); 
+var isToolsFunctionsPage = false;
+//-->
+</script>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --> 
+</head>
+
+	<body id="bodyCompass" onLoad="loadPage(); toggleDesc(); MM_preloadImages('img/nav/taskBasedHelp_over.jpg','img/nav/tutorial_over.jpg','img/nav/toolsFunctions_over.jpg');">	
+			<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" id="tableHeader">
+				<tr id="top">		
+					<td height="46" align="left" valign="top"><A NAME="topmenu"></A><img src="img/headerLeft.jpg" style="float:left;"></td>
+					<td style="background-image: url(img/headerMiddle.jpg); background-repeat: repeat-x; width: 100%;"></td>
+					<td><img src="img/headerRight.jpg" style="float:right;"></td>
+				</tr>
+				<tr>
+				  <td height="16" align="left" valign="top" colspan="3">
+				  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+					  <td align="left" valign="top"><a href="gcx_tut0.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('tutorial','','img/nav/tutorial_over.jpg',1)"><img src="img/nav/tutorial.jpg" alt="Tutorial" name="tutorial" border="0"></a></td>
+					  <td align="left" valign="top"><a href="taskBasedHelp.jsp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('stepByStep','','img/nav/taskBasedHelp_over.jpg',1)"><img src="img/nav/taskBasedHelp.jpg" alt="Step By Step" name="stepByStep" border="0"></a></td>
+					  <td align="left" valign="top"><div id="divToolsAndFunctionsTab" class="divHidden"><a href="gcxCompass.jsp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('toolsFunctions','','img/nav/toolsFunctions_over.jpg',1)"><img src="img/nav/toolsFunctions.jpg" alt="Tools and Functions" name="toolsFunctions" border="0"></a></div></td>					  
+					  <td align="left" valign="top"><img src="img/nav/spacer_right.jpg"></td>
+					  <td width="100%">
+						  <div id="navBack" class="divHidden"><a href="javascript:goBack()"><img src="img/nav/back.jpg" id="backImg"></a></div>					  </td>
+					</tr>
+				  </table> 
+				</td>
+				</tr>
+    		</table>
+			<div id="content">
+			<a name="top" id="top"></a>					
+				<div class="divTutorialContent">				
+			<!-- InstanceBeginEditable name="main" -->
+					<h1>Basic Map Navigation</h1>
+					<p> 
+						It's time to learn how to navigate around the map. It is surprisingly easy, and best of all, 
+						involves absolutely no map folding whatsoever. 
+						We can't re-fold paper maps properly either. This is how we ended up in this line of work. 
+					</p>
+						
+					<a name="viewer" id="viewer"></a>
+					<div class="txtTitle">Getting Familiar with the Geocortex Map Viewer<a href="#top">Top</a></div>
+					<p>			
+						<img style="float: right;" height=274 width=350 src="img/tutorial/gcxImf_window.jpg">
+						When you open the Geocortex-based viewer in your Internet browser, 
+						you should see something that looks a lot like this. 
+					</p>
+					 <p>			
+						The map information is displayed in the <strong>Map Window</strong>. 
+						Beside it is the <strong>Information Panel</strong>, which displays information about
+						the map and lets you do interesting things with the map. Specifically, 
+						the Information Panel displays the legend, 
+						visible and active layers, and provides interfaces for various tools and processes. 
+					</p>
+					<p>
+						At the top of the viewer you can see the <strong>Title Frame</strong> and the <strong>Tools & Tabs</strong>. 
+						You will use these tool and tabs to navigate around the map, ask questions of it, 
+						and otherwise interact with the information. Scale, active layer, and active tool 
+						information are all found at the bottom of the interface in the <strong>Status Bar</strong>.
+					</p>
+					<p>			
+						If you are feeling lost already... don't worry. Everything will be
+						described in depth in the coming pages.
+					</p>
+					
+					<div class="txtTitle" id="navigating">Navigating Around Maps<a href="#top">Top</a></div>
+
+					<p><IMG HEIGHT="16" WIDTH="16" src="img/tutorial/pan_1.gif" ALT="Pan Tool">&nbsp
+						With a Geocortex map you can look at a specific area of interest. You can move around the 
+						map using the pan tool. The Pan tool lets you slide around to different parts of the map. 
+						Suppose you want to go north (up the map). Take the Pan tool and grab (press and hold down 
+						the mouse button) onto the map pulling it down. Whatever part of the map you grab with the 
+						little hand will end up where you let go of the mouse button. Just like in real life. This 
+						works for moving any direction on the map. 
+					</p>
+					<p>
+						<img src="img/toolImages/panBars.gif" style="float:left;">
+						Alternatively, you can click on the Directional 
+						Pan Bars (located along the edges of the map window) to pan-without switching to the pan tool. 
+					</p>	
+					<p>
+						<IMG HEIGHT="16" WIDTH="16" src="img/tutorial/zoomin_1.gif" ALT="Zoom In Tool">
+						&nbsp;<IMG HEIGHT="16" WIDTH="16" src="img/tutorial/zoomout_1.gif" ALT="Zoom Out Tool">&nbsp;The
+						<span class="textItalic">Zoom</span> tools are unique to digital maps. They are very much like
+						using an actual magnifying glass, as the icons imply. The main difference is you can't burn 
+						ants with them. Yes, this is a cruelty-free technology.
+					</p>			
+					<p>			
+						The magnifying glass with the little plus sign lets you 'zoom in', while the one with the little
+						minus sign lets you 'zoom out'. There are a couple of ways to use these tools. 
+					</p>
+					<p>
+						First, click on one of them to select it, then go somewhere on the map and press the left 
+						mouse button. If it is the <span class="textItalic">Zoom In</span> tool the map zooms in. The center of the new map is wherever 
+						on the map you clicked the mouse button. The <span class="textItalic">Zoom Out</span> tool zooms 
+						out the same way.
+					</p>						
+					<p>
+						Second, you can zoom in more precisely by pressing the mouse button somewhere on the map, 
+						holding it down, and dragging a box. When you let go of the mouse button the new map extent 
+						will be the area defined by the box. When zooming out, the area defined by the box becomes 
+						the new map extent. 
+					</p>
+					<a name="scale" id="scale"></a>
+					<p style="text-align: center"><A HREF="gcx_tut2_scale.html">Click here for a relevant, but not
+						          essential, discussion of scale.</A></p>
+			
+			<p><IMG HEIGHT="27" WIDTH="134" src="img/tutorial/scale.gif" ALT="Scale" ALIGN="right">One possible method of zooming uses the scale displayed below the map window. Enter your desired map scale, press <b>Go</b> and the map automatically zooms to that scale.</p>
+			
+			<p><b>Please note that the scale that appears on this viewer is for map navigation only, and is not necessarily accurate.</b>   Without information about the size of your monitor or display device, it is impossible for us to accurately provide a ratio scale.</p>
+			<p>Error is most pronounced if you are operating a large monitor (or a projection device) running at a very low resolution, or if you are running a small monitor at a very high resolution.  A 17" monitor running at a resolution of 800x600 or 1024x768 is much better represented by the denoted ratio scale.</p>
+			
+					<p>Some maps have limits on the scales at which you can view the data.
+					As well, some layers and/or map labels may only appear at certain scales.
+					We could go into it, but we'll spare you. Suffice to say, you listen to
+					a stereo within a certain range. At a certain volume you can't hear the
+					music any clearer if you make it louder, and at a certain quietness you
+					can't hear it at all, no matter how much lower you turn the volume knob.
+					<p> There are a few other functions that make navigating around maps easier.</p>
+					<p> <a name="previous"></a><IMG ALIGN="left" HEIGHT="16" WIDTH="16" src="img/tutorial/zoomlast_1.gif" ALT="Previous Extent Tool">&nbsp;The
+					  first is the <span class="textItalic">Previous Extent</span> tool. It is available either as
+					  a button or as a selection &nbsp;from the function menu. It jumps back
+					  to the previous map extent.</p>
+					<p> <a name="full"></a><img src="img/fullextent1.gif" width="16" height="16" align="left">&nbsp;Another
+					  operation from the function menu is <span class="textItalic">Zoom to Full Extent</span>. It zooms
+					  you out to &nbsp;the maximum extent of the map.</p>
+					<p> <span class="textItalic"><a name="active"></a><img src="img/zoom_active.gif" width="16" height="16" align="left">Zoom
+					  to Active Layer Extent</span> zooms to the maximum extent of the active
+					  layer and is found in the map function drop-down menu.</p>
+
+				<p>Next, you will find out how to make a layer active.</p>
+				  
+			  <p style="text-align: center"><a href="gcx_tut3.html">Continue...</a></p>		
+			<!-- InstanceEndEditable -->
+			  </div>
+			</div>			
+			<div class="divHidden" id="divAdvancedTaskFunctions"></div>
+			<table width="100%" cellspacing="0" cellpadding="2" id="tableFooter">
+			  <tr>
+				<td id="tdFooterObject" class="footer">
+				</td>
+			  </tr>
+			</table>	
+	</body>
+<!-- InstanceEnd --></html>

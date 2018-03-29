@@ -1,0 +1,165 @@
+<!doctype html public "-//w3c//dtd html 3.2//en">
+<!-- Copyright 2002-2004 Latitude Geographics Group Ltd. www.geocortex.net/copyright -->
+<html><!-- InstanceBegin template="Templates/tutorial.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>IMF Tutorial: GIS Concepts</title>
+<!-- InstanceEndEditable -->
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+<link rel="stylesheet" type="text/css" href="css/compassCSS.css">
+<script src="js/compassDescription.js" type="text/javascript"></script>
+<script type='text/javascript'>
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+chgHeight(); 
+var isToolsFunctionsPage = false;
+//-->
+</script>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable --> 
+</head>
+
+	<body id="bodyCompass" onLoad="loadPage(); toggleDesc(); MM_preloadImages('img/nav/taskBasedHelp_over.jpg','img/nav/tutorial_over.jpg','img/nav/toolsFunctions_over.jpg');">	
+			<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" id="tableHeader">
+				<tr id="top">		
+					<td height="46" align="left" valign="top"><A NAME="topmenu"></A><img src="img/headerLeft.jpg" style="float:left;"></td>
+					<td style="background-image: url(img/headerMiddle.jpg); background-repeat: repeat-x; width: 100%;"></td>
+					<td><img src="img/headerRight.jpg" style="float:right;"></td>
+				</tr>
+				<tr>
+				  <td height="16" align="left" valign="top" colspan="3">
+				  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+					  <td align="left" valign="top"><a href="gcx_tut0.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('tutorial','','img/nav/tutorial_over.jpg',1)"><img src="img/nav/tutorial.jpg" alt="Tutorial" name="tutorial" border="0"></a></td>
+					  <td align="left" valign="top"><a href="taskBasedHelp.jsp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('stepByStep','','img/nav/taskBasedHelp_over.jpg',1)"><img src="img/nav/taskBasedHelp.jpg" alt="Step By Step" name="stepByStep" border="0"></a></td>
+					  <td align="left" valign="top"><div id="divToolsAndFunctionsTab" class="divHidden"><a href="gcxCompass.jsp" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('toolsFunctions','','img/nav/toolsFunctions_over.jpg',1)"><img src="img/nav/toolsFunctions.jpg" alt="Tools and Functions" name="toolsFunctions" border="0"></a></div></td>					  
+					  <td align="left" valign="top"><img src="img/nav/spacer_right.jpg"></td>
+					  <td width="100%">
+						  <div id="navBack" class="divHidden"><a href="javascript:goBack()"><img src="img/nav/back.jpg" id="backImg"></a></div>					  </td>
+					</tr>
+				  </table> 
+				</td>
+				</tr>
+    		</table>
+			<div id="content">
+			<a name="top" id="top"></a>					
+				<div class="divTutorialContent">				
+			<!-- InstanceBeginEditable name="main" -->
+					  <a name="concept1" id="concept1"></a>
+						<h1>Two GIS Concepts You Need to Know</h1>
+						<p>Lots of folks spend years learning about Geographic Information Systems technology. </p>
+						<p>Since we promised to teach you what you need to know in about the time it takes to microwave a potato, we're going to boil it down to the two basic GIS concepts you need to know before you can effectively use Geocortex-based maps. </p>
+						
+						<div class="txtTitle">GIS Concept #1: Features have attributes associated with them. <a href="#top">Top</a></div>
+						<p> <img style="float:left; width: 55px; height: 100px;" src="img/tutorial/tree.gif" ><img ALIGN="right" height=71 width=130 src="img/tutorial/treetable.gif" >
+  						  Imagine a tree. How would you keep track of and communicate information about
+						  this tree to other people who need to know all about it? You might use
+						  a database to keep track of what species it is, how old it is, how tall
+						  it is, how healthy it is, and any other attributes (characteristics) that are important.
+						  This tree is one <b>record</b> in a <b>database</b>. We call each category
+						  (i.e. tree height) a <b>field.</b></p>
+						<p> <img style="float:right;" src="img/tutorial/trees.jpg" ><br>
+						  <img style="float:left;" src="img/tutorial/treestable.gif" align="left" >
+						  Now imagine a grove of trees for which you need to keep track of attributes. 
+						  Because we are now dealing with more than one tree, it becomes relevant
+						  <span class="textItalic">where</span> each tree is so we know what information relates to which
+						  tree. </p>
+						<p> We <img style="float: right;" height=105 width=134 src="img/tutorial/treemap.gif" >
+						  map the location of each tree and identify which attributes belong to
+						  which tree. This is the foundation of GIS. A GIS tells us <span class="textItalic">where</span>
+						  something is and <span class="textItalic">what</span> it is. Computers are synonymous with GIS,
+						  and using a computer we can have hundreds of fields (different attributes)
+						  for millions of records (trees).
+						  
+						</p>
+						<p> You will be able to examine the attributes of various features as you use a Geocortex-based map.
+						</p>
+
+						<a name="concept2" id="concept2"></a>
+						<div class="txtTitle">Concept # 2: Information is separated into layers.<a href="#top">Top</a></div>
+
+						<p> 											
+						We
+						  can also have other <span class="txtBodyBoldItalic">layers</span> of information in our GIS.
+						  Our information on trees would constitute one layer of information.
+						  We could also have a layer with rivers and a layer with soil types.
+						  Any information can be represented as a layer.</p>					  
+            <img ALIGN="left" height=152 width=276 src="img/tutorial/layers.gif" >
+						<p>A map represents the landscape in an artificial way. <span class="txtBodyBoldItalic">Vector
+						  layers</span> represent features in one of several ways:</p>														  
+						<p><span class="txtBodyBoldItalic">Points</span>: A point is good for representing information
+						  in which it is necessary to show where a feature is, but its physical
+						  shape is not important (i.e. trees in the old growth tree layer).</p>
+
+						<p> <span class="txtBodyBoldItalic">Lines</span>: A line is suitable to represent many real world
+						  features (i.e. the rivers in the river layer).<img src="img/tutorial/layermap.gif" style="float: right;" width="70" height="64"></p>
+						<p> <span class="txtBodyBoldItalic">Polygons</span>: Don't be intimidated by the name. It is really
+						  just a solid multi-sided shape. When you see a polygon, remember that 
+						  everything inside the boundary has the attributes associated with the
+						  record. (i.e. soil types in the soils layer)</p>
+						<p> 
+              You might hear people talk about <span class="txtBodyBoldItalic">coverages, themes,</span>
+						  or <span class="txtBodyBoldItalic">shapefiles.</span> All these terms are other names for <span class="txtBodyBoldItalic">layers</span>
+						  of information.</p>
+						<p>
+						  <table border="0" cellspacing="0" cellpadding="3">
+                <tr>
+                  <td><img src="img/tutorial/pixel_car.jpg"></td>
+                  <td rowspan="2" class="txtBody" valign="top" style="color: #000000;">
+                    Sometimes a layer of information can be a <strong>Raster layer</strong>, which is a grid that contains information. 
+                    Rows and rows of pixels make a grid. If you see a photo from above on a web-map, it's a raster layer. 
+                    In fact, this is how all digital camera images are stored. Raster layers don't have attributes associated
+                    with them like vector layers, though they all contain pixel values. That single value might be the color
+                    of a roof tile, or it might be a measure of hurricane force for a location, or just about anything else.                  
+                  </td>
+                </tr>
+                <tr>
+                  <td class="txtBody" align="center" style="color: #000000; font-size: 8pt;">
+                    Example: Roof of a Car
+                  </td>
+                </tr>
+						  </table>
+						</p>
+						<p>
+						  With individual layers we can conduct analysis between layers or, for example, 
+						  only display layers that are of interest to us. 
+						  As you work with Geocortex-based web maps you will be able to turn different layers 
+						  on and off as need be. </p>
+						<p> Guess what? You're done with the theory! With that under your belt, you're ready to make use of this knowledge. </p>
+
+						<p style="text-align: center;"><a href="gcx_tut2.html">Continue...</a>
+						</p>
+			<!-- InstanceEndEditable -->
+			  </div>
+			</div>			
+			<div class="divHidden" id="divAdvancedTaskFunctions"></div>
+			<table width="100%" cellspacing="0" cellpadding="2" id="tableFooter">
+			  <tr>
+				<td id="tdFooterObject" class="footer">
+				</td>
+			  </tr>
+			</table>	
+	</body>
+<!-- InstanceEnd --></html>

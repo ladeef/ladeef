@@ -1,0 +1,405 @@
+<? 	
+	@session_start();
+	//print_r($_REQUEST);
+	include "includes/header.php";
+	include "includes/user.php";
+	$user = new user();
+	//if($user->logincheck())
+	//	header("Location:index.php");
+	$cip_x = $_REQUEST[generatecip_x];
+	$cip_y = $_REQUEST[generatecip_y];
+	$cdpid=$_REQUEST['pid']; //  selected cdp array
+	$cdp_ids=$_REQUEST['pid'];
+	$userrole=$_SESSION['user_role'];
+	//if(!$user->admincheck($userrole))
+	//	header("Location:home.php");
+	$cdpid=explode(",",$cdpid);
+	//deleting existing cdp-cip combination
+	if(isset($_POST['delete']))
+	{
+		//print_r($_REQUEST);
+		$cmb_id=$_REQUEST['arp_cmbid'];
+		$sql_cdp2 = "select * from coa_cdp_approval where apr_cmb_id='$cmb_id'";
+		$sql_cdpn = $conn->execute($dbconn,$sql_cdp2);
+		while( $sql_name2 =  $conn->fetch_array($sql_cdpn))
+		{
+			$sql_name2 = $sql_name2['cdp_id'];	
+			//deleting cips created
+			$sql_cmb_cip="delete from coa_projects where prj_id IN  (select prj_id from coa_cdp_cip where cdp_id ='$sql_name2')";
+			$sql_cip_exe = $conn->execute($dbconn,$sql_cmb_cip);
+			//deleting funding details
+			$sql_cmb_fnd="delete from coa_funding_details where prj_id IN  (select prj_id from coa_cdp_cip where cdp_id ='$sql_name2')";
+			$sql_fnd_exe = $conn->execute($dbconn,$sql_cmb_fnd);
+			//deleting cdp cip relations
+			$sql_cmb1="delete from coa_cdp_cip where cdp_id ='$sql_name2' ";
+			$sql_cmb1_exe = $conn->execute($dbconn,$sql_cmb1);	
+		}
+		$sql_cmb1="delete from coa_cdp_approval where apr_cmb_id='$cmb_id' ";
+		$sql_id_cmb1 = $conn->execute($dbconn,$sql_cmb1);	
+	}
+	function getcdpname ($cdpid)
+	{
+		global $dbconn;
+		global $conn;
+		$sql_cdp = "select cdp_name from coa_cdp where cdp_id='$cdpid'";
+		$sql_cdpn = $conn->execute($dbconn,$sql_cdp);
+		$sql_name =  $conn->fetch_array($dbconn,$sql_cdpn);
+		return $sql_name[cdp_name];
+	}
+	
+	if (isset($_SESSION['sourceno_array'])) // initialising source number array
+		$_SESSION['sourceno_array']="";	
+	$check=0;
+	//comparing selected cdp combination with the existing cdp combination
+	foreach($cdpid as $pid)
+	{
+		$res=$conn->execute($dbconn,"select * from coa_cdp_approval where cdp_id='$pid'");
+		$sql_id8 = $conn->fetch_array($res);
+		$z= $sql_id8['apr_cmb_id'];
+		$a1="select * from coa_cdp_approval where apr_cmb_id='$z'";		
+		$res=$conn->execute($dbconn,$a1);
+		$my_count = $conn->get_count($res); 
+		$flag=1;
+		if($my_count==count($cdpid))
+		{	
+			$a=0;
+			$b=0;
+			$flag=0;
+			foreach($cdpid as $pid)  //checking combination ids are same or not 
+			{
+				//echo "<br>select * from coa_cdp_approval where cdp_id='$pid'";
+				$res=$conn->execute($dbconn,"select * from coa_cdp_approval where cdp_id='$pid'");
+				$sql_id8 = $conn->fetch_array($res);
+				$a= $sql_id8['apr_cmb_id'];
+				//echo "<br>A: ".$a."B: ".$b."<br>";
+				if($a=="")
+				{
+					$a=0;
+				}
+				if($b!=0 && $flag==0)
+				{
+					if($a==$b)
+					{
+						//	echo "<br>A: ".$a."B: ".$b." Equal<br>";
+					}
+					else
+					{
+						//echo "<br>A: ".$a."B: ".$b." not<br>";
+						$flag=1;
+					}
+				}
+				$b=$a;
+			}
+		}
+	}
+	
+	
+	
+	foreach($cdpid as $pid)
+	{
+		$check=0;
+		$res1=$conn->execute($dbconn,"select * from coa_cdp_approval where cdp_id='$pid'");
+		$sql_id81 = $conn->fetch_array($res1);
+		$check1= $sql_id81['apr_cmb_id'];
+		if($check1!="")
+		{
+			$check=1;
+			break;
+		}
+	}                          //check	
+	$numcpd=sizeof($cdpid);
+	$cdp_names="";
+	foreach($cdpid as $pid) //create title containing cdp details
+	{ 
+		$sql_id = $conn->execute($dbconn,"select * from coa_cdp where cdp_id='$pid'");				
+		while($sql_id1 = $conn->fetch_array($sql_id))
+		{
+			$us_id=$sql_id1[0];
+			$cdp_name=$sql_id1[cdp_name];
+			if ($cdp_names!="")
+				$cdp_names=$cdp_names.", "."#".$pid;
+			else
+				$cdp_names="#".$pid;
+		}
+	}
+
+?>
+
+<td width="785" valign="top">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr >
+			<td align="right">
+				<a class="prj_link"  href="approvals.php">Back to Approvals</a>&nbsp;&nbsp;
+			</td>
+		</tr>
+	</table>
+	<? if($check!=1) 					//For new combination..
+	{   
+		?>
+		<!-- Generate CIP-->
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr> 
+				<td height="30" class="hedding1"  align="left" colspan="3">Generate 
+					<input type="hidden" name="" id="" value="<? echo $value; ?>" />
+					CIP(s) From CDP(s)  
+				</td>
+			</tr>
+			<tr>
+				<td height="5" colspan="3"></td>
+			</tr>
+			<form action="select_source.php" method="post">
+				<input type="hidden" name="cpd_ids" id="cpd_ids" value=""/>
+				<input type="hidden" name="cpd_name" id="cpd_name" value=""/>
+				<input type="hidden" name="pid" id="pid" value=""/>
+				<tr>
+					<td colspan="3" align="center" height="25">
+						<table cellpadding="0" cellspacing="0" align="center" width="99%" class="border2" background="images/colbg.gif" style="background-repeat:repeat-x">
+							<tr>
+								<td align="right" class="text_bold" valign="top">Generate CIP from the following CDP(s)</td>
+								<td width="25"></td>
+								<td width="463" colspan="3" valign="top" align="left">
+									<table align="left">
+									<?
+									$columncount=3; // number of columns
+									$count=0; //start
+									foreach($cdpid as $pid)
+									{   
+										$count++;
+										$sql_id = $conn->execute($dbconn,"select * from coa_cdp where cdp_id='$pid'");				
+										while($sql_id1 = $conn->fetch_array($sql_id))
+										{
+											$us_id=$sql_id1[user_id];
+											$cdp_name=$sql_id1[cdp_name];
+											$cdp_names="CDP #".$pid." - ".$cdp_name;
+										}
+										?>
+										<tr>
+											<td>
+												<a href="cdpdetails_popup.php?id=" onclick="return hs.htmlExpand(this, { contentId: 'highslide-html-3',objectType: 'ajax', preserveContent: true} )" class='prj_link'></a>
+											</td>
+										</tr>
+										<?
+									}
+									?>
+									</table>						  
+								</td>
+							</tr>
+							<tr>
+								<td height="10" colspan="3"></td>
+							</tr>
+							<tr>
+								<td align="right" class="text_bold">Number of CIPs</td>
+								<td width="25"></td>
+								<td width="463" colspan="3" valign="top" align="left">
+								<select name="cip_count" class="textField_small">
+								<?
+								for($i=1;$i<=10;$i++)
+								{ 
+									?>	
+									<option value="" <? if($i==1){?>selected="selected" <? }?>></option>
+									;
+									<? 
+								}?>
+								</select>
+								</td>
+							</tr>
+							<tr>
+								<td height="10" colspan="3"></td>
+							</tr>
+							<tr>
+								<td align="right" ></td>
+								<td width="25"></td>
+								<td width="463" colspan="3" valign="top" align="left"><input type="image" name="generatecip" src="images/generatecip.gif" border="0" /></td>
+							</tr>
+							<tr>
+								<td height="10" colspan="3"></td>
+							</tr>
+						</table>		  
+					</td>
+				</tr>
+			</form>
+			<tr>
+				<td height="10"></td>
+			</tr>
+		</table>	
+		<? 
+	} 
+	if ($flag==0 and $check!=0)  		//..For already generated combination..
+	{ 
+		?>
+		<!--Continue-->
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr> 
+				<td height="30" class="hedding1"  align="left" colspan="3">Generate CIP(s) From CDP(s)  </td>
+			</tr>
+			<tr>
+				<td height="5" colspan="3"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center" height="25">
+					<table cellpadding="0" cellspacing="0" align="center" width="99%" class="border2" background="images/colbg.gif" style="background-repeat:repeat-x">
+					<? 
+					foreach($cdpid as $pid)
+					{
+						$cmb_id6=$conn->execute($dbconn,"select * from coa_cdp_approval where cdp_id='$pid'");
+						$cmb6 = $conn->fetch_array($cmb_id6);
+						$cnt = $cmb6['apr_cipcnt'];
+						$gen = $cmb6['apr_cipgen'];
+						$combination_id = $cmb6['apr_cmb_id'];
+						?>
+						<tr>				
+							<td height="51" colspan="2" class="errtext" align="left" style="padding-left:20px">You have already generated (  
+							 / ) CIP(s) using the same combination.<br />
+							Click on continue button to complete the remaining CIP(s).
+							<?	break;
+							?>
+							</td>
+						</tr><?
+					}
+					?> 
+					<tr>
+						<td height="10" colspan="3"></td>
+					</tr>
+					<tr>
+						<td align="center">
+							<form action="select_source.php" method="post">
+								<input type="hidden" name="cpd_ids" id="cpd_ids" value=""/>
+								<input type="hidden" name="cpd_name" id="cpd_name" value=""/>
+								<input type="hidden" name="pid" id="pid" value=""/>
+								<input type="hidden" name="cmb_cdp_name" id="cmb_cdp_name" value="<? echo $arp_cmbid; ?>">
+								<input type="hidden" name="combination_id" id="combination_id" value="<? echo $combination_id; ?>">
+								<input type="submit" name="Continue" value="Continue" />
+							</form>
+						</td>
+					</tr>
+					</table>
+				</td>
+			</tr>	   
+			<tr>
+				<td height="10"></td>
+			</tr>
+		</table>
+		<? 
+	}  
+	else  
+	{
+		if ($check!=0)  				//..For combination conflict..				
+		{  
+			?>
+			<!--Delete-->
+			<table cellpadding="0" cellspacing="0" align="center" width="99%" class="border2" background="images/colbg.gif" style="background-repeat:repeat-x">
+				<tr> 
+					<td height="30" class="hedding1"  align="left" colspan="3">Generate CIP(s) From CDP(s)  </td>
+				</tr>
+				<? 
+				//	foreach($cdpid as $pid)
+				//	{
+				//	$res=$conn->execute($dbconn,"select * from coa_cdp_cip where cdp_id='$pid'");
+				//		$count_res=$conn->get_count($res);	
+				//	if($count_res!=0)
+				//	{
+				//	?>
+				<tr>				
+					<td height="51" colspan="2" class="errtext" align="left" style="padding-left:5px">
+					There is a combination conflict between the CDP(s) selected.<br />								
+					Some of the CDP(s) selected were in different combination previously.<br />
+					If you want to continue with the selected combination, please delete the existing combination.<br />
+					Or come back again selecting the older combination. View the details below.
+					
+					</td>
+				</tr><?
+				//	}
+				///	}
+				?> 
+				<?
+				$columncount=3; // number of columns
+				$count=0; //start
+				foreach($cdpid as $pid)
+				{   
+							
+					$sql_cmb="select * from coa_cdp_approval where apr_cmb_id=(select apr_cmb_id from coa_cdp_approval where cdp_id='$pid') ";
+					$sql_id_cmb = $conn->execute($dbconn,$sql_cmb);
+					$cmb = $conn->fetch_array($sql_id_cmb);
+					$arp_cdpid =  $cmb[apr_cmb_id];
+					if ($arp_cdpid != "")
+					{ 
+						$count++;
+						$sql_id6 = $conn->execute($dbconn,"select * from coa_cdp where cdp_id='$pid'");	
+						
+						while($sql_id4 = $conn->fetch_array($sql_id6)){ 	
+						$us_id=$sql_id4[user_id];
+						$cdp_name=$sql_id4[cdp_name];
+						
+						$cdp_names="CDP #".$pid." - ".$cdp_name;
+						
+						} 
+						?>
+						<tr>
+						<td width="100%" align="left" style="padding-left:5px">
+							<table width="100%" align="center">
+								<tr>
+								<td width="37%" align="left" valign="top"><a href="cdpdetails_popup.php?id=" onclick="return hs.htmlExpand(this, { contentId: 'highslide-html-3',objectType: 'ajax', preserveContent: true} )" class='prj_link'></a></td>
+								<td align="left" valign="top">
+									<table align="left">
+									<? 
+									$sql_cmb="select * from coa_cdp_approval where apr_cmb_id=(select apr_cmb_id from coa_cdp_approval where cdp_id='$pid') ";
+									$sql_id_cmb = $conn->execute($dbconn,$sql_cmb);
+									while($cmb = $conn->fetch_array($sql_id_cmb))
+									{ 	 
+										$arp_cmbid =  $cmb[apr_cmb_id];
+										$arp_cdpid =  $cmb[cdp_id];
+										$sql_cdp = "select cdp_name from coa_cdp where cdp_id='$arp_cdpid'";
+										$sql_cdpn = $conn->execute($dbconn,$sql_cdp);
+										$cmb_cdp_name11 = $conn->fetch_array($sql_cdpn);
+										$cmb_cdp_name =$cmb_cdp_name11[cdp_name]; 
+										?>
+										<tr align="left"> 
+											<td width="58%" class="text_bold" ><? echo "CDP #".$arp_cdpid ." - ".$cmb_cdp_name; ?>
+											</td>
+										</tr>
+										<?
+									} 
+									?>
+										<tr> 
+										<td align="left">
+											<form action="" method="post">
+												<? 
+												foreach ($_POST as $key => $value)
+												{ 
+													?>
+													<input type="hidden" name="" value="<? echo $value; ?>">
+													<? 
+												} ?>
+												<input type="hidden" name="arp_cmbid" id="arp_cmbid" value="<? echo $arp_cmbid; ?>">
+												<input type="submit" name="delete" value="Delete" />
+											</form>
+										</td>
+										</tr>
+									</table>						
+								</td>
+							</table>
+						</td>
+								</tr>
+								<tr height="5">
+									<td>
+									</td>
+								</tr>
+						<?
+					}
+				}
+				?>
+				
+			</table>
+			<? 
+		} 
+		?>
+		<? 
+	} ?>	
+</td>
+
+	<!--middle content ends-->
+	<!--<div class="highslide-html-content" id="highslide-html-3" style="width:825px;height:550px;padding-left:10px;padding-top:0px;">
+	<div class="highslide-move" style="padding-left:769px;height:10; border: 0; cursor: default;padding-bottom:0px;padding-top:0px;"><a href="#"><img class="th_border" height="15" src="images/move.gif" alt="move" border="0" /></a> <a href="#" onclick="return hs.close(this)"><img height="15" class="th_border" src="images/close.gif" alt="close" border="0" /></a></div>
+	<div class="highslide-body" style="padding-top:0px;"></div>-->
+	</div>
+<? include ("includes/footer.php");?>

@@ -1,0 +1,557 @@
+<? 	
+	@session_start();
+	include "includes/header.php";
+	include "includes/user.php";
+	$user = new user();
+	//if($user->logincheck())
+	//header("Location:index.php");
+	$cdpid=$_REQUEST['id'];
+	$uid = $_SESSION['user_id'];
+	$from=$_SESSION['deid'];
+	$page=$_SESSION['page_ss'];
+	
+	$by=$_GET['by'];
+	$order=$_GET['order'];
+	$nfl=0;
+	if($_GET['serch']==true||$_GET['type']=="approve") $nfl=1;
+		$sql_id = $conn->execute($dbconn,"select * from coa_cdp where cdp_id='$cdpid'");
+		$sql_id1 = $conn->fetch_array($sql_id);
+	
+	$cdp_name=$sql_id1[cdp_name];
+	$dp_prj_manager=$sql_id1[cdp_prj_manager];
+	$cdp_description=$sql_id1[cdp_description];
+	$cdp_programname=$sql_id1[cdp_programname];
+	$cdp_projecttype=$sql_id1[cdp_prj_type_id];
+	$dep_id=$sql_id1[dep_id];
+	$cdp_status=$sql_id1[cdp_status];
+	$cdp_update=$sql_id1[cdp_update];
+	$cdp_ordinance_date=$sql_id1[cdp_ordinance_date];
+	$cdp_capital_program=$sql_id1[cdp_capital_program];
+	if($cdp_ordinance_date!=0)
+	$ordinance_date = $cdp_ordinance_date;
+	if($cdp_update!=0)
+		$update_date = formatdate($cdp_update);
+	
+	
+	$prj_type=$conn->execute($dbconn,"select prj_type from coa_project_types where prj_type_id='$cdp_projecttype'");
+	$sql_id22 = $conn->fetch_array($prj_type);
+	$prj_type_name=$sql_id22[prj_type];	
+	
+	
+	
+	$dep=$conn->execute($dbconn,"select dep_name from coa_departments where dep_id='$dep_id'");
+	$sql_id2 = $conn->fetch_array($dep);
+	$dep_name=$sql_id2[dep_name];
+	
+	$cdp_prj_sponsor=$sql_id1[cdp_prj_sponsor];
+	$cdp_bureau=$sql_id1[cdp_bureau];
+	$cdp_area=$sql_id1[cdp_area];
+	$cdp_councildistrict=$sql_id1[cdp_councildistrict];
+	$cdp_npu=$sql_id1[cdp_npu]; 			
+	
+	$cdplegislation=$sql_id1[cdp_legislation];
+	$cdp_initiationyear=$sql_id1[cdp_initiationyear];
+	$cdp_completionyear=$sql_id1[cdp_completionyear];
+	$cdp_fundingsource=$sql_id1[cdp_fundingsource];
+	$cdp_costofestimate=$sql_id1[cdp_costofestimate];
+	$cdp_ordinancenumber=$sql_id1[cdp_ordinancenumber];
+	
+	$cdp_start_date=$sql_id1[cdp_start_date];
+	if($cdp_start_date!=0)
+		$cdp_start_date = formatdate($cdp_start_date);
+	
+	$cdp_end_date=$sql_id1[cdp_end_date];
+	if($cdp_end_date!=0)
+		$cdp_end_date = formatdate($cdp_end_date);
+	
+	$cdp_source=$sql_id1[cdp_source];				
+	$prj_priority=$sql_id1[cdp_priority];
+	$cdp_state=$sql_id1[cdp_state];
+	$cdp_justification=$sql_id1[cdp_justification];
+	
+	$cdp_priority=$sql_id1[cdp_priority];
+	
+	$squery="select plan_id, name from coa_cdp_studies ccs JOIN coa_studies cs on ccs.study_id=cs.plan_id and ccs.cdp_id='$cdpid'";
+	
+	$cdp_cip=$conn->execute($dbconn,"SELECT  prj_id FROM coa_cdp_cip where  cdp_id='$cdpid' ");
+	while ($sql_cdp_cip = $conn->fetch_array($cdp_cip))
+	{
+		$value=$sql_cdp_cip[prj_id];
+		$cdp_ids=$conn->execute($dbconn,"SELECT cdp_start_date FROM coa_cdp where cdp_id='$value'");
+		//$start_date = $conn->fetch_array($cdp_ids);
+		//$str_dt=substr($start_date[cdp_start_date], 2, 2);
+		
+		$href="<a href='cipdetails.php?cipid=".$value."' class=\"prj_link\">";
+		if ($prj_cdp_cip=="")
+			$prj_cdp_cip=$href."CIP #".$sql_cdp_cip[prj_id]."</a>";
+		else
+			$prj_cdp_cip=$prj_cdp_cip.",".$href." CDP #".$sql_cdp_cip[prj_id]."</a>";			
+		
+	
+	}
+	
+	// error mesage handling
+	$request=$_REQUEST['msg'];
+	if($request=='suc')  // requst for approval by user
+		$msg="Your request is successfully posted";
+	else if($request=='snd') // sending reminder - user
+		$msg="Your Reminder has been sent successfully";
+	else if ($request=='rej') // reject project - admin
+		$msg="Selected project is successfully rejected";
+	
+	$request=$_REQUEST['add']; // project added from user side
+	if($request=='suc')
+		$msg="New project is successfully added";				
+	//to enable and disable send reminder button after every 2 days
+	/*
+	$sqlreq=$conn->execute($dbconn,"SELECT * FROM coa_cdp_requests WHERE cdp_id='$cdpid'");				
+	$req=$conn->fetch_array($sqlreq);
+	$reqst=$req['cdp_req_update'];
+	
+	$sql=$conn->execute($dbconn,"SELECT DATE_ADD('$reqst',INTERVAL 2 DAY) AS dt");
+	$sql=$conn->execute($dbconn,"SELECT cdp_req_update+2 AS dt from coa_cdp_requests ");
+	$result_set=$conn->fetch_array($sql);
+	$dateagg=$result_set['dt'];
+	echo $dateagg;
+	$reqst='2008-02-20';
+	$sqldate=$conn->execute($dbconn,"SELECT sysdate-cdp_req_update AS dat FROM coa_cdp_requests WHERE cdp_id='$cdpid'");
+	$sqldate=$conn->execute($dbconn,"SELECT DATEDIFF(CURRENT_DATE(),'$reqst') AS dat");
+	$result_date=$conn->fetch_array($sqldate);
+	$dateres=$result_date['dat'];
+	echo $dateres;
+	*/
+	//function to generate sql to find previous and next cdp
+	function create_stmt($sby,$swith,$sorder,$sfrom,$direction)
+	{
+		global $dbconn;
+		$conn = new mysql();
+		$frmstmt="";
+		if($sorder=="")	$sorder="asc";
+		
+		if($sby=="name")	
+		{
+			$sby="a.cdp_name"; $k=0;
+		}
+		else if($sby=="type")	
+		{
+			$sby="c.prj_type"; $k=1;
+		}
+		else if($sby=="dept")	
+		{
+			$sby="d.dep_name"; $k=1;
+		}
+		else 	
+		{
+			$sby="a.cdp_name"; $k=0;
+		}
+		
+		if($sby=="d.dep_name") 
+			$myvar=" left join coa_departments d on  a.dep_id=d.dep_id ";
+		else	
+			$myvar="";
+		if($sby=="c.prj_type") 
+			$myvar02="  left join COA_PROJECT_TYPES c on  a.cdp_prj_type_id=c.prj_type_id  ";
+		else	
+			$myva02="";
+		
+		$kby=$sby;
+		$sby="upper(".$sby.")";
+		
+		$stmt1="select * from (";
+		$whrstmt=" where a.cdp_id!=0";
+		
+		if($sfrom!="")
+		{
+			$frmstmt=" and a.dep_id='$sfrom'";
+		}
+		
+		
+		$fstmt="FROM coa_cdp a ".$myvar.$myvar02;
+		
+		$ordrstmt=" order by ".$sby." ".$sorder;
+		if($k==1)
+		{
+			$ordrstmt.=",upper(a.cdp_name) ".$sorder;
+		}
+		$ordrstmt.=",a.cdp_id ".$sorder;
+		
+		
+		$subqstmt="select a.cdp_id,ROW_NUMBER() OVER ( ".$ordrstmt.") ordernum ".$fstmt.$whrstmt.$frmstmt;
+		
+		$stmt=$stmt1.$subqstmt.") where cdp_id=$swith";
+		$sql_rowno = $conn->execute($dbconn,$stmt);
+		$sql_rowno1 = $conn->fetch_array($sql_rowno);
+		$rowno=$sql_rowno1[ordernum];	
+		
+		if($direction=="next")
+		{
+			$stmt=$stmt1.$subqstmt.") where ordernum=$rowno+1";
+		}
+		if($direction=="prev")
+		{
+			$stmt=$stmt1.$subqstmt.") where ordernum=$rowno-1";
+		}
+		return $stmt;
+		
+	}
+	//building back page url
+	if($nfl!=1)// 1 if coming from search results or approve list
+	{
+		$back_page="cdp_projects.php?page=".$page."&by=".$by."&order=".$order."&id=".$from;
+	}
+	else
+	{
+		$back_page="$_SERVER[HTTP_REFERER]";
+	}
+	
+	$cip_name_no=$cdpid;
+	//$cip_name_no=strtoupper($cip_name_no);
+	//$cip_name_no.=" ".$cdpid;
+	//to get id of previous cdp
+	$sstmt=create_stmt($by,$cip_name_no,$order,$from,"prev");
+	$sql_prev_id = $conn->execute($dbconn,$sstmt);
+	$sql_prev_id1 = $conn->fetch_array($sql_prev_id);
+	$prev_id=$sql_prev_id1[cdp_id];	
+	//to get id of next cdp
+	$sstmt=create_stmt($by,$cip_name_no,$order,$from,"next");
+	$sql_prev_id = $conn->execute($dbconn,$sstmt);
+	$sql_prev_id1 = $conn->fetch_array($sql_prev_id);
+	$next_id=$sql_prev_id1[cdp_id];	
+		
+?>
+
+<form name="request" action="request.php?cdpid=" method="post">
+				<td width="785" valign="top" class="text" style="padding-left:10px; padding-right:10px;">
+					<table cellpadding="0" cellspacing="0" border="0" width="100%" class="border1">
+						<tr>
+							<td colspan="100%">
+								<? 
+								if($_GET['type']=="approve")
+								{ 
+									?>
+									<table cellpadding="0" cellspacing="0" width="100%">
+										<tr >
+											<td align="right">
+												<a class="prj_link"  href="approvals.php">Approvals</a>&nbsp;&nbsp;
+											</td>
+										</tr>
+									</table>
+									<? 
+								} ?>
+								
+									<table>
+										<tr>
+											<td align="left" width="75" valign="top" ><a class="prj_link"  href="<? echo $back_page?>" >Back-to-list</a></td>
+											<td align="left" width="275" valign="top">&nbsp;</td>
+											<td align="center" width="195" valign="top">&nbsp;</td>
+											<td align="right" width="200" valign="top">&nbsp;</td>
+											<td align="left" width="75" valign="top" class="prj_link" >
+												<?
+												if($nfl!=1)
+												{
+													if($prev_id)
+													{ 
+														?>
+														<a  class="prj_link"  href="cdpdetails.php?by=<?  echo $by ?>&order=<? echo $order ?>&id=<? echo $prev_id?>">&lt;&lt;Previous</a>
+														<? 
+													}
+													else 
+													{ 
+														?> 
+														&lt;&lt;Previous
+														<? 
+													} 
+													?>
+													
+												</td>
+												<td align="right" width="75" valign="top" class="prj_link" >
+													<? 
+													if($next_id)
+													{	
+														?>		
+														<a  class="prj_link"  href="cdpdetails.php?by=<?  echo $by ?>&order=<? echo $order ?>&id=<? echo $next_id?>">Next&gt;&gt;</a>
+														<? 
+													}
+													else 
+													{ 
+														?> 
+														Next&gt;&gt;<? 
+													}
+												}?>
+											</td>
+										</tr>
+									</table>
+							</td>
+						</tr>  
+						<tr>
+							<td colspan="3" align="center">
+								<table cellpadding="0" cellspacing="0" border="0" width="100%">
+									<tr> 
+										<td height="20"  align="left" style="padding-left:5px;" class="hedding1" ></td>
+										<td valign="middle" align="right"><span class="text">Updated: <? echo $update_date ?> | Status: <? echo $cdp_status?></span></td>
+									</tr>
+								</table>		
+							</td>
+						</tr>  	
+						<tr>
+							<td height="5" align="center"></td>
+						</tr>
+						<tr align="left" valign="middle" >
+							<td height="4" colspan="3"  bgcolor="#618ab6"></td>
+						</tr>
+						<tr>
+							<td height="5"></td>
+						</tr>
+						<tr>
+							<td height="5" colspan="3"></td>
+						</tr>
+						<tr>
+							<td colspan="3"><input type="hidden" value="<? echo $cdpid ?>" class="textField1" name="id" />          </td>
+						</tr>
+						<tr>
+							<td class="errtext" align="center" colspan="3">
+								<div id="msgshow" style="display:block" class="errtext">
+								<? 
+								if($message!='') 
+								{  
+									?>
+																		<? 
+								} ?>
+								<? 
+								if($msg!='') 
+									echo "$msg"; ?>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td width="19%" height="34" align="left" valign="top" class="text" colspan="3" style="font-weight:600; font-size:14pt"></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text"><b>Project Description</b></td>
+							<td width="81%" height="20" align="left" valign="top" class="text" colspan="2"></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text"><b>Project Justification</b></td>
+							<td width="81%" height="20" align="left" valign="top" class="text" colspan="2"></td>
+						</tr>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Department</b></td>
+							<td width="81%" height="20" align="left" valign="top"><span class="text"><? echo $dep_name?></span></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Category</b></td>
+							<td width="61%" height="20" align="left" valign="top" class="text"><? echo $prj_type_name?></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><strong>Program</strong></td>
+							<td width="61%" height="20" align="left" valign="top" class="text"><? echo $cdp_programname?></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><strong>Functional Area</strong></td>
+							<td width="61%" height="20" align="left" valign="top" class="text"><? echo $cdp_area?></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><strong>Funding Source</strong></td>
+							<td width="61%" height="20" align="left" valign="top" class="text"><? echo $cdp_fundingsource?></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Type </b></td>
+							<td width="61%" height="20" align="left" valign="top" class="text"><? if($cdp_capital_program==1) echo "Capital"; if($cdp_capital_program==2) echo "Non-Capital";?></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Responsible Party</b></td>
+							<td width="61%" height="20" align="left" valign="top" class="text"><? echo departmentname($cdp_prj_sponsor)?></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Priority</b></td>
+							<td width="61%" height="20" align="left" valign="top" class="text"><? echo $cdp_priority?></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Project State</b></td>
+							<td width="61%" height="20" align="left" valign="top" class="text"><? echo $cdp_state?></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Source Plan/Study</b></td>
+							<td width="61%" height="20" align="left" valign="top" class="text">
+								<?
+								$source=$conn->execute($dbconn,$squery);
+								$count=$conn->get_count($source);
+								$source=$conn->execute($dbconn,$squery);
+								$i=1;					
+								while($source1=$conn->fetch_array($source))
+								{
+									echo "<a href='study_details.php?plan_id=$source1[plan_id]'>$source1[name]</a>";
+									if($i<$count)
+									echo "  ,  ";
+									$i++;
+								}
+								?>
+							</td>
+						</tr>
+						<tr>
+							<td height="10"></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>CIP Projects</b></td>
+							<td width="61%" height="20" align="left" valign="top" class="text"><? echo $prj_cdp_cip; ?></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Estimated Cost</b></td>
+							<td width="61%" height="20" align="left" valign="top" class="text">$<? echo number_format($cdp_costofestimate,0)?></td>
+						</tr>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Council District</b></td>
+							<td width="81%" height="20" align="left" valign="top"><span class="text"><? echo $cdp_councildistrict?></span></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>NPU(s)</b></td>
+							<td width="81%" height="20" align="left" valign="top"><span class="text"><? echo $cdp_npu?></span></td>
+						</tr>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Start Date</b></td>
+							<td width="64%" height="20" align="left" valign="top" class="text"><? echo $cdp_start_date?></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>End Date</b></td>
+							<td width="64%" height="20" align="left" valign="top" class="text"><? echo $cdp_end_date?></td>
+						</tr>
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Ordinance #</b></td>
+							<!--<td width="64%" height="20" align="left" valign="top" class="text"><? echo $cdp_ordinancenumber?></td>-->
+							<td width="64%" height="20" align="left" valign="top" class="text">
+							<a  href=<? 
+													$url="http://citycouncil.atlantaga.gov/".substr($ordinance_date,0,4)."/images/adopted/".substr(str_replace("-","",$ordinance_date),4,4)."/".str_replace("-","",substr($cdp_ordinancenumber,0,9)).".pdf";
+													if ($url) {
+															echo $url;
+													} else {
+															echo "look up table";
+													}
+											 ?>
+							><? echo $cdp_ordinancenumber?></a>
+							</td>
+						</tr>	
+
+
+						<tr>
+							<td width="19%" height="20" align="left" valign="top" class="text_bold"><b>Ordinance Date</b></td>
+							<td width="64%" height="20" align="left" valign="top" class="text"><? echo $ordinance_date?></td>
+						</tr>
+
+
+
+						<tr>
+							<td height="10" colspan="3"></td>
+						</tr>
+						<tr>
+							<td height="10" colspan="3"></td>
+						</tr>
+						<tr>
+							<td height="10" colspan="3"></td>
+						</tr>
+						<tr>
+							<td height="10" colspan="3"></td>
+						</tr>	  
+						<? 
+						if($_GET['type']=="approve" && $_SESSION['user_role']=="Admin" && $sql_id1['cdp_status']!="Rejected") 
+						{ 
+							?>
+							<tr>
+								<td valign="top" colspan="3" height="60">
+									<table cellpadding="0" cellspacing="0" border="0" align="center">
+										<tr>
+											<td align="right" width="250"><input type="hidden" name="cdpid" value=""><input type="image" name="reject" src="images/reject.gif" border="0" /></td>
+											<td width="25"></td>
+											<td align="left" width="260"><a href="generate_cip.php?pid=<? echo $cdpid?>"><img src="images/approve.gif" border="0" /></a></td>
+										</tr>
+									</table>			
+								</td>
+							</tr>
+							<? 
+						}
+						else if($user->usercheck($cdpid,$uid)) 
+						{ // security check?>
+							<tr>
+								<td valign="top" colspan="3" height="60">
+									<table cellpadding="0" cellspacing="0" border="0" align="center">
+										<tr> 
+											<td align="right" width="194" valign="top"><a href="cdp.php?id=<? echo $cdpid?>"><img src="images/edit.gif" border="0" /></a></td>
+											<td width="25"> </td>
+											<td width="199" align="left" valign="top">
+												<?
+												$status=$sql_id1['cdp_status'];
+												if($cdp_capital_program == 1) //enable request button only if type is capital
+												{
+													?>
+													<input type="image" name="reqapp" src="images/approvalbutton.gif" border="0"/>			  
+													<? }else if(($status=="Requested") && ($dateres>=2)){
+													?>			  
+													<input type="image" name="sndrem" src="images/sendreminder.gif" <? if($dateres<2){?> disabled="disabled" <? }?> border="0"/>				  
+													<? 
+												}
+												?>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<? 
+						} ?>  
+						<tr>
+							<td colspan="100%">
+							<? 
+							if($nfl!=1)
+							{ 
+								?>
+								<table>
+									<tr>
+										<td align="left" width="75" valign="top" ><a class="prj_link"  href="<? echo $back_page?>">Back-to-list</a></td>
+										<td align="left" width="275" valign="top">&nbsp;</td>
+										<td align="center" width="195" valign="top">&nbsp;</td>
+										<td align="right" width="200" valign="top">&nbsp;</td>
+										<td align="left" width="75" valign="top" class="prj_link" >
+											<?
+											if($prev_id)
+											{ 
+												?>
+												<a  class="prj_link"  href="cdpdetails.php?by=<?  echo $by ?>&order=<? echo $order ?>&id=<? echo $prev_id?>">&lt;&lt;Previous</a>
+												<? 
+											}
+											else 
+											{ 
+												?> 
+												&lt;&lt;Previous
+												<? 
+											}?>
+										</td>
+										<td align="right" width="75" valign="top" class="prj_link" >
+											<? 
+											if($next_id)
+											{
+												?>		
+												<a  class="prj_link"  href="cdpdetails.php?by=<?  echo $by ?>&order=<? echo $order ?>&id=<? echo $next_id?>">Next&gt;&gt;</a>
+												<? 
+											}
+											else 
+											{ 
+												?> Next&gt;&gt;<? 
+											}?>
+										</td>
+									</tr>
+								</table>
+								<? 
+							} 
+							?>
+							</td>
+						</tr> 
+					</table>
+				</td>
+			</tr>
+		</table>
+	</td>
+</form>
+<!--middle content ends-->
+
+<? include ("includes/footer.php");?>

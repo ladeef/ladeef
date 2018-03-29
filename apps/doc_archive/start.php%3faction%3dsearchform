@@ -1,0 +1,110 @@
+<html>
+<head>
+	<title>Document Archive</title>
+	<meta http-equiv="Cache-Control" content="must-revalidate">
+	<script language="Javascript" src="doc_archive.js"></script>
+	<link href="/gishome/templates/atlanta1/css/template_css.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td colspan="2" class="banner">
+		<img style="float:right;" src="/gishome/images/gishome_right.png"><img src="/gishome/images/gishome.gif" border="0">
+	</td>
+	</td>
+</tr>
+<tr>
+	<td class="lower-band" colspan="2" height="18px">
+		<table width="100%" style="background:url(/gishome/images/topnav_bg.gif) repeat-x 0 0 #FFF;">
+			<tr>
+				
+				<td align="right">
+					<table cellpadding="0" cellspacing="0" class="moduletable-nav">
+						<tr>
+							<td>
+								<table width="100%" border="0" cellpadding="0" cellspacing="1">
+									<tr>
+										<td nowrap="nowrap">
+											<a href="/gishome/index.php" target="_top" class="mainlevel-nav" >Home</a>
+											<a href="/gishome/index.php?option=com_contact&amp;Itemid=3" target="_top"  class="mainlevel-nav" >Contact Us</a>
+											<a href="/gishome/index.php?option=com_search&amp;Itemid=5" target="_top"  class="mainlevel-nav" >Search</a>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<div class="top_bar" style="width:100%;">
+<span class="doc_archive_title">
+Document Archive
+</span>
+<span class="top_links">
+<a class="top_links" href="/apps/doc_archive/start.php?action=searchform">home&nbsp;&nbsp;&nbsp;</a>
+<a class="top_links" href="start.php?action=searchform">search&nbsp;&nbsp;&nbsp;</a>
+<a class="top_links" href="#" onClick="openLogin('login')";>login</a>
+<a class="top_links" href="#" onClick="openAdmin('')";></a>
+<a class="top_links" href="#" onClick="openQueues('0')";></a>
+<a class="top_links" href="#" onClick="openPreferences()">preferences</a>
+</span>
+</div>
+<div class="h_rule">
+<hr>
+</div>
+<br>
+<div class="tool_bar">
+<form name="tool_form" method="post">
+<span class="tool_heading">Quick List</span>
+<select id="listSelect" name="listSelect" onChange="listDocs()">
+<option value='0'>Select Document Type</option>
+<option value='4'>addressing</option>
+<option value='5'>annexation</option>
+<option value='7'>cell tower</option>
+<option value='12'>field photo</option>
+<option value='6'>gps</option>
+<option value='11'>historic maps</option>
+<option value='9'>land use</option>
+<option value='10'>miscellaneous</option>
+<option value='14'>parcel map</option>
+<option value='3'>permit</option>
+<option value='15'>planning study</option>
+<option value='1'>plat</option>
+<option value='13'>production map</option>
+<option value='16'>special use permits</option>
+<option value='8'>surface water</option>
+<option value='17'>variances</option>
+<option value='2'>zoning</option>
+</select>
+</form>
+</div>
+<div class="body">
+
+<span class="title">Search</span><form id="searchForm" name="searchForm" method="post">
+<table align="center">
+<tr><td class='name'>Doc ID</td><td class='value'><input type='text' size='12' name='doc_id' value=''></td></td></tr><tr><td class='name'>Document Type</td><td class='value'><select name='type' onChange='document.getElementById("searchForm").submit();'><option value='' selected>any</option><option value=''>any</option><option>addressing</option>
+<option>annexation</option>
+<option>cell tower</option>
+<option>field photo</option>
+<option>gps</option>
+<option>historic maps</option>
+<option>land use</option>
+<option>miscellaneous</option>
+<option>parcel map</option>
+<option>permit</option>
+<option>planning study</option>
+<option>plat</option>
+<option>production map</option>
+<option>special use permits</option>
+<option>surface water</option>
+<option>variances</option>
+<option>zoning</option>
+</select></td></tr><tr><td class='name'>Entry Date</td><td class='value'><input type='text' size='20' name='scan_date_1date1' value=''>through<input type='text' size='20' name='scan_date_2date2' value=''></td></td></tr><tr><td class='name'>Name</td><td class='value'><input type='text' size='50' name='doc_name' value=''></td></td></tr><tr></td></tr><tr><td class='name'>Record Date</td><td class='value'><input type='text' size='20' name='record_date_1date1' value=''>through<input type='text' size='20' name='record_date_2date2' value=''></td></td></tr><tr><td class='name'>Agency</td><td class='value'><select name='agency'><option selected>any</option><option>Alpharetta</option><option>Fulton County</option><option>Atlanta</option><option>College Park</option><option>East point</option><option>Fairburn</option><option>Hapeville</option><option>Mountain Park</option><option>Palmetto</option><option>Roswell</option><option>Union City</option><option>State of Georgia</option><option>US Government</option></select></td></tr><tr><td class='name'>Keywords</td><td class='value'><input type='text' size='60' name='keywords2' value=''></td></td></tr><tr></td></tr><tr><td class='name'>In Queue</td><td class='value'><select name='queue_class' onChange='document.getElementById("searchForm").submit();'><option value='' selected></option><option value="data capture addresses">data capture addresses</option><option value="KIVA entry">KIVA entry</option><option value="georeference">georeference</option><option value="mylar">mylar</option><option value="data capture parcel">data capture parcel</option><option value="data capture easement">data capture easement</option><option value="data capture gas utility">data capture gas utility</option></select></td></tr><tr><td class='name'>Queue Status</td><td class='value'><select name='queue_status'><option selected>any</option></select></td></tr></table><input type="hidden" name="type_id" value="0"><input type="submit" name="action" value="search"></form></div>
+ 
+</body>
+</html>

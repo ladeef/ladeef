@@ -1,0 +1,2535 @@
+<html>
+<head>
+<title>City of Atlanta GIS Data Catalog</title>
+<meta name="generator" content="Dev-PHP 2.2.2">
+<link href="/gishome/templates/atlanta1/css/template_css.css" rel="stylesheet" type="text/css"/>
+<script language="Javascript">
+function open_sde_layers()
+{
+	var db = document.layerForm.DATABASE.value;
+	if (db == '') 
+		alert("Please select a database first.");
+	else
+		window.open ("sde_layers.php?db="+db,"sde_layers_win","status=0,toolbar=0,scrollbars=1,width=370,height=600"); 
+}
+function open_metadata()
+{
+	window.open ("metadata_list.php","metadata_win","status=0,toolbar=0,scrollbars=1,width=370,height=600"); 
+}
+function toggleMetadata(id,db,sde_id)
+{
+	metaBlock = eval('document.getElementById("meta_'+id+'")');
+	img = eval('document.getElementById("img_'+id+'")');
+	namespan = eval('document.getElementById("name_'+id+'")');
+	if (metaBlock.style.display == 'none')
+	{
+		metaBlock.style.display = 'block';
+		img.src = "/images/minus.gif";
+		//namespan.style.fontSize = '16';
+		httpObject = getHTTPObject();
+		if (httpObject != null) {
+			httpObject.open("GET", "/apps/metadata/metadata_summary.php?id="+id+"&db="+db+"&sde_id="+sde_id, true);
+			httpObject.send(null);
+			httpObject.onreadystatechange = function() {setMetadata(id);};
+		}
+	}
+	else
+	{
+		metaBlock.style.display = 'none';
+		img.src = "/images/plus.gif";
+		//namespan.style.fontSize = '13';
+	}
+	//alert("ok");
+}
+
+function getHTTPObject()
+{
+	var xmlHttp=null;
+	try
+ 	{
+ 		// Firefox, Opera 8.0+, Safari
+ 		xmlHttp=new XMLHttpRequest();
+ 	}
+	catch (e)
+ 	{
+ 		// Internet Explorer
+ 		try
+  		{
+  			xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+  		}
+ 		catch (e)
+  		{
+  			xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+  		}
+ 	}
+	return xmlHttp;
+}
+
+function setMetadata(id){
+	if (httpObject.readyState == 4) {
+		if (httpObject.status == 200) {
+			try {
+				metaBlock = eval('document.getElementById("meta_'+id+'")');
+				metaBlock.innerHTML = httpObject.responseText;
+			}
+			catch(e) {
+				metaBlock = eval('document.getElementById("meta_'+id+'")');
+				metaBlock.innerHTML = e.toString();
+			}
+		}
+		else {
+			metaBlock = eval('document.getElementById("meta_'+id+'")');
+			metaBlock.innerHTML = "Could not retrieve metadata.";
+		}
+	}
+}
+</script>	
+<style type="text/css">
+  body {
+    background: #FFFFFF;
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  .bd {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  .tbl {
+    background-color: #FFFFFF;
+    margin-left:50px;
+  }
+  a:link { 
+    color: #FF0000;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  a:active { 
+    color: #0000FF;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  a:visited { 
+    color: #800080;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  a:hover { 
+    color: #800080;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  .hr {
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+    
+  }
+  a.hr:link {
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  a.hr:active {
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  a.hr:visited {
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .dr {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-weight:400;
+    font-family: Arial;
+    font-size: 12px;
+    padding:2px;
+    //border-top:solid 1px #4444BB;
+  }
+  .sr {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-weight:400;
+    font-family: Arial;
+    font-size: 12px;
+    padding:2px;
+    //border-top:solid 1px #4444BB;
+  }
+  .meta {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-weight:400;
+    font-family: Arial;
+    font-size: 13px;
+    padding-left:25px;
+  }
+</style>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td colspan="2" class="banner">
+		<img style="float:right;" src="/gishome/images/gishome_right.png"><img src="/gishome/images/gishome.gif" border="0">
+	</td>
+	</td>
+</tr>
+<tr>
+	<td class="lower-band" colspan="2" height="18px">
+		<table width="100%" style="background:url(/gishome/images/topnav_bg.gif) repeat-x 0 0 #FFF;">
+			<tr>
+				
+				<td align="right">
+					<table cellpadding="0" cellspacing="0" class="moduletable-nav">
+						<tr>
+							<td>
+								<table width="100%" border="0" cellpadding="0" cellspacing="1">
+									<tr>
+										<td nowrap="nowrap">
+											<a href="/gishome/index.php" target="_top" class="mainlevel-nav" >Home</a>
+											<a href="/gishome/index.php?option=com_contact&amp;Itemid=3" target="_top"  class="mainlevel-nav" >Contact Us</a>
+											<a href="/gishome/index.php?option=com_search&amp;Itemid=5" target="_top"  class="mainlevel-nav" >Search</a>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<table class="bd" width="100%" height="20px"><tr><td styles="height: 20px;"><h2>City of Atlanta GIS Data Catalog</h2></td></tr></table>
+
+
+<div style="position: absolute; top: 85px; right: 10px;">
+<a href="index.php?a=login_form">[ Login ]</a>
+</div>
+<table class="bd" border="0" cellspacing="1" cellpadding="4">
+<tr><td>Records shown 1 - 87 of 87</td></tr>
+</table>
+<hr size="1" noshade>
+<form action="index.php" method="post">
+<table class="bd" border="0" cellspacing="1" cellpadding="4">
+<tr>
+<td><b>Keyword Search</b>&nbsp;</td>
+<td><input type="text" name="filter" value=""></td>
+<td>&nbsp;</td>
+<td><input type="submit" name="action" value="Search"></td>
+<td><a href="index.php?a=reset">Reset</a></td>
+</tr>
+</table>
+</form>
+<hr size="1" noshade>
+<table class="bd" border="0" cellspacing="1" cellpadding="4">
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br>
+<table class="tbl" border="0" cellspacing="1" cellpadding="0" width="800px">
+<tr>
+<td class="hr"><a class="hr" href="index.php?order=LAYER_NAME&type=asc">Dataset Name</a></td>
+<td class="hr"><a class="hr" href="index.php?order=AGENCY&type=asc">Agency</a></td>
+<td class="hr"><a class="hr" href="index.php?order=DEPARTMENT&type=asc">Department</a></td>
+<td class="hr"><a class="hr" href="index.php?order=DATABASE&type=asc">Technical Name</a></td>
+</tr>
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(1,'EGIS/GIS',147);" src="/images/plus.gif" id="img_1" border="0">
+&nbsp;<span id="name_1" style="font-size:13; font-weight:600;">Zoning Districts</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+PLAN_ZONING_BASE_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_1" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(228,'EGIS/GIS',691);" src="/images/plus.gif" id="img_228" border="0">
+&nbsp;<span id="name_228" style="font-size:13; font-weight:600;">Voting Precincts</span>
+</td>
+<td class="sr">
+Fulton County</td>
+<td class="sr">
+---</td>
+<td class="sr">
+POLITIC_VOTING_PRECINCTS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_228" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(74,'EGIS/GIS',470);" src="/images/plus.gif" id="img_74" border="0">
+&nbsp;<span id="name_74" style="font-size:13; font-weight:600;">Tax Parcels</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+LAND_PARCELS_CAMA_ST08</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_74" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(35,'EGIS/GIS',402);" src="/images/plus.gif" id="img_35" border="0">
+&nbsp;<span id="name_35" style="font-size:13; font-weight:600;">Tax Allocation Districts</span>
+</td>
+<td class="sr">
+Fulton County</td>
+<td class="sr">
+---</td>
+<td class="sr">
+ECONDEV_TADS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_35" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(10,'EGIS/GIS',801);" src="/images/plus.gif" id="img_10" border="0">
+&nbsp;<span id="name_10" style="font-size:13; font-weight:600;">Supportive Housing Buffer</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+PLAN_ZONING_SUP_BUFFER_VW</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_10" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(388,'EGIS/GIS',821);" src="/images/plus.gif" id="img_388" border="0">
+&nbsp;<span id="name_388" style="font-size:13; font-weight:600;">Street Centerline Intersection</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+TRANS_STREET_INTERSECTION_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_388" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(75,'EGIS/GIS',285);" src="/images/plus.gif" id="img_75" border="0">
+&nbsp;<span id="name_75" style="font-size:13; font-weight:600;">Street Centerline (Fulton/Atlanta)</span>
+</td>
+<td class="dr">
+Fulton County</td>
+<td class="dr">
+---</td>
+<td class="dr">
+TRANS_STREET_CENTERLINE_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_75" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(91,'EGIS/GIS',400);" src="/images/plus.gif" id="img_91" border="0">
+&nbsp;<span id="name_91" style="font-size:13; font-weight:600;">Streams</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+NATFEAT_BLUELINE_STREAMS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_91" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(6,'EGIS/GIS',151);" src="/images/plus.gif" id="img_6" border="0">
+&nbsp;<span id="name_6" style="font-size:13; font-weight:600;">Special Use Permits</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+PLAN_ZONING_SUP_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_6" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(15,'EGIS/GIS',422);" src="/images/plus.gif" id="img_15" border="0">
+&nbsp;<span id="name_15" style="font-size:13; font-weight:600;">Renewal Communities</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+ECONDEV_RENEWAL_COMMUNITY_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_15" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(9,'EGIS/GIS',158);" src="/images/plus.gif" id="img_9" border="0">
+&nbsp;<span id="name_9" style="font-size:13; font-weight:600;">Recent re-Zoning Cases</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+PLAN_ZONING_CASES_RECENT_VW</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_9" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(5,'EGIS/GIS',146);" src="/images/plus.gif" id="img_5" border="0">
+&nbsp;<span id="name_5" style="font-size:13; font-weight:600;">Re-Zoning Cases</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+PLAN_REZONING_CASES_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_5" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(248,'EGIS/GIS',673);" src="/images/plus.gif" id="img_248" border="0">
+&nbsp;<span id="name_248" style="font-size:13; font-weight:600;">Railroads</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+TRANS_RAILROADS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_248" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(348,'EGIS/GIS',487);" src="/images/plus.gif" id="img_348" border="0">
+&nbsp;<span id="name_348" style="font-size:13; font-weight:600;">Quadrants</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+LAND_QUADRANTS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_348" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(27,'EGIS/GIS',475);" src="/images/plus.gif" id="img_27" border="0">
+&nbsp;<span id="name_27" style="font-size:13; font-weight:600;">Public Middle Schools</span>
+</td>
+<td class="dr">
+Atlanta Public Schools</td>
+<td class="dr">
+---</td>
+<td class="dr">
+EDUC_APS_MIDDLE_SCHOOLS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_27" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(28,'EGIS/GIS',474);" src="/images/plus.gif" id="img_28" border="0">
+&nbsp;<span id="name_28" style="font-size:13; font-weight:600;">Public High Schools</span>
+</td>
+<td class="sr">
+Atlanta Public Schools</td>
+<td class="sr">
+---</td>
+<td class="sr">
+EDUC_APS_HIGH_SCHOOLS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_28" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(26,'EGIS/GIS',473);" src="/images/plus.gif" id="img_26" border="0">
+&nbsp;<span id="name_26" style="font-size:13; font-weight:600;">Public Elementary Schools</span>
+</td>
+<td class="dr">
+Atlanta Public Schools</td>
+<td class="dr">
+---</td>
+<td class="dr">
+EDUC_APS_ELEMENTARY_SCHOOLS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_26" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(109,'EGIS/GIS',585);" src="/images/plus.gif" id="img_109" border="0">
+&nbsp;<span id="name_109" style="font-size:13; font-weight:600;">Private Schools</span>
+</td>
+<td class="sr">
+Fulton County</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+EDUC_PRIVATE_SCHOOLS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_109" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(92,'EGIS/GIS',399);" src="/images/plus.gif" id="img_92" border="0">
+&nbsp;<span id="name_92" style="font-size:13; font-weight:600;">Ponds</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+NATFEAT_PONDS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_92" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(32,'EGIS/GIS',480);" src="/images/plus.gif" id="img_32" border="0">
+&nbsp;<span id="name_32" style="font-size:13; font-weight:600;">Police Zones</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Police</td>
+<td class="sr">
+PUBSAFE_POLICE_ZONES_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_32" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(468,'EGIS/GIS',840);" src="/images/plus.gif" id="img_468" border="0">
+&nbsp;<span id="name_468" style="font-size:13; font-weight:600;">Police Precincts</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Police</td>
+<td class="dr">
+PUBSAFE_POLICE_PRECINCTS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_468" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(31,'EGIS/GIS',479);" src="/images/plus.gif" id="img_31" border="0">
+&nbsp;<span id="name_31" style="font-size:13; font-weight:600;">Police Beats</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Police</td>
+<td class="sr">
+PUBSAFE_POLICE_BEATS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_31" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(20,'EGIS/GIS',622);" src="/images/plus.gif" id="img_20" border="0">
+&nbsp;<span id="name_20" style="font-size:13; font-weight:600;">Plat Footprints</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+PLAN_PLAT_FOOTPRINTS_VW</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_20" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(90,'EGIS/GIS',513);" src="/images/plus.gif" id="img_90" border="0">
+&nbsp;<span id="name_90" style="font-size:13; font-weight:600;">Perennial Stream Buffers</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+PLAN_PERENNIAL_BUFFERS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_90" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(8,'EGIS/GIS',157);" src="/images/plus.gif" id="img_8" border="0">
+&nbsp;<span id="name_8" style="font-size:13; font-weight:600;">Pending Zoning Cases</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+PLAN_ZONING_CASES_PENDING_VW</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_8" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(22,'EGIS/GIS',436);" src="/images/plus.gif" id="img_22" border="0">
+&nbsp;<span id="name_22" style="font-size:13; font-weight:600;">Parks and Recreation Service Areas</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+PARKREC_SERVICE_AREAS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_22" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(2,'EGIS/GIS',150);" src="/images/plus.gif" id="img_2" border="0">
+&nbsp;<span id="name_2" style="font-size:13; font-weight:600;">Overlay Zoning Districts</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+PLAN_ZONING_OVERLAY_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_2" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(29,'EGIS/GIS',476);" src="/images/plus.gif" id="img_29" border="0">
+&nbsp;<span id="name_29" style="font-size:13; font-weight:600;">Non-Traditional Schools</span>
+</td>
+<td class="sr">
+Atlanta Public Schools</td>
+<td class="sr">
+---</td>
+<td class="sr">
+EDUC_APS_NONTRAD_SCHOOLS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_29" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(309,'EGIS/GIS',596);" src="/images/plus.gif" id="img_309" border="0">
+&nbsp;<span id="name_309" style="font-size:13; font-weight:600;">New Market Tax Credit Areas</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+ECONDEV_NMTC_AREAS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_309" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(4,'EGIS/GIS',348);" src="/images/plus.gif" id="img_4" border="0">
+&nbsp;<span id="name_4" style="font-size:13; font-weight:600;">Neighorhood Planning Units (NPUs)</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+PLAN_NPUS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_4" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(3,'EGIS/GIS',401);" src="/images/plus.gif" id="img_3" border="0">
+&nbsp;<span id="name_3" style="font-size:13; font-weight:600;">Neighborhoods</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+PLAN_NEIGHBORHOODS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_3" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(308,'EGIS/GIS',776);" src="/images/plus.gif" id="img_308" border="0">
+&nbsp;<span id="name_308" style="font-size:13; font-weight:600;">Neighborhood Stabilization Program Targeted Areas</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+PLAN_NSP_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_308" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(89,'EGIS/GIS',489);" src="/images/plus.gif" id="img_89" border="0">
+&nbsp;<span id="name_89" style="font-size:13; font-weight:600;">National Wetlands Inventory - Linear Features</span>
+</td>
+<td class="dr">
+US Fish and Wildlife Service</td>
+<td class="dr">
+---</td>
+<td class="dr">
+NATFEAT_NWI_LINE_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_89" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(88,'EGIS/GIS',490);" src="/images/plus.gif" id="img_88" border="0">
+&nbsp;<span id="name_88" style="font-size:13; font-weight:600;">National Wetlands Inventory - Area Features</span>
+</td>
+<td class="sr">
+US Fish and Wildlife Service</td>
+<td class="sr">
+---</td>
+<td class="sr">
+NATFEAT_NWI_POLY_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_88" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(209,'EGIS/GIS',672);" src="/images/plus.gif" id="img_209" border="0">
+&nbsp;<span id="name_209" style="font-size:13; font-weight:600;">Metal Road Plates</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Public Works</td>
+<td class="dr">
+TRANS_METAL_ROAD_PLATES_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_209" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(149,'EGIS/GIS',614);" src="/images/plus.gif" id="img_149" border="0">
+&nbsp;<span id="name_149" style="font-size:13; font-weight:600;">MARTA Rails</span>
+</td>
+<td class="sr">
+MARTA</td>
+<td class="sr">
+---</td>
+<td class="sr">
+TRANS_MARTA_RAILS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_149" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(33,'EGIS/GIS',483);" src="/images/plus.gif" id="img_33" border="0">
+&nbsp;<span id="name_33" style="font-size:13; font-weight:600;">MARTA Rail Stations</span>
+</td>
+<td class="dr">
+MARTA</td>
+<td class="dr">
+---</td>
+<td class="dr">
+TRANS_MARTA_RAIL_STATIONS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_33" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(24,'EGIS/GIS',459);" src="/images/plus.gif" id="img_24" border="0">
+&nbsp;<span id="name_24" style="font-size:13; font-weight:600;">MARTA Bus Stops</span>
+</td>
+<td class="sr">
+MARTA</td>
+<td class="sr">
+---</td>
+<td class="sr">
+TRANS_MARTA_BUS_STOPS_ST_OLD</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_24" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(108,'EGIS/GIS',461);" src="/images/plus.gif" id="img_108" border="0">
+&nbsp;<span id="name_108" style="font-size:13; font-weight:600;">MARTA Bus Shelters and Benches</span>
+</td>
+<td class="dr">
+MARTA</td>
+<td class="dr">
+---</td>
+<td class="dr">
+TRANS_MARTA_BUS_SHELTERS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_108" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(23,'EGIS/GIS',458);" src="/images/plus.gif" id="img_23" border="0">
+&nbsp;<span id="name_23" style="font-size:13; font-weight:600;">MARTA Bus Routes</span>
+</td>
+<td class="sr">
+MARTA</td>
+<td class="sr">
+---</td>
+<td class="sr">
+TRANS_MARTA_BUS_ROUTES_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_23" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(288,'EGIS/GIS',706);" src="/images/plus.gif" id="img_288" border="0">
+&nbsp;<span id="name_288" style="font-size:13; font-weight:600;">Lot Boundary Map Index</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+LAND_CADASTRAL_INDEX_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_288" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(448,'EGIS/GIS',838);" src="/images/plus.gif" id="img_448" border="0">
+&nbsp;<span id="name_448" style="font-size:13; font-weight:600;">Long Island Creek Watershed</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Watershed Management</td>
+<td class="sr">
+NATFEAT_LONG_ISL_CRK_WTRSHD_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_448" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(13,'EGIS/GIS',594);" src="/images/plus.gif" id="img_13" border="0">
+&nbsp;<span id="name_13" style="font-size:13; font-weight:600;">Livable Centers Initiative (LCI)</span>
+</td>
+<td class="dr">
+Atlanta Regional Commission</td>
+<td class="dr">
+---</td>
+<td class="dr">
+PLAN_LCI_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_13" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(53,'EGIS/GIS',438);" src="/images/plus.gif" id="img_53" border="0">
+&nbsp;<span id="name_53" style="font-size:13; font-weight:600;">Letters of Map Change</span>
+</td>
+<td class="sr">
+FEMA</td>
+<td class="sr">
+---</td>
+<td class="sr">
+STORM_LOMA_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_53" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(7,'EGIS/GIS',148);" src="/images/plus.gif" id="img_7" border="0">
+&nbsp;<span id="name_7" style="font-size:13; font-weight:600;">Landmark Buildings and Sites</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+PLAN_ZONING_LBS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_7" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(70,'EGIS/GIS',425);" src="/images/plus.gif" id="img_70" border="0">
+&nbsp;<span id="name_70" style="font-size:13; font-weight:600;">Land Lots</span>
+</td>
+<td class="sr">
+Fulton County</td>
+<td class="sr">
+---</td>
+<td class="sr">
+LAND_LANDLOTS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_70" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(52,'EGIS/GIS',91);" src="/images/plus.gif" id="img_52" border="0">
+&nbsp;<span id="name_52" style="font-size:13; font-weight:600;">Impervious Surfaces - Sidewalks</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Watershed Management</td>
+<td class="dr">
+STORM_IMPERVIOUS_SIDEWALKS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_52" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(51,'EGIS/GIS',90);" src="/images/plus.gif" id="img_51" border="0">
+&nbsp;<span id="name_51" style="font-size:13; font-weight:600;">Impervious Surfaces - Roads</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Watershed Management</td>
+<td class="sr">
+STORM_IMPERVIOUS_ROADS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_51" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(50,'EGIS/GIS',89);" src="/images/plus.gif" id="img_50" border="0">
+&nbsp;<span id="name_50" style="font-size:13; font-weight:600;">Impervious Surfaces - Parking</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Watershed Management</td>
+<td class="dr">
+STORM_IMPERVIOUS_PARKING_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_50" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(49,'EGIS/GIS',88);" src="/images/plus.gif" id="img_49" border="0">
+&nbsp;<span id="name_49" style="font-size:13; font-weight:600;">Impervious Surfaces - Driveways</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Watershed Management</td>
+<td class="sr">
+STORM_IMPERVIOUS_DRIVEWAYS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_49" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(48,'EGIS/GIS',87);" src="/images/plus.gif" id="img_48" border="0">
+&nbsp;<span id="name_48" style="font-size:13; font-weight:600;">Impervious Surfaces - Buildings</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Watershed Management</td>
+<td class="dr">
+STORM_IMPERVIOUS_BUILDINGS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_48" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(47,'EGIS/GIS',92);" src="/images/plus.gif" id="img_47" border="0">
+&nbsp;<span id="name_47" style="font-size:13; font-weight:600;">Impervious Surfaces - Bridges</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Watershed Management</td>
+<td class="sr">
+STORM_IMPERVIOUS_BRIDGES_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_47" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(96,'EGIS/GIS',515);" src="/images/plus.gif" id="img_96" border="0">
+&nbsp;<span id="name_96" style="font-size:13; font-weight:600;">Highway Shields</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+TRANS_HIGHWAY_SHIELDS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_96" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(168,'EGIS/GIS',639);" src="/images/plus.gif" id="img_168" border="0">
+&nbsp;<span id="name_168" style="font-size:13; font-weight:600;">Greenway Acquisitions</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Watershed Management</td>
+<td class="sr">
+STORM_GREENWAY_ACQUISITIONS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_168" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(128,'EGIS/GIS',167);" src="/images/plus.gif" id="img_128" border="0">
+&nbsp;<span id="name_128" style="font-size:13; font-weight:600;">Future Land Use Plan</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+PLAN_FLUM_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_128" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(268,'EGIS/GIS',427);" src="/images/plus.gif" id="img_268" border="0">
+&nbsp;<span id="name_268" style="font-size:13; font-weight:600;">Fire Stations</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Fire</td>
+<td class="sr">
+PUBSAFE_FIRE_STATIONS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_268" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(34,'EGIS/GIS',403);" src="/images/plus.gif" id="img_34" border="0">
+&nbsp;<span id="name_34" style="font-size:13; font-weight:600;">Fire Limits</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+PUBSAFE_FIRE_LIMITS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_34" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(16,'EGIS/GIS',404);" src="/images/plus.gif" id="img_16" border="0">
+&nbsp;<span id="name_16" style="font-size:13; font-weight:600;">Empowerment Zone</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+ECONDEV_EMPOWERMENT_ZONES_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_16" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(14,'EGIS/GIS',421);" src="/images/plus.gif" id="img_14" border="0">
+&nbsp;<span id="name_14" style="font-size:13; font-weight:600;">Economic Priority Areas</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+ECONDEV_PRIORITY_AREAS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_14" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(46,'EGIS/GIS',72);" src="/images/plus.gif" id="img_46" border="0">
+&nbsp;<span id="name_46" style="font-size:13; font-weight:600;">DFIRM Transects</span>
+</td>
+<td class="sr">
+FEMA</td>
+<td class="sr">
+---</td>
+<td class="sr">
+STORM_DFIRM_TRANSECTS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_46" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(45,'EGIS/GIS',70);" src="/images/plus.gif" id="img_45" border="0">
+&nbsp;<span id="name_45" style="font-size:13; font-weight:600;">DFIRM Panels</span>
+</td>
+<td class="dr">
+FEMA</td>
+<td class="dr">
+---</td>
+<td class="dr">
+STORM_DFIRM_PANELS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_45" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(43,'EGIS/GIS',140);" src="/images/plus.gif" id="img_43" border="0">
+&nbsp;<span id="name_43" style="font-size:13; font-weight:600;">DFIRM Floodway</span>
+</td>
+<td class="sr">
+FEMA</td>
+<td class="sr">
+---</td>
+<td class="sr">
+STORM_DFIRM_FLOODWAY_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_43" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(44,'EGIS/GIS',71);" src="/images/plus.gif" id="img_44" border="0">
+&nbsp;<span id="name_44" style="font-size:13; font-weight:600;">DFIRM Flood Hazard Areas</span>
+</td>
+<td class="dr">
+FEMA</td>
+<td class="dr">
+---</td>
+<td class="dr">
+STORM_DFIRM_FLOOD_HAZARD_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_44" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(42,'EGIS/GIS',69);" src="/images/plus.gif" id="img_42" border="0">
+&nbsp;<span id="name_42" style="font-size:13; font-weight:600;">DFIRM Base Flood Elevation</span>
+</td>
+<td class="sr">
+FEMA</td>
+<td class="sr">
+---</td>
+<td class="sr">
+STORM_DFIRM_BFE_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_42" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(41,'EGIS/GIS',139);" src="/images/plus.gif" id="img_41" border="0">
+&nbsp;<span id="name_41" style="font-size:13; font-weight:600;">DFIRM 500-Year Flood Plain</span>
+</td>
+<td class="dr">
+FEMA</td>
+<td class="dr">
+---</td>
+<td class="dr">
+STORM_DFIRM_500_YR_FLOOD_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_41" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(40,'EGIS/GIS',138);" src="/images/plus.gif" id="img_40" border="0">
+&nbsp;<span id="name_40" style="font-size:13; font-weight:600;">DFIRM 100-Year Flood Plain</span>
+</td>
+<td class="sr">
+FEMA</td>
+<td class="sr">
+---</td>
+<td class="sr">
+STORM_DFIRM_100_YR_FLOOD_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_40" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(69,'EGIS/GIS',485);" src="/images/plus.gif" id="img_69" border="0">
+&nbsp;<span id="name_69" style="font-size:13; font-weight:600;">Community Development Impact Area (CDIA)</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+ECONDEV_CDIA_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_69" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(349,'EGIS/GIS',789);" src="/images/plus.gif" id="img_349" border="0">
+&nbsp;<span id="name_349" style="font-size:13; font-weight:600;">Code Compliance Inspection Zones</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+CODE_INSP_ZONES_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_349" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(18,'EGIS/GIS',313);" src="/images/plus.gif" id="img_18" border="0">
+&nbsp;<span id="name_18" style="font-size:13; font-weight:600;">City Limits</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+POLITIC_ATLANTA_CITY_LIMITS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_18" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(11,'EGIS/GIS',200);" src="/images/plus.gif" id="img_11" border="0">
+&nbsp;<span id="name_11" style="font-size:13; font-weight:600;">City Council Districts</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+POLITIC_COUNCIL_DISTRICTS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_11" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(150,'EGIS/GIS',488);" src="/images/plus.gif" id="img_150" border="0">
+&nbsp;<span id="name_150" style="font-size:13; font-weight:600;">Chattahoochee River Corridor</span>
+</td>
+<td class="dr">
+</td>
+<td class="dr">
+---</td>
+<td class="dr">
+ENVIRO_CHATT_RIVER_CORRIDOR_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_150" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(25,'EGIS/GIS',472);" src="/images/plus.gif" id="img_25" border="0">
+&nbsp;<span id="name_25" style="font-size:13; font-weight:600;">Charter Schools</span>
+</td>
+<td class="sr">
+Atlanta Public Schools</td>
+<td class="sr">
+---</td>
+<td class="sr">
+EDUC_APS_CHARTER_SCHOOLS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_25" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(38,'EGIS/GIS',611);" src="/images/plus.gif" id="img_38" border="0">
+&nbsp;<span id="name_38" style="font-size:13; font-weight:600;">Census Tracts (2000)</span>
+</td>
+<td class="dr">
+US Census Bureau</td>
+<td class="dr">
+---</td>
+<td class="dr">
+DEMOG_CENSUS_TRACTS_2000_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_38" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(36,'EGIS/GIS',296);" src="/images/plus.gif" id="img_36" border="0">
+&nbsp;<span id="name_36" style="font-size:13; font-weight:600;">Census Blocks (2000)</span>
+</td>
+<td class="sr">
+US Census Bureau</td>
+<td class="sr">
+---</td>
+<td class="sr">
+DEMOG_CENSUS_BLOCKS_2000_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_36" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(37,'EGIS/GIS',297);" src="/images/plus.gif" id="img_37" border="0">
+&nbsp;<span id="name_37" style="font-size:13; font-weight:600;">Census Block Groups (2000)</span>
+</td>
+<td class="dr">
+US Census Bureau</td>
+<td class="dr">
+---</td>
+<td class="dr">
+DEMOG_CENSUS_BLOCKGRPS_2000_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_37" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(408,'EGIS/GIS',823);" src="/images/plus.gif" id="img_408" border="0">
+&nbsp;<span id="name_408" style="font-size:13; font-weight:600;">CDP Study Areas</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+PLAN_CDP_STUDY_AREAS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_408" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(369,'EGIS/GIS',805);" src="/images/plus.gif" id="img_369" border="0">
+&nbsp;<span id="name_369" style="font-size:13; font-weight:600;">Building Permits (2000 - 2009)</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+BUILD_BLDG_PERMITS_2000_09_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_369" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(148,'EGIS/GIS',608);" src="/images/plus.gif" id="img_148" border="0">
+&nbsp;<span id="name_148" style="font-size:13; font-weight:600;">Building Inspection Zones</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+BUILD_INSP_ZONES_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_148" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(110,'EGIS/GIS',937);" src="/images/plus.gif" id="img_110" border="0">
+&nbsp;<span id="name_110" style="font-size:13; font-weight:600;">Brownfields</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+ECONDEV_BROWNFIELD_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_110" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(208,'EGIS/GIS',671);" src="/images/plus.gif" id="img_208" border="0">
+&nbsp;<span id="name_208" style="font-size:13; font-weight:600;">Bike Crashes</span>
+</td>
+<td class="sr">
+GDOT</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+TRANS_BIKE_CRASHES_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_208" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(97,'EGIS/GIS',431);" src="/images/plus.gif" id="img_97" border="0">
+&nbsp;<span id="name_97" style="font-size:13; font-weight:600;">Atlanta/Fulton County Libraries</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+FACIL_LIBRARIES_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_97" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(95,'EGIS/GIS',519);" src="/images/plus.gif" id="img_95" border="0">
+&nbsp;<span id="name_95" style="font-size:13; font-weight:600;">Atlanta Beltline TCU Corridor</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+PLAN_BELTLINE_TCU_CORRIDOR_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_95" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(94,'EGIS/GIS',518);" src="/images/plus.gif" id="img_94" border="0">
+&nbsp;<span id="name_94" style="font-size:13; font-weight:600;">Atlanta Beltline Study Groups</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+PLAN_BELTLINE_STUDY_GROUPS_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_94" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(93,'EGIS/GIS',516);" src="/images/plus.gif" id="img_93" border="0">
+&nbsp;<span id="name_93" style="font-size:13; font-weight:600;">Atlanta Beltline Planning Area</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+PLAN_BELTLINE_PLANNING_AREA_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_93" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(68,'EGIS/GIS',484);" src="/images/plus.gif" id="img_68" border="0">
+&nbsp;<span id="name_68" style="font-size:13; font-weight:600;">Atlanta Beltline Overlay District</span>
+</td>
+<td class="dr">
+City of Atlanta</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+PLAN_ZONING_BELTLINE_OVRLAY_VW</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_68" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="sr">
+<img onClick="toggleMetadata(19,'EGIS/GIS',226);" src="/images/plus.gif" id="img_19" border="0">
+&nbsp;<span id="name_19" style="font-size:13; font-weight:600;">Annexations</span>
+</td>
+<td class="sr">
+City of Atlanta</td>
+<td class="sr">
+Planning &amp; Community Development</td>
+<td class="sr">
+POLITIC_ANNEXATIONS_VW</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_19" style="display:none; width:600px;"></div>
+</td>
+
+<tr>
+
+
+
+
+<!--===============================================-->
+<!--================== MODIFY START ===============-->
+<!--===============================================-->
+
+
+<td class="dr">
+<img onClick="toggleMetadata(12,'EGIS/GIS',203);" src="/images/plus.gif" id="img_12" border="0">
+&nbsp;<span id="name_12" style="font-size:13; font-weight:600;">Address Points</span>
+</td>
+<td class="dr">
+Fulton County</td>
+<td class="dr">
+Planning &amp; Community Development</td>
+<td class="dr">
+LAND_ADDRESSES_ST</td>
+</tr>
+<tr>
+<td class="meta" colspan="4">
+<div id="meta_12" style="display:none; width:600px;"></div>
+</td>
+
+</table>
+<br>
+<table class="bd" border="0" cellspacing="1" cellpadding="4">
+<tr>
+<td>
+</td>
+</tr>
+</table>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

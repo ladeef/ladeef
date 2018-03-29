@@ -1,0 +1,193 @@
+
+
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+<title>Identify: (Imagery/SlopeServiceBicycle)</title>
+<link href="/dpcd/rest/static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="100%" class="userTable">
+ <tr>
+ <td class="titlecell">
+ ArcGIS REST Services Directory
+ </td>
+ <td align="right">
+   
+      
+        <a href="http://gis.atlantaga.gov/dpcd/rest/login">Login</a>
+       
+            | <a href="http://gis.atlantaga.gov/dpcd/tokens/">Get Token</a>
+                  
+      
+   
+ </td>
+ </tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="/dpcd/rest/services">Home</a>
+
+
+
+
+
+
+  &gt; <a href="/dpcd/rest/services">services</a>
+  
+  &gt; <a href="/dpcd/rest/services/Imagery">Imagery</a>
+  
+  &gt; <a href="/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer">SlopeServiceBicycle (ImageServer)</a>
+  
+  &gt; <a href="/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer/identify"><i>identify</i></a>
+  
+</td>
+<td align="right">
+<a href="http://gis.atlantaga.gov/dpcd/sdk/rest/02ss/02ss00000057000000.htm" target="_blank">Help</a> | <a href="http://gis.atlantaga.gov/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer/identify?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+
+
+
+<h2>Identify: (Imagery/SlopeServiceBicycle)</h2>
+
+<div class="rbody">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="color:#ff6666"> 
+
+</div>
+
+<form name="sdform" action="/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer/identify">
+
+<table class="formTable">
+
+<tr>
+<td><label for="geometry">Geometry:</label></td>
+<td>
+<textarea id="geometry" name="geometry" rows="5" cols="55"></textarea>
+</td>
+</tr>
+
+<tr>
+<td><label for="geometryType">Geometry Type:</label></td>
+<td>
+<select id="geometryType" name="geometryType">
+<option value="esriGeometryPoint" >Point</option>
+<option value="esriGeometryPolygon" >Polygon</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td><label for="mosaicRule">Mosaic Rule:</label></td>
+<td>
+<textarea id="mosaicRule" name="mosaicRule" rows="5" cols="55"></textarea>
+</td>
+</tr>
+<tr>
+<td><label for="renderingRule">Rendering Rule: </label></td>
+<td><input type="text" id="renderingRule" name="renderingRule" value="" size="50" /></td>
+</tr>
+<tr valign="top">
+<td><label for="pixelSize">Pixel Size:</label></td>
+<td><input type="text" id="pixelSize" name="pixelSize" value="" size="75"/></td>
+</tr>
+
+<tr>
+<td><label for="time">Time: </label></td>
+<td><input type="text" id="time" name="time" value="" size="50" /></td>
+</tr>
+<tr>
+<td>Return Geometry:</td>
+<td>
+  <label><input type="radio" name="returnGeometry" value="true"  /> True &nbsp;</label>
+    <label><input type="radio" name="returnGeometry" value="false" checked="true"  /> False</label>
+</td>
+</tr>
+
+<tr>
+<td>Return Catalog Items:</td>
+<td>
+  <label><input type="radio" name="returnCatalogItems" value="true"  /> True &nbsp;</label>
+    <label><input type="radio" name="returnCatalogItems" value="false" checked="true"  /> False</label>
+</td>
+</tr>
+
+<tr>
+<td><label for="f">Format:</label></td>
+<td>
+<select id="f" name="f">
+<option value="html">HTML</option>
+<option value="pjson">JSON</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="left">
+<input type="submit" value="Identify (GET)" />
+<input type="submit" onclick="this.form.method = 'post';" value="Identify (POST)" />
+</td>
+</tr>
+
+</table>
+
+</form>
+
+<script type="text/javascript">
+document.forms.sdform.geometry.focus();
+</script>
+
+
+
+
+</div>
+
+<br/><br/>
+
+</body>
+
+</html>

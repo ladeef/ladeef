@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<title>City of Atlanta GIS - Lot Boundary Map</title>
+<meta name="title" content="Lot Boundary Map" />
+<meta name="author" content="Administrator" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+			<link rel="stylesheet" href="templates/atlanta1/css/template_css.css" type="text/css" />
+			<link rel="shortcut icon" href="http://gis.atlantaga.gov/gishome/images/favicon.ico" />
+			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+			<meta name="robots" content="noindex, nofollow" />
+					</head>
+		<body class="contentpane">
+						<table class="contentpaneopen">
+			<tr>
+								<td class="contentheading" width="100%">
+					Lot Boundary Map									</td>
+								<script language="javascript" type="text/javascript">
+				<!--
+				document.write('<td align="right" width="100%" class="buttonheading">');
+				document.write('<a href="#" onclick="javascript:window.print(); return false;" title="Print">');
+				document.write('<img src="http://gis.atlantaga.gov/gishome/images/M_images/printButton.png"  alt="Print" name="Print" align="middle" border="0" />');
+				document.write('</a>');
+				document.write('</td>');
+				//-->
+				</script>				
+							</tr>
+			</table>
+			
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<span class="contentdescription">&nbsp;The City of Atlanta Lot Boundary Map (previously known as &quot;the cadastral map&quot;) is a compilation of all lots approved by the City in accordance with the Land Subdivision Ordinance or recognized by the City prior to November 19, 1958, the effective date of the Ordinance.&nbsp; The lots represented on the Lot Boundary Map may not correspond to tax parcels as recognized by Fulton County and DeKalb County in that the Counties recognize for the purpose of tax assessment all recorded plats whereas the City recognizes for the purpose of land regulation only those lots that have been approved through the formal land subdivision review process as administered by the Office of Planning.</span><p class="contentdescription"><strong>Map Modernization Program&nbsp; </strong><br /></p><p class="contentdescription">The Lot Boundary Map is published as a collection of over 400 individual 1:2400-scale maps sheets.&nbsp; The Office of Planning is in the process of transitioning from the original hand-drawn lot map sheets to new digital GIS-based map sheets.&nbsp; Map sheets are being converted one-by-one to the the new digital format, so the collection will be composed of a mixture of old and new formats during the transition period.&nbsp; Examples of the old and new maps are shown below.&nbsp; </p><p class="contentdescription">The old hand-drawn maps have been digitally scanned as PDF documents for online viewing.&nbsp; The new maps, where available, are also published as PDF documents. &nbsp; Any of the map sheets can be viewed by clicking the &quot;Locator&quot; link below and  selecting a map sheet number.</p><p class="contentdescription">Because the conversion of each map sheet from the old to new format is a lengthy process, some map sheets may fall out-of-date during the conversion process as new land subdivision occurs.&nbsp; In those cases, it may be necessary to consult with staff of the Office of Planning to make sure you have the very latest lot boundary information.&nbsp; When viewing the map sheets online, you will be instructed to contact Office of Planning staff whenever a map sheet believed to be out-of-date is selected. </p><p class="contentdescription"><span class="orangelink"><a href="/apps/lots/"><strong>Continue to Lot Boundary Map Locator&gt;&gt;</strong></a></span></p><p class="contentdescription">&nbsp;</p><p class="contentdescription"><strong>Original Hand-Drawn Lot Boundary Map </strong>(click for full-size map) </p><p class="contentdescription">&nbsp;<a href="/gishome/images/lot_map_old.pdf" target="_blank"><img src="/gishome/images/lot_map_old.png" border="1" alt="Old Lot Map" title="Old Lot Map" hspace="12" width="400" height="300" /></a> </p><p class="contentdescription">&nbsp;</p><p class="contentdescription"><strong>New Digital GIS-Based Lot Boundary Map </strong> (click for full-size map)</p><p class="contentdescription">&nbsp;<a href="/gishome/images/lot_map.pdf" target="_blank"><img src="/gishome/images/lot_map.png" border="1" alt="New Lot Map" title="New Lot Map" hspace="12" width="400" height="300" /></a> </p><p><a href="/apps/lots/search.php"><strong><br /></strong></a></p>			</td>
+		</tr>
+				</table>
+		
+		<span class="article_seperator">&nbsp;</span>
+		
+					<script language="javascript" type="text/javascript">
+			<!--
+			document.write('<div align="center" style="margin-top: 30px; margin-bottom: 30px;">');
+			document.write('<a href="#" onclick="javascript:window.close();"><span class="small">Close Window</span></a>');
+			document.write('</div>');
+			//-->
+			</script>
+					</body>
+	</html>
+	

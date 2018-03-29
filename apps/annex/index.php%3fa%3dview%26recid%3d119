@@ -1,0 +1,272 @@
+<html>
+<head>
+<title>City of Atlanta Annexations</title>
+<meta name="generator" content="Dev-PHP 2.2.2">
+<link href="/gishome/templates/atlanta1/css/template_css.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+  body {
+    background: #FFFFFF;
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  .bd {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  .tbl {
+    background-color: #DEE7DE;
+  }
+  a:link { 
+    color: #FF0000;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  a:active { 
+    color: #0000FF;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  a:visited { 
+    color: #800080;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  .hr {
+    background-color: #dddddd;
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+    
+  }
+  a.hr:link {
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  a.hr:active {
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  a.hr:visited {
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .dr {
+    background-color: #ebeef4;
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  .sr {
+    background-color: #FFFBF0;
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td colspan="2" class="banner">
+		<img style="float:right;" src="/gishome/images/gishome_right.png"><img src="/gishome/images/gishome.gif" border="0">
+	</td>
+	</td>
+</tr>
+<tr>
+	<td class="lower-band" colspan="2" height="18px">
+		<table width="100%" style="background:url(/gishome/images/topnav_bg.gif) repeat-x 0 0 #FFF;">
+			<tr>
+				
+				<td align="right">
+					<table cellpadding="0" cellspacing="0" class="moduletable-nav">
+						<tr>
+							<td>
+								<table width="100%" border="0" cellpadding="0" cellspacing="1">
+									<tr>
+										<td nowrap="nowrap">
+											<a href="/gishome/index.php" target="_top" class="mainlevel-nav" >Home</a>
+											<a href="/gishome/index.php?option=com_contact&amp;Itemid=3" target="_top"  class="mainlevel-nav" >Contact Us</a>
+											<a href="/gishome/index.php?option=com_search&amp;Itemid=5" target="_top"  class="mainlevel-nav" >Search</a>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<table class="bd" width="100%" height="20px"><tr><td styles="height: 20px;"><h2>City of Atlanta Annexations</h2></td></tr></table>
+
+
+<table class="bd" border="0" cellspacing="1" cellpadding="4">
+<tr>
+<td><a href="index.php">Index Page</a></td>
+
+<td><a href="index.php?a=view&recid=118">Prior Record</a></td>
+<td><a href="index.php?a=view&recid=120">Next Record</a></td>
+
+</tr>
+</table>
+<hr size="1" noshade>
+<br>
+<table border="0" cellspacing="10" cellpadding="0"width="100%">
+<tr valign="top">
+<td>
+<table border="0" cellspacing="2" cellpadding="2"width="400px">
+
+<tr>
+<td class="hr">Case ID&nbsp;</td>
+<td class="dr">ANX-1910-003</td>
+</tr>
+<tr>
+<td class="hr">Name&nbsp;</td>
+<td class="dr">Historic</td>
+</tr>
+<tr>
+<td class="hr">Description&nbsp;</td>
+<td class="dr">Annexation from historic records.</td>
+</tr>
+<tr>
+<td class="hr">Applicant&nbsp;</td>
+<td class="dr"></td>
+</tr>
+<tr>
+<td class="hr">Application Date&nbsp;</td>
+<td class="dr"></td>
+</tr>
+<tr>
+<td class="hr">Ordinance Number&nbsp;</td>
+<td class="dr"> </td>
+</tr>
+<tr>
+<td class="hr">Ordinance Date&nbsp;</td>
+<td class="dr">01-JAN-10</td>
+</tr>
+<tr>
+<td class="hr">Status&nbsp;</td>
+<td class="dr">Annexed</td>
+</tr>
+<tr>
+<td class="hr">County&nbsp;</td>
+<td class="dr">Fulton</td>
+</tr>
+<tr>
+<td class="hr">Effective Date&nbsp;</td>
+<td class="dr">01-JAN-10</td>
+</tr>
+<tr>
+<td class="hr">DoJ Date&nbsp;</td>
+<td class="dr"></td>
+</tr>
+<tr>
+<td class="hr">Acreage&nbsp;</td>
+<td class="dr">2010.50912306</td>
+</tr>
+<tr>
+<td class="hr">Parcels&nbsp;</td>
+<td class="dr">0</td>
+</tr>
+<tr>
+<td class="hr">Population&nbsp;</td>
+<td class="dr">0</td>
+</tr>
+<tr>
+<td class="hr">Households&nbsp;</td>
+<td class="dr"></td>
+</tr>
+<tr>
+<td class="hr">Appraised value&nbsp;</td>
+<td class="dr">0</td>
+</tr>
+<tr>
+<td class="hr">Average Appraised Value&nbsp;</td>
+<td class="dr">0</td>
+</tr>
+<tr>
+<td class="hr">Percent Residential&nbsp;</td>
+<td class="dr">0</td>
+</tr>
+<tr>
+<td class="hr">Percent Commercial&nbsp;</td>
+<td class="dr">0</td>
+</tr>
+<tr>
+<td class="hr">Percent Industrial&nbsp;</td>
+<td class="dr">0</td>
+</tr>
+<tr>
+<td class="hr">Total Signed&nbsp;</td>
+<td class="dr">0</td>
+</tr>
+<tr>
+<td class="hr">Percent Signed&nbsp;</td>
+<td class="dr">0</td>
+</tr>
+<tr>
+<td class="hr">Total Voters&nbsp;</td>
+<td class="dr">0</td>
+</tr>
+<tr>
+<td class="hr">Percent Voters&nbsp;</td>
+<td class="dr">0</td>
+</tr>
+<tr>
+<td class="hr">Perimeter(ft)&nbsp;</td>
+<td class="dr">76343.39284173</td>
+</tr>
+<tr>
+<td class="hr">Common Boundary(ft)&nbsp;</td>
+<td class="dr">0</td>
+</tr>
+</table>
+</td>
+<td>
+<iframe
+      src="http://gis.atlantaga.gov/apps/openlayers/openlayers.php?layerlist=Atlanta City Limits,Parks,Building Footprints,Parcels,Centerline4,Centerline3,Centerline2,Major_Roads,Expressways,Annexations&bbox=-84.435189228,33.703853511,-84.357781423,33.739813594&width=400&height=400"
+      width="560" height="560"
+      scrolling="no"
+      marginwidth="0" marginheight="0"
+      frameborder="0"></iframe>
+</td>
+</tr>
+</table>
+<br>
+<hr size="1" noshade>
+<table class="bd" border="0" cellspacing="1" cellpadding="4">
+<tr>
+</tr>
+</table>
+<table class="bd" width="100%"><tr><td class="hr"><a href="notes.htm" target="_blank">
+DATA Format</a></td></tr></table>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,160 @@
+
+
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+<title>Compute Statistics Histograms: (Imagery/SlopeServiceBicycle)</title>
+<link href="/dpcd/rest/static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="100%" class="userTable">
+ <tr>
+ <td class="titlecell">
+ ArcGIS REST Services Directory
+ </td>
+ <td align="right">
+   
+      
+        <a href="http://gis.atlantaga.gov/dpcd/rest/login">Login</a>
+       
+            | <a href="http://gis.atlantaga.gov/dpcd/tokens/">Get Token</a>
+                  
+      
+   
+ </td>
+ </tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="/dpcd/rest/services">Home</a>
+
+
+
+
+
+
+  &gt; <a href="/dpcd/rest/services">services</a>
+  
+  &gt; <a href="/dpcd/rest/services/Imagery">Imagery</a>
+  
+  &gt; <a href="/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer">SlopeServiceBicycle (ImageServer)</a>
+  
+  &gt; <a href="/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer/computeStatisticsHistograms"><i>computeStatisticsHistograms</i></a>
+  
+</td>
+<td align="right">
+<a href="http://gis.atlantaga.gov/dpcd/sdk/rest/02ss/02ss00000057000000.htm" target="_blank">Help</a> | <a href="http://gis.atlantaga.gov/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer/computeStatisticsHistograms?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+
+
+
+<h2>Compute Statistics Histograms: (Imagery/SlopeServiceBicycle)</h2>
+
+<div class="rbody">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form name="sdform" action="/dpcd/rest/services/Imagery/SlopeServiceBicycle/ImageServer/computeStatisticsHistograms">
+<table class="formTable">
+
+<tr valign="top">
+<td><label for="geometryType">Geometry Type:</label></td>
+<td>
+<select id="geometryType" name="geometryType">
+
+  <option value="esriGeometryEnvelope" >Envelope</option>
+  
+  <option value="esriGeometryPolygon" >Polygon</option>
+  
+</select>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="geometry">Geometry:</label></td>
+<td><textarea id="geometry" name="geometry" rows="10" cols="50"></textarea></td>
+</tr>
+
+<tr valign="top">
+<td><label for="mosaicRule">Mosaic Rule:</label></td>
+<td>
+<textarea id="mosaicRule" name="mosaicRule" rows="3" cols="55"></textarea>
+</td>
+</tr>
+
+<tr>
+<td><label for="renderingRule">Rendering Rule: </label></td>
+<td><input type="text" id="renderingRule" name="renderingRule" value="" size="50" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="pixelSize">Pixel Size:</label></td>
+<td><input id="pixelSize" name="pixelSize" value="" /></td>
+</tr>
+
+<tr>
+<td><label for="f">Format:</label></td>
+<td>
+<select id="f" name="f">
+<option value="html">HTML</option>
+<option value="pjson">JSON</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="left">
+<input type="submit" value="Compute Statistics Histograms (GET)" />
+<input type="submit" onclick="this.form.method = 'post';" value="Compute Statistics Histograms (POST)" />
+</td>
+</tr>
+
+</table>
+</form>
+
+
+
+</div>
+
+<br/><br/>
+
+</body>
+
+</html>

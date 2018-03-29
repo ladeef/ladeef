@@ -1,0 +1,37 @@
+body {background-color:#ffffff}
+.page_header {font-family:arial; font-size:12pt; font-weight:600}
+.page_subheader {font-family:arial; font-size:10pt; font-weight:600; text-align: center}
+.page_subsubheader {font-family:arial; font-size:9pt; font-weight:600}
+td.form_label {font-family:arial; font-size:10pt; font-weight:600; vertical-align: top; text-align: right}
+a.list:link {font-family:verdana, sans-serif; font-size:8pt; font-weight:400; text-align:center; color:#003000; padding:0.1cm}
+a.list:visited {font-family:verdana, sans-serif; font-size:8pt; font-weight:400; text-align:center; color:#003000; padding:0.1cm}
+a.list:active {font-family:verdana, sans-serif; font-size:8pt; font-weight:400; text-align:center; color:#003000; padding:0.1cm}
+a.list:hover {font-family:verdana, sans-serif; font-size:8pt; font-weight:400; text-align:center; color:#003000; padding:0.1cm}
+a.dlist:link {font-family:verdana, sans-serif; font-size:8pt; font-weight:400; text-align:center; color:#bbbbbb; padding:0.1cm}
+a.dlist:visited {font-family:verdana, sans-serif; font-size:8pt; font-weight:400; text-align:center; color:#bbbbbb; padding:0.1cm}
+a.dlist:active {font-family:verdana, sans-serif; font-size:8pt; font-weight:400; text-align:center; color:#bbbbbb; padding:0.1cm}
+a.dlist:hover {font-family:verdana, sans-serif; font-size:8pt; font-weight:400; text-align:center; color:#bbbbbb; padding:0.1cm}
+a.top:link {font-family:verdana, sans-serif; font-size:9pt; font-weight:600; text-align:center; color:#003000; padding:0.1cm}
+a.top:visited {font-family:verdana, sans-serif; font-size:9pt; font-weight:600; text-align:center; color:#003000; padding:0.1cm}
+a.top:active {font-family:verdana, sans-serif; font-size:9pt; font-weight:600; text-align:center; color:#003000; padding:0.1cm}
+a.top:hover {font-family:verdana, sans-serif; font-size:9pt; font-weight:600; text-align:center; color:#003000; padding:0.1cm}
+.report_header {font-family:arial; font-size:11pt; font-weight:400}
+td.report_col_header {font-family: arial; font-size: 9pt; font-weight: 600; margin: 1px; padding: 4px; border: 1px solid #000000;}
+td.report_body {font-family: arial; font-size: 8pt; font-weight: 400; vertical-align: top; width: 150px; border: 1px solid #000000; padding: 4px; margin: 1px}
+td.report_body_narrow {font-family: arial; font-size: 8pt; font-weight: 400; vertical-align: top; width: 50px; border: 1px solid #000000; padding: 4px; margin: 1px}
+td.report_body_medium {font-family: arial; font-size: 8pt; font-weight: 400; vertical-align: top; width: 150px; border: 1px solid #000000; padding: 4px; margin: 1px}
+td.report_body_wide {font-family: arial; font-size: 8pt; font-weight: 400; vertical-align: top; width: 300px; border: 1px solid #000000; padding: 4px; margin: 1px}
+table.report {width: 90%; border: 1px solid #000000; margin: 4px;}
+div.memo_header {position: absolute; top:20px; left: 200px; font-size: 14; text-align: center; font-family:arial; font-size:14pt; font-weight:600}
+.report_footer {width: 90%; text-align: center; font-family: arial; font-size: 8pt; font-weight: 400;}
+select.old {font-size:8pt}
+table.search {margin: 0px; background-color:transparent;}
+td.list {font-family: arial; font-size: 8pt; font-weight: 400; vertical-align: top; width: 150px; background-color:transparent; padding: 0px; margin: 0px}
+td.search_body {font-family: arial; font-size: 8pt; font-weight: 400; vertical-align: top; background-color:#ffffff; padding: 1px; margin: 1px}
+td.search_header {font-family: arial; font-size: 8pt; font-weight: 600; vertical-align: top; background-color:#ffffff; padding: 1px; margin: 1px}
+span.title {text-align:left; font-family:verdana,arial,helvetica; font-size:11; font-weight:600;}
+hr.h_rule {width:100%; height:4px; margin:0px; padding:0px; background-color:black;}
+p.normal {text-align:left; font-family:verdana,arial,helvetica; font-size:11; font-weight:400;}
+td.report_col_header_plain {font-family: arial; font-size: 9pt; font-weight: 600; margin: 1px; padding: 4px; border: 0px;}
+td.report_body_plain {font-family: arial; font-size: 8pt; font-weight: 400; vertical-align: top; width: 150px; border: 0px; padding: 4px; margin: 1px}
+span.example {font-family:arial; font-size:7pt; font-weight:400; text-align:left; color:#aa6666;}

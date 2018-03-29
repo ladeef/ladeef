@@ -1,0 +1,256 @@
+
+
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+<title>Identify (ZoningLayers/ZoningMapSearch)</title>
+<link href="/dpcd/rest/static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="100%" class="userTable">
+ <tr>
+ <td class="titlecell">
+ ArcGIS REST Services Directory
+ </td>
+ <td align="right">
+   
+      
+        <a href="http://gis.atlantaga.gov/dpcd/rest/login">Login</a>
+       
+            | <a href="http://gis.atlantaga.gov/dpcd/tokens/">Get Token</a>
+                  
+      
+   
+ </td>
+ </tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="/dpcd/rest/services">Home</a>
+
+
+
+
+
+
+  &gt; <a href="/dpcd/rest/services">services</a>
+  
+  &gt; <a href="/dpcd/rest/services/ZoningLayers">ZoningLayers</a>
+  
+  &gt; <a href="/dpcd/rest/services/ZoningLayers/ZoningMapSearch/MapServer">ZoningMapSearch (MapServer)</a>
+  
+  &gt; <a href="/dpcd/rest/services/ZoningLayers/ZoningMapSearch/MapServer/identify"><i>identify</i></a>
+  
+</td>
+<td align="right">
+<a href="http://gis.atlantaga.gov/dpcd/sdk/rest/02ss/02ss00000057000000.htm" target="_blank">Help</a> | <a href="http://gis.atlantaga.gov/dpcd/rest/services/ZoningLayers/ZoningMapSearch/MapServer/identify?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+
+
+
+<h2>Identify (ZoningLayers/ZoningMapSearch)</h2>
+
+<div class="rbody">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="color:#ff6666"> 
+
+</div>
+
+<form name="sdform" action="/dpcd/rest/services/ZoningLayers/ZoningMapSearch/MapServer/identify">
+
+<table class="formTable">
+
+<tr>
+<td><label for="geometry">Geometry:</label></td>
+<td>
+<textarea id="geometry" name="geometry" rows="5" cols="55"></textarea>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="geometryType">Geometry Type:</label></td>
+<td>
+<select id="geometryType" name="geometryType">
+
+  <option value="esriGeometryPoint" >Point</option>
+  
+  <option value="esriGeometryPolyline" >Polyline</option>
+  
+  <option value="esriGeometryPolygon" >Polygon</option>
+  
+  <option value="esriGeometryEnvelope" >Envelope</option>
+  
+  <option value="esriGeometryMultiPoint" >MultiPoint</option>
+  
+</select>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="sr">Spatial Reference:</label></td>
+<td><input type="text" id="sr" name="sr" value="" size="75" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="layers">Layers:</label></td>
+<td><input type="text" id="layers" name="layers" value="" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="layerDefs">Layer Definitions:</label></td>
+<td><input type="text" id="layerDefs" name="layerDefs" value="" size="75" /></td>
+</tr>
+
+<tr>
+<td><label for="time">Time: </label></td>
+<td><input type="text" id="time" name="time" value="" size="50" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="layerTimeOptions">Layer Time Options:</label></td>
+<td>
+<textarea id="layerTimeOptions" name="layerTimeOptions" rows="3" cols="55"></textarea>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="tolerance">Tolerance:</label></td>
+<td><input type="text" id="tolerance" name="tolerance" value="" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="mapExtent">Map Extent:</label></td>
+<td><input type="text" id="mapExtent" name="mapExtent" value="" size="75" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="imageDisplay">Image Display:</label></td>
+<td><input type="text" id="imageDisplay" name="imageDisplay" value="" /></td>
+</tr>
+
+<tr>
+<td>Return Geometry:</td>
+<td>
+    <label><input type="radio" name="returnGeometry" value="true" checked="true" /> True &nbsp;</label>
+        <label><input type="radio" name="returnGeometry" value="false"   /> False</label>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="maxAllowableOffset">Max Allowable Offset:</label></td>
+<td><input type="text" id="maxAllowableOffset" name="maxAllowableOffset" value=""/></td>
+</tr>
+
+<tr valign="top">
+<td><label for="geometryPrecision">Geometry Precision:</label></td>
+<td><input type="text" id="geometryPrecision" name="geometryPrecision" value="" /></td>
+</tr>
+
+<tr valign="top">
+<td><label for="dynamicLayers">Dynamic Layers:</label></td>
+<td>
+<textarea id="dynamicLayers" name="dynamicLayers" rows="3" cols="55"></textarea>
+</td>
+</tr>
+
+<tr>
+<td>ReturnZ:</td>
+<td>
+    <label><input type="radio" name="returnZ" value="true"  /> True &nbsp;</label>
+        <label><input type="radio" name="returnZ" value="false" checked="true"  /> False</label>
+</td>
+</tr>
+
+<tr>
+<td>ReturnM:</td>
+<td>
+    <label><input type="radio" name="returnM" value="true"  /> True &nbsp;</label>
+        <label><input type="radio" name="returnM" value="false" checked="true"  /> False</label>
+</td>
+</tr>
+
+<tr valign="top">
+<td><label for="gdbVersion">Geodatabase Version Name:</label></td>
+<td><input type="text" id="gdbVersion" name="gdbVersion" value="" /></td>
+</tr>
+
+<tr>
+<td><label for="f">Format:</label></td>
+<td>
+<select id="f" name="f">
+<option value="html">HTML</option>
+<option value="pjson">JSON</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="left">
+<input type="submit" value="Identify (GET)" />
+<input type="submit" onclick="this.form.method = 'post';" value="Identify (POST)" />
+</td>
+</tr>
+
+</table>
+
+</form>
+
+<script type="text/javascript">
+document.forms.sdform.geometry.focus();
+</script>
+
+
+
+
+</div>
+
+<br/><br/>
+
+</body>
+
+</html>

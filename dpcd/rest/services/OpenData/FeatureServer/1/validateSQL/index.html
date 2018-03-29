@@ -1,0 +1,158 @@
+
+
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+<title>ValidateSQL: GIS.CarShare (ID: 1)</title>
+<link href="/dpcd/rest/static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="100%" class="userTable">
+ <tr>
+ <td class="titlecell">
+ ArcGIS REST Services Directory
+ </td>
+ <td align="right">
+   
+      
+        <a href="http://gis.atlantaga.gov/dpcd/rest/login">Login</a>
+       
+            | <a href="http://gis.atlantaga.gov/dpcd/tokens/">Get Token</a>
+                  
+      
+   
+ </td>
+ </tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="/dpcd/rest/services">Home</a>
+
+
+
+
+
+
+  &gt; <a href="/dpcd/rest/services">services</a>
+  
+  &gt; <a href="/dpcd/rest/services/OpenData/FeatureServer">OpenData (FeatureServer)</a>
+  
+  &gt; <a href="/dpcd/rest/services/OpenData/FeatureServer/1">GIS.CarShare</a>
+  
+  &gt; <a href="/dpcd/rest/services/OpenData/FeatureServer/1/validateSQL"><i>validateSQL</i></a>
+  
+</td>
+<td align="right">
+<a href="http://gis.atlantaga.gov/dpcd/sdk/rest/02ss/02ss00000057000000.htm" target="_blank">Help</a> | <a href="http://gis.atlantaga.gov/dpcd/rest/services/OpenData/FeatureServer/1/validateSQL?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+
+
+
+<h2>ValidateSQL: GIS.CarShare (ID: 1)</h2>
+
+<div class="rbody">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="color:#ff6666"> 
+
+</div>
+
+<form name="sdform" action="/dpcd/rest/services/OpenData/FeatureServer/1/validateSQL">
+
+<table class="formTable">
+
+<tr valign="top">
+<td><label for="sql">SQL:</label></td>
+<td>
+<textarea id="sql" name="sql" rows="10" cols="55"></textarea>
+</td>
+</tr>
+
+<tr>
+<td><label for="sqlType">SQL Type:</label></td>
+<td>
+<select id="sqlType" name="sqlType">
+<option value="where">WHERE</option>
+<option value="expression">Expression</option>
+<option value="statement">Statement</option>
+</select>
+</td>
+</tr>
+
+<tr>
+
+    <td><label for="f">Format:</label></td>
+<td>
+<select id="f" name="f">
+<option value="html">HTML</option>
+<option value="pjson">JSON</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="left">
+<input type="submit" value="ValidateSQL (GET)" />
+<input type="submit" onclick="this.form.method = 'post';" value="ValidateSQL (POST)" />
+</td>
+</tr>
+
+</table>
+
+</form>
+
+<script type="text/javascript">
+document.forms.sdform.fields.focus();
+</script>
+
+
+
+
+</div>
+
+<br/><br/>
+
+</body>
+
+</html>

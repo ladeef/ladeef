@@ -1,0 +1,817 @@
+
+
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+<title>E911_Clip_2016_Locator (GeocodeServer)</title>
+<link href="/dpcd/rest/static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="100%" class="userTable">
+ <tr>
+ <td class="titlecell">
+ ArcGIS REST Services Directory
+ </td>
+ <td align="right">
+   
+      
+        <a href="http://gis.atlantaga.gov/dpcd/rest/login">Login</a>
+       
+            | <a href="http://gis.atlantaga.gov/dpcd/tokens/">Get Token</a>
+                  
+      
+   
+ </td>
+ </tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="/dpcd/rest/services">Home</a>
+
+
+
+
+
+
+  &gt; <a href="/dpcd/rest/services">services</a>
+  
+  &gt; <a href="/dpcd/rest/services/E911_Clip_2016_Locator/GeocodeServer">E911_Clip_2016_Locator (GeocodeServer)</a>
+  
+</td>
+<td align="right">
+<a href="http://gis.atlantaga.gov/dpcd/sdk/rest/02ss/02ss00000057000000.htm" target="_blank">Help</a> | <a href="http://gis.atlantaga.gov/dpcd/rest/services/E911_Clip_2016_Locator/GeocodeServer?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+
+
+  <table>
+  <tr>
+  <td class="apiref">
+  
+    
+    <a href="?f=pjson" target="_blank">JSON</a>
+    
+     | 
+    <a href="http://gis.atlantaga.gov/dpcd/services/E911_Clip_2016_Locator/GeocodeServer?wsdl" >SOAP</a>
+    
+  </td>
+  </tr>
+  </table>
+  
+
+<h2>E911_Clip_2016_Locator (GeocodeServer)</h2>
+
+<div class="rbody">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<b>Service Description: </b>  <br/><br/>
+
+
+  <b>Address Fields:</b>
+  
+
+
+
+
+
+
+
+
+
+<ul>
+
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+Street
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: Street or Intersection
+  , 
+  
+  required: true
+  , 
+  
+  length: 100
+  
+  
+)
+</i>
+  </li>
+  
+</ul>
+
+
+  <b>Single Line Address Field:</b>
+  <ul>
+   <li>
+
+
+
+
+
+
+
+
+
+
+
+
+Single Line Input
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: Full Address
+  , 
+  
+  required: false
+  , 
+  
+  length: 150
+  
+  
+)
+</i></li>
+  </ul>
+  
+
+
+  <b>Candidate Fields:</b>
+  
+
+
+
+
+
+
+
+
+
+<ul>
+
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+Shape
+<i>
+(
+
+  type: esriFieldTypeGeometry
+  , 
+  
+  alias: Shape
+  , 
+  
+  required: false
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+Score
+<i>
+(
+
+  type: esriFieldTypeDouble
+  , 
+  
+  alias: Score
+  , 
+  
+  required: false
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+Match_addr
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: Match_addr
+  , 
+  
+  required: false
+  , 
+  
+  length: 120
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+House
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: House
+  , 
+  
+  required: false
+  , 
+  
+  length: 12
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+Side
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: Side
+  , 
+  
+  required: false
+  , 
+  
+  length: 1
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+PreDir
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: PreDir
+  , 
+  
+  required: false
+  , 
+  
+  length: 6
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+PreType
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: PreType
+  , 
+  
+  required: false
+  , 
+  
+  length: 6
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+StreetName
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: StreetName
+  , 
+  
+  required: false
+  , 
+  
+  length: 32
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+SufType
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: SufType
+  , 
+  
+  required: false
+  , 
+  
+  length: 6
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+SufDir
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: SufDir
+  , 
+  
+  required: false
+  , 
+  
+  length: 6
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+City
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: City
+  , 
+  
+  required: false
+  , 
+  
+  length: 20
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+State
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: State
+  , 
+  
+  required: false
+  , 
+  
+  length: 2
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+ZIP
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: ZIP
+  , 
+  
+  required: false
+  , 
+  
+  length: 5
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+Ref_ID
+<i>
+(
+
+  type: esriFieldTypeDouble
+  , 
+  
+  alias: Ref_ID
+  , 
+  
+  required: false
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+User_fld
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: User_fld
+  , 
+  
+  required: false
+  , 
+  
+  length: 120
+  
+  
+)
+</i>
+  </li>
+  
+  <li>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+Addr_type
+<i>
+(
+
+  type: esriFieldTypeString
+  , 
+  
+  alias: Addr_type
+  , 
+  
+  required: false
+  , 
+  
+  length: 20
+  
+  
+)
+</i>
+  </li>
+  
+</ul>
+
+
+
+<b>Spatial Reference:</b> 
+
+
+
+
+
+102667
+
+&nbsp;(2240)
+
+<br/>
+<br/><br/>
+
+
+  <b>Locator Properties: </b>
+  <ul>
+  
+    <li>MinimumCandidateScore: <b>75</b></li>
+    
+    <li>SideOffsetUnits: <b>ReferenceDataUnits</b></li>
+    
+    <li>UICLSID: <b>{AE5A3A0E-F756-11D2-9F4F-00C04F8ED1C4}</b></li>
+    
+    <li>SpellingSensitivity: <b>80</b></li>
+    
+    <li>MinimumMatchScore: <b>85</b></li>
+    
+    <li>EndOffset: <b>0</b></li>
+    
+    <li>MatchIfScoresTie: <b>true</b></li>
+    
+    <li>SideOffset: <b>0</b></li>
+    
+    <li>SuggestedBatchSize: <b>1000</b></li>
+    
+    <li>MaxBatchSize: <b>1000</b></li>
+    
+    <li>LoadBalancerTimeOut: <b>60</b></li>
+    
+    <li>WriteXYCoordFields: <b>false</b></li>
+    
+    <li>WriteStandardizedAddressField: <b>false</b></li>
+    
+    <li>WriteReferenceIDField: <b>true</b></li>
+    
+    <li>WritePercentAlongField: <b>false</b></li>
+    
+  </ul>
+  
+
+<b>Supported Operations</b>:
+
+&nbsp;&nbsp;<a href="/dpcd/rest/services/E911_Clip_2016_Locator/GeocodeServer/findAddressCandidates">Find Address Candidates</a>
+
+&nbsp;&nbsp;<a href="/dpcd/rest/services/E911_Clip_2016_Locator/GeocodeServer/reverseGeocode">Reverse Geocode</a>
+
+&nbsp;&nbsp;<a href="/dpcd/rest/services/E911_Clip_2016_Locator/GeocodeServer/geocodeAddresses">Geocode Addresses</a>
+
+&nbsp;&nbsp;<a href="/dpcd/rest/services/E911_Clip_2016_Locator/GeocodeServer/suggest">Suggest</a>
+
+
+<br/><br/>
+<b>Child Resources</b>:
+&nbsp;&nbsp;<a href="/dpcd/rest/services/E911_Clip_2016_Locator/GeocodeServer/info">Info</a>
+
+</div>
+
+<br/><br/>
+
+</body>
+
+</html>

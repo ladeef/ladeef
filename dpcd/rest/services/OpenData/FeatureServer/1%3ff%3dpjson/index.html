@@ -1,0 +1,222 @@
+{
+ "currentVersion": 10.4,
+ "id": 1,
+ "name": "GIS.CarShare",
+ "type": "Feature Layer",
+ "description": "Digitized from ZipCar website locations\t",
+ "copyrightText": "Leo Ladefian, ZipCar",
+ "defaultVisibility": true,
+ "editFieldsInfo": {
+  "creationDateField": "created_date",
+  "creatorField": "created_user",
+  "editDateField": "last_edited_date",
+  "editorField": "last_edited_user"
+ },
+ "ownershipBasedAccessControlForFeatures": null,
+ "syncCanReturnChanges": true,
+ "relationships": [],
+ "isDataVersioned": true,
+ "supportsRollbackOnFailureParameter": false,
+ "supportsStatistics": true,
+ "supportsAdvancedQueries": true,
+ "supportsValidateSQL": true,
+ "supportsCalculate": false,
+ "advancedQueryCapabilities": {
+  "supportsPagination": false,
+  "supportsQueryWithDistance": true,
+  "supportsReturningQueryExtent": true,
+  "supportsStatistics": true,
+  "supportsOrderBy": true,
+  "supportsDistinct": true
+ },
+ "geometryType": "esriGeometryPoint",
+ "minScale": 0,
+ "maxScale": 0,
+ "extent": {
+  "xmin": 2216635.84749159,
+  "ymin": 1346237.81766702,
+  "xmax": 2252122.35329009,
+  "ymax": 1404253.74067694,
+  "spatialReference": {
+   "wkid": 103028,
+   "latestWkid": 6447
+  }
+ },
+ "drawingInfo": {
+  "renderer": {
+   "type": "simple",
+   "symbol": {
+    "type": "esriSMS",
+    "style": "esriSMSCircle",
+    "color": [
+     0,
+     142,
+     161,
+     255
+    ],
+    "size": 4,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+     "color": [
+      0,
+      0,
+      0,
+      255
+     ],
+     "width": 1
+    }
+   },
+   "label": "",
+   "description": ""
+  },
+  "transparency": 0,
+  "labelingInfo": null
+ },
+ "hasM": false,
+ "hasZ": false,
+ "allowGeometryUpdates": false,
+ "hasAttachments": false,
+ "supportsApplyEditsWithGlobalIds": false,
+ "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+ "objectIdField": "OBJECTID",
+ "globalIdField": "GLOBALID",
+ "displayField": "NAME",
+ "typeIdField": "",
+ "fields": [
+  {
+   "name": "OBJECTID",
+   "type": "esriFieldTypeOID",
+   "alias": "OBJECTID",
+   "domain": null,
+   "editable": false,
+   "nullable": false
+  },
+  {
+   "name": "NAME",
+   "type": "esriFieldTypeString",
+   "alias": "Name",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 50
+  },
+  {
+   "name": "OWNER",
+   "type": "esriFieldTypeString",
+   "alias": "Owner",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 50
+  },
+  {
+   "name": "TYPE",
+   "type": "esriFieldTypeString",
+   "alias": "Type",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 50
+  },
+  {
+   "name": "GLOBALID",
+   "type": "esriFieldTypeGlobalID",
+   "alias": "GLOBALID",
+   "domain": null,
+   "editable": false,
+   "nullable": false,
+   "length": 38
+  },
+  {
+   "name": "CREATED_USER",
+   "type": "esriFieldTypeString",
+   "alias": "CREATED_USER",
+   "domain": null,
+   "editable": false,
+   "nullable": true,
+   "length": 255
+  },
+  {
+   "name": "CREATED_DATE",
+   "type": "esriFieldTypeDate",
+   "alias": "CREATED_DATE",
+   "domain": null,
+   "editable": false,
+   "nullable": true,
+   "length": 8
+  },
+  {
+   "name": "LAST_EDITED_USER",
+   "type": "esriFieldTypeString",
+   "alias": "LAST_EDITED_USER",
+   "domain": null,
+   "editable": false,
+   "nullable": true,
+   "length": 255
+  },
+  {
+   "name": "LAST_EDITED_DATE",
+   "type": "esriFieldTypeDate",
+   "alias": "LAST_EDITED_DATE",
+   "domain": null,
+   "editable": false,
+   "nullable": true,
+   "length": 8
+  }
+ ],
+ "indexes": [
+  {
+   "name": "R4667_SDE_ROWID_UK",
+   "fields": "OBJECTID",
+   "isAscending": true,
+   "isUnique": true,
+   "description": ""
+  },
+  {
+   "name": "UUID_4667",
+   "fields": "GLOBALID",
+   "isAscending": true,
+   "isUnique": false,
+   "description": ""
+  },
+  {
+   "name": "UUID_OID_4667",
+   "fields": "GLOBALID,OBJECTID",
+   "isAscending": true,
+   "isUnique": true,
+   "description": ""
+  },
+  {
+   "name": "A565_IX1",
+   "fields": "SHAPE",
+   "isAscending": true,
+   "isUnique": true,
+   "description": ""
+  }
+ ],
+ "dateFieldsTimeReference": {
+  "timeZone": "UTC",
+  "respectsDaylightSaving": false
+ },
+ "types": [],
+ "templates": [
+  {
+   "name": "GIS.CarShare",
+   "description": "",
+   "prototype": {
+    "attributes": {
+     "TYPE": null,
+     "OWNER": null,
+     "NAME": null
+    }
+   },
+   "drawingTool": "esriFeatureEditToolPoint"
+  }
+ ],
+ "maxRecordCount": 1000,
+ "supportedQueryFormats": "JSON, AMF, geoJSON",
+ "capabilities": "Query",
+ "useStandardizedQueries": true
+}
